@@ -277,18 +277,13 @@ function displayPeople(people) {
         let officerId = null;
 
         if (person.links) {
-            // Try to extract from self link (e.g., "/officers/abc123")
-            if (person.links.self) {
-                const parts = person.links.self.split('/');
-                officerId = parts[parts.length - 1];
-            }
-            // Alternative: check officer appointments link
-            else if (person.links.officer && person.links.officer.appointments) {
-                const parts = person.links.officer.appointments.split('/');
-                // Extract officer ID from "/officers/{id}/appointments"
-                const idIndex = parts.indexOf('officers') + 1;
-                if (idIndex > 0 && idIndex < parts.length) {
-                    officerId = parts[idIndex];
+            // Use a more robust regex or path parsing to find the ID after /officers/
+            const link = person.links.self || (person.links.officer && person.links.officer.appointments);
+            if (link) {
+                const parts = link.split('/');
+                const officersIndex = parts.indexOf('officers');
+                if (officersIndex !== -1 && officersIndex + 1 < parts.length) {
+                    officerId = parts[officersIndex + 1];
                 }
             }
         }
