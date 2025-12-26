@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Key Tester - Companies House</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            color: #333;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .result {
+            margin-top: 30px;
+            padding: 20px;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .result.success {
+            background: #d4edda;
+            border: 2px solid #28a745;
+            color: #155724;
+        }
+
+        .result.error {
+            background: #f8d7da;
+            border: 2px solid #dc3545;
+            color: #721c24;
+        }
+
+        .result h3 {
+            margin-bottom: 10px;
+        }
+
+        .result pre {
+            background: rgba(0, 0, 0, 0.05);
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 12px;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #667eea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .info-box {
+            background: #e7f3ff;
+            border-left: 4px solid #2196F3;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+
+        .info-box a {
+            color: #2196F3;
+            text-decoration: none;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>🔑 API Key Tester</h1>
+        <p class="subtitle">Test your Companies House API key before using the main application</p>
+
+        <div class="info-box">
+            <strong>Don't have an API key?</strong><br>
+            Get one free at <a href="https://developer.company-information.service.gov.uk/" target="_blank">Companies
+                House Developer Hub</a>
+        </div>
+
+        <form id="testForm">
+            <div class="form-group">
+                <label for="apiKey">Your API Key (REST API)</label>
+                <input type="password" id="apiKey" placeholder="Enter your Companies House REST API key" required>
+            </div>
+
+            <button type="submit">Test API Key</button>
+        </form>
+
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Testing your API key...</p>
+        </div>
+
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        const form = document.getElementById('testForm');
+        const apiKeyInput = document.getElementById('apiKey');
+        const loading = document.getElementById('loading');
+        const result = document.getElementById('result');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const apiKey = apiKeyInput.value.trim();
+
+            if (!apiKey) {
+                showResult('error', 'Please enter an API key');
+                return;
+            }
+
+            loading.style.display = 'block';
+            result.style.display = 'none';
+
+            try {
+                // Test the API key by searching for "test"
+                const response = await fetch('http://localhost:5000/api/search/companies?q=test', {
+                    headers: {
+                        'X-API-Key': apiKey
+                    }
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    showResult('success', `
+                        <h3>✅ Success! Your API key is valid!</h3>
+                        <p>Found ${data.items ? data.items.length : 0} companies in test search.</p>
+                        <p><strong>You can now use the main application!</strong></p>
+                        <p style="margin-top: 10px; font-size: 14px;">Your API key: <code>${apiKey.substring(0, 10)}...${apiKey.substring(apiKey.length - 4)}</code></p>
+                    `);
+                } else {
+                    showResult('error', `
+                        <h3>❌ API Key Invalid</h3>
+                        <p><strong>Error:</strong> ${data.error || 'Unknown error'}</p>
+                        <p style="margin-top: 10px;">Please check:</p>
+                        <ul style="margin-left: 20px; margin-top: 5px;">
+                            <li>You copied the entire API key</li>
+                            <li>You're using a <strong>REST API</strong> key (not Streaming)</li>
+                            <li>The key is from <a href="https://developer.company-information.service.gov.uk/" target="_blank">Companies House Developer Hub</a></li>
+                        </ul>
+                    `);
+                }
+            } catch (error) {
+                showResult('error', `
+                    <h3>❌ Connection Error</h3>
+                    <p><strong>Error:</strong> ${error.message}</p>
+                    <p style="margin-top: 10px;">Make sure the Flask server is running:</p>
+                    <pre>python server.py</pre>
+                `);
+            } finally {
+                loading.style.display = 'none';
+            }
+        });
+
+        function showResult(type, message) {
+            result.className = `result ${type}`;
+            result.innerHTML = message;
+            result.style.display = 'block';
+        }
+    </script>
+</body>
+
+</html>
