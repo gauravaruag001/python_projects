@@ -1,8 +1,8 @@
 import matplotlib.pyplot as plt
 import random
 
-for i in range(2):
-    for j in range(2):
+for i in range(3):
+    for j in range(3):
         x = random.randint(0,10)
         y = random.randint(0,10)
         print(f"({x},{y})")
