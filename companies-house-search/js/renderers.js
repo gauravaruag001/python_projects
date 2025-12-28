@@ -315,7 +315,7 @@ export function createChargesList(charges) {
 /**
  * Creates an appointment card element.
  */
-export function createAppointmentCard(appointment, index) {
+export function createAppointmentCard(appointment, index, onCompanyClick) {
     const card = document.createElement('div');
     card.className = 'appointment-card';
     card.style.animationDelay = `${index * 0.05}s`;
@@ -326,6 +326,12 @@ export function createAppointmentCard(appointment, index) {
     const appointedOn = formatDate(appointment.appointed_on);
     const resignedOn = appointment.resigned_on ? formatDate(appointment.resigned_on) : null;
     const companyStatus = appointment.appointed_to?.company_status || '';
+
+    if (companyNumber && onCompanyClick) {
+        card.classList.add('clickable-company-card');
+        card.title = `View details for ${companyName}`;
+        card.addEventListener('click', () => onCompanyClick(companyNumber, companyName));
+    }
 
     let detailsHtml = `
         <div class="appointment-detail"><strong>Company Number:</strong> ${escapeHtml(companyNumber)}</div>
@@ -343,6 +349,7 @@ export function createAppointmentCard(appointment, index) {
         <h3 class="appointment-company">${escapeHtml(companyName)}</h3>
         <p class="appointment-role">${escapeHtml(role)}</p>
         <div class="appointment-details">${detailsHtml}</div>
+        ${companyNumber ? '<div class="view-company-link">View Company Details →</div>' : ''}
     `;
 
     return card;

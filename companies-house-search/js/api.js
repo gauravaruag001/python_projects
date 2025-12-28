@@ -95,3 +95,10 @@ export async function getCompanyCharges(companyNumber, itemsPerPage = 100, start
     const endpoint = `/company/${companyNumber}/charges?items_per_page=${itemsPerPage}&start_index=${startIndex}`;
     return apiFetch(endpoint, apiKey);
 }
+/**
+ * Retrieve all company appointments for a specific officer.
+ */
+export async function getOfficerAppointments(officerId, itemsPerPage = 100, startIndex = 0, apiKey) {
+    const endpoint = `/officers/${officerId}/appointments?items_per_page=${itemsPerPage}&start_index=${startIndex}`;
+    return apiFetch(endpoint, apiKey);
+}

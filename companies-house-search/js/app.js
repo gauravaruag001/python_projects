@@ -180,8 +180,8 @@ function renderCompanyList(companies, isAppend) {
     }
 
     companies.forEach((c, idx) => {
-        // Updated to use viewCompanyDetails
-        const card = renderers.createCompanyCard(c, idx, isAppend, viewCompanyDetails);
+        // Use viewUKCompanyDetails for standard company search results too for consistency
+        const card = renderers.createCompanyCard(c, idx, false, viewUKCompanyDetails);
         companyList.appendChild(card);
     });
 
@@ -203,6 +203,25 @@ function renderPeopleList(people, isAppend) {
     });
 
     pagination.updatePaginationUI('people', searchResults.people.length);
+}
+
+/**
+ * Helper to view company details, restricted to UK registered entities.
+ */
+function viewUKCompanyDetails(companyNumber, companyName) {
+    if (!companyNumber) return;
+
+    // UK Company Number formats: 
+    // - 8 digits
+    // - 2 letters + 6 digits (SC, NI, OC, SO, NC, etc.)
+    // This is a basic check. Companies House API for UK companies generally uses these.
+    const ukPattern = /^([A-Z]{2})?\d{6,8}$/i;
+
+    if (ukPattern.test(companyNumber)) {
+        viewCompanyDetails(companyNumber, companyName);
+    } else {
+        alert("The said corporate entity is not a UK registered corporate entity. This may be a foreign entity.");
+    }
 }
 
 /**
@@ -290,7 +309,7 @@ function renderExpandedCompanyView(profile, officers, pscs, filings, charges) {
 
     const pscGrid = document.createElement('div');
     pscGrid.className = 'officers-grid';
-    pscs.forEach((p, idx) => pscGrid.appendChild(renderers.createPSCCard(p, idx, viewCompanyDetails)));
+    pscs.forEach((p, idx) => pscGrid.appendChild(renderers.createPSCCard(p, idx, viewUKCompanyDetails)));
     if (pscs.length === 0) pscGrid.innerHTML = '<p class="no-data">No persons with significant control listed.</p>';
     detailGrid.appendChild(pscGrid);
 
@@ -301,7 +320,7 @@ function renderExpandedCompanyView(profile, officers, pscs, filings, charges) {
 
     const offGrid = document.createElement('div');
     offGrid.className = 'officers-grid';
-    officers.forEach((o, idx) => offGrid.appendChild(renderers.createOfficerDetailCard(o, idx)));
+    officers.forEach((o, idx) => offGrid.appendChild(renderers.createOfficerDetailCard(o, idx, viewUKCompanyDetails)));
     detailGrid.appendChild(offGrid);
 
     // 4. Filing History
@@ -364,7 +383,7 @@ function displayAppointmentDetails(appointments, personName) {
     detailGrid.innerHTML = '';
 
     appointments.forEach((a, idx) => {
-        detailGrid.appendChild(renderers.createAppointmentCard(a, idx));
+        detailGrid.appendChild(renderers.createAppointmentCard(a, idx, viewUKCompanyDetails));
     });
 
     ui.scrollToTop();
