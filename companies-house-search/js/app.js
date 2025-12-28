@@ -290,7 +290,7 @@ function renderExpandedCompanyView(profile, officers, pscs, filings, charges) {
 
     const pscGrid = document.createElement('div');
     pscGrid.className = 'officers-grid';
-    pscs.forEach((p, idx) => pscGrid.appendChild(renderers.createPSCCard(p, idx)));
+    pscs.forEach((p, idx) => pscGrid.appendChild(renderers.createPSCCard(p, idx, viewCompanyDetails)));
     if (pscs.length === 0) pscGrid.innerHTML = '<p class="no-data">No persons with significant control listed.</p>';
     detailGrid.appendChild(pscGrid);
 

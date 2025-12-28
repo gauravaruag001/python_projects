@@ -78,7 +78,7 @@ export function createPersonCard(person, index, isAppend, onClick) {
 /**
  * Creates an officer detail card element.
  */
-export function createOfficerDetailCard(officer, index) {
+export function createOfficerDetailCard(officer, index, onCompanyClick) {
     const card = document.createElement('div');
     card.className = 'officer-card';
     card.style.animationDelay = `${index * 0.05}s`;
@@ -90,6 +90,14 @@ export function createOfficerDetailCard(officer, index) {
     const occupation = officer.occupation || null;
     const resignedOn = officer.resigned_on ? formatDate(officer.resigned_on) : null;
 
+    // Detect corporate officer (company acting as director/officer)
+    const corporateNumber = officer.identification?.registration_number;
+    if (corporateNumber) {
+        card.classList.add('clickable-company-card');
+        card.title = `View details for ${name}`;
+        card.addEventListener('click', () => onCompanyClick(corporateNumber, name));
+    }
+
     let detailsHtml = `<div class="officer-detail"><strong>Appointed:</strong> ${escapeHtml(appointedOn)}</div>`;
 
     if (resignedOn) detailsHtml += `<div class="officer-detail"><strong>Resigned:</strong> ${escapeHtml(resignedOn)}</div>`;
@@ -98,9 +106,13 @@ export function createOfficerDetailCard(officer, index) {
     if (officer.country_of_residence) detailsHtml += `<div class="officer-detail"><strong>Country:</strong> ${escapeHtml(officer.country_of_residence)}</div>`;
 
     card.innerHTML = `
-        <h3 class="officer-name">${escapeHtml(name)}</h3>
+        <div class="officer-card-header">
+            <h3 class="officer-name">${escapeHtml(name)}</h3>
+            ${corporateNumber ? '<span class="corporate-badge">Corporate Entity</span>' : ''}
+        </div>
         <p class="officer-role">${escapeHtml(role)}</p>
         <div class="officer-details">${detailsHtml}</div>
+        ${corporateNumber ? '<div class="view-company-link">View Company Details →</div>' : ''}
     `;
 
     return card;
@@ -154,28 +166,39 @@ export function createCompanyHeader(profile) {
 /**
  * Creates a PSC (Person with Significant Control) card.
  */
-export function createPSCCard(psc, index) {
+export function createPSCCard(psc, index, onCompanyClick) {
     const card = document.createElement('div');
     card.className = 'psc-card';
     card.style.animationDelay = `${index * 0.05}s`;
 
     const name = psc.name || 'Unknown';
-    const kind = psc.kind || 'PSC';
-    const nature = psc.natures_of_control || [];
+    const notifiedOn = formatDate(psc.notified_on);
+    const kind = psc.kind || 'Unknown Kind';
 
-    const natureHtml = nature.length > 0 ?
-        `<ul class="nature-list">${nature.map(n => `<li>${escapeHtml(n.replace(/-/g, ' '))}</li>`).join('')}</ul>` :
-        'No specific control details';
+    // Detect corporate PSC
+    const corporateNumber = psc.identification?.registration_number;
+    if (corporateNumber) {
+        card.classList.add('clickable-company-card');
+        card.title = `View details for ${name}`;
+        card.addEventListener('click', () => onCompanyClick(corporateNumber, name));
+    }
+
+    const natures = (psc.natures_of_control || []).map(n => `<li>${escapeHtml(n.replace(/-/g, ' '))}</li>`).join('');
 
     card.innerHTML = `
-        <h3 class="psc-name">${escapeHtml(name)}</h3>
-        <p class="psc-kind">${escapeHtml(kind.replace(/-/g, ' '))}</p>
-        <div class="psc-details">
-            <strong>Natures of Control:</strong>
-            ${natureHtml}
+        <div class="psc-card-header">
+            <h3 class="psc-name">${escapeHtml(name)}</h3>
+            ${corporateNumber ? '<span class="corporate-badge">Corporate Entity</span>' : ''}
         </div>
-        <p class="psc-date">Notified on: ${formatDate(psc.notified_on)}</p>
+        <p class="psc-kind">${escapeHtml(kind.replace(/-/g, ' '))}</p>
+        <div class="psc-detail"><strong>Notified:</strong> ${notifiedOn}</div>
+        <div class="psc-natures">
+            <label>Natures of Control:</label>
+            <ul>${natures}</ul>
+        </div>
+        ${corporateNumber ? '<div class="view-company-link">View Company Details →</div>' : ''}
     `;
+
     return card;
 }
 
