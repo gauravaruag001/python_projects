@@ -65,6 +65,38 @@ def ch_api_request(endpoint, query_params=None):
 # API PROXY ROUTES
 # ========================================
 
+@app.route('/api/company/<company_number>', methods=['GET'])
+def get_company_profile(company_number):
+    """Route for retrieving full company profile."""
+    return ch_api_request(f'/company/{company_number}')
+
+@app.route('/api/company/<company_number>/persons-with-significant-control', methods=['GET'])
+def get_company_pscs(company_number):
+    """Route for retrieving persons with significant control."""
+    params = {
+        'items_per_page': request.args.get('items_per_page', 100),
+        'start_index': request.args.get('start_index', 0)
+    }
+    return ch_api_request(f'/company/{company_number}/persons-with-significant-control', params)
+
+@app.route('/api/company/<company_number>/filing-history', methods=['GET'])
+def get_filing_history(company_number):
+    """Route for retrieving company filing history."""
+    params = {
+        'items_per_page': request.args.get('items_per_page', 100),
+        'start_index': request.args.get('start_index', 0)
+    }
+    return ch_api_request(f'/company/{company_number}/filing-history', params)
+
+@app.route('/api/company/<company_number>/charges', methods=['GET'])
+def get_company_charges(company_number):
+    """Route for retrieving company charges (mortgages)."""
+    params = {
+        'items_per_page': request.args.get('items_per_page', 100),
+        'start_index': request.args.get('start_index', 0)
+    }
+    return ch_api_request(f'/company/{company_number}/charges', params)
+
 @app.route('/api/search/companies', methods=['GET'])
 def search_companies():
     """Route for searching companies by name or number."""

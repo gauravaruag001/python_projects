@@ -66,9 +66,32 @@ export async function getCompanyOfficers(companyNumber, itemsPerPage = 100, star
 }
 
 /**
- * Retrieve appointments for a specific officer.
+ * Retrieve a full company profile.
  */
-export async function getOfficerAppointments(officerId, itemsPerPage = 100, startIndex = 0, apiKey) {
-    const endpoint = `/officers/${officerId}/appointments?items_per_page=${itemsPerPage}&start_index=${startIndex}`;
+export async function getCompanyProfile(companyNumber, apiKey) {
+    return apiFetch(`/company/${companyNumber}`, apiKey);
+}
+
+/**
+ * Retrieve persons with significant control for a specific company.
+ */
+export async function getCompanyPSCs(companyNumber, itemsPerPage = 100, startIndex = 0, apiKey) {
+    const endpoint = `/company/${companyNumber}/persons-with-significant-control?items_per_page=${itemsPerPage}&start_index=${startIndex}`;
+    return apiFetch(endpoint, apiKey);
+}
+
+/**
+ * Retrieve filing history for a specific company.
+ */
+export async function getFilingHistory(companyNumber, itemsPerPage = 100, startIndex = 0, apiKey) {
+    const endpoint = `/company/${companyNumber}/filing-history?items_per_page=${itemsPerPage}&start_index=${startIndex}`;
+    return apiFetch(endpoint, apiKey);
+}
+
+/**
+ * Retrieve charges (mortgages) for a specific company.
+ */
+export async function getCompanyCharges(companyNumber, itemsPerPage = 100, startIndex = 0, apiKey) {
+    const endpoint = `/company/${companyNumber}/charges?items_per_page=${itemsPerPage}&start_index=${startIndex}`;
     return apiFetch(endpoint, apiKey);
 }

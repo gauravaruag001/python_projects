@@ -180,7 +180,8 @@ function renderCompanyList(companies, isAppend) {
     }
 
     companies.forEach((c, idx) => {
-        const card = renderers.createCompanyCard(c, idx, isAppend, loadCompanyOfficers);
+        // Updated to use viewCompanyDetails
+        const card = renderers.createCompanyCard(c, idx, isAppend, viewCompanyDetails);
         companyList.appendChild(card);
     });
 
@@ -205,50 +206,117 @@ function renderPeopleList(people, isAppend) {
 }
 
 /**
- * Loads and displays all officers for a specific company.
+ * Orchestrates fetching ALL company details (Profile, PSCs, History, Charges, Officers).
  */
-async function loadCompanyOfficers(companyNumber, companyName) {
+async function viewCompanyDetails(companyNumber, companyName) {
     ui.showLoading(true);
     ui.hideError();
+    hideDetails();
 
     try {
-        let allOfficers = [];
-        let start = 0;
-        const limit = 100;
+        // Fetch all required data in parallel
+        const [profile, pscData, filingsData, chargesData] = await Promise.all([
+            api.getCompanyProfile(companyNumber, activeApiKey),
+            api.getCompanyPSCs(companyNumber, 100, 0, activeApiKey).catch(() => ({ items: [] })),
+            api.getFilingHistory(companyNumber, 100, 0, activeApiKey).catch(() => ({ items: [] })),
+            api.getCompanyCharges(companyNumber, 100, 0, activeApiKey).catch(() => ({ items: [] }))
+        ]);
 
-        while (true) {
-            const data = await api.getCompanyOfficers(companyNumber, limit, start, activeApiKey);
-            const items = data.items || [];
-            allOfficers = allOfficers.concat(items);
+        // Get officers separately as it may require pagination
+        const officers = await loadAllOfficers(companyNumber);
 
-            if (items.length < limit || allOfficers.length >= (data.total_results || 0)) break;
-            start += limit;
-            if (start > 5000) break; // Infinite loop safety
-        }
-
-        displayOfficerDetails(allOfficers, companyName, companyNumber);
+        renderExpandedCompanyView(profile, officers, pscData.items || [], filingsData.items || [], chargesData.items || []);
     } catch (err) {
-        ui.showError(err.message);
+        ui.showError(`Failed to load company details: ${err.message}`);
     } finally {
         ui.showLoading(false);
     }
 }
 
 /**
- * Displays the officer grid view.
+ * Helper to fetch all officers with pagination safety.
  */
-function displayOfficerDetails(officers, companyName, companyNumber) {
+async function loadAllOfficers(companyNumber) {
+    let allOfficers = [];
+    let start = 0;
+    const limit = 100;
+
+    try {
+        while (true) {
+            const data = await api.getCompanyOfficers(companyNumber, limit, start, activeApiKey).catch(() => ({ items: [] }));
+            const items = data.items || [];
+            allOfficers = allOfficers.concat(items);
+
+            if (items.length < limit || allOfficers.length >= (data.total_results || 0)) break;
+            start += limit;
+            if (start > 1000) break;
+        }
+    } catch (e) {
+        console.warn('Error fetching all officers:', e);
+    }
+    return allOfficers;
+}
+
+/**
+ * Renders the full expanded dashboard for a company.
+ */
+function renderExpandedCompanyView(profile, officers, pscs, filings, charges) {
     resultsSection.style.display = 'none';
     detailSection.style.display = 'block';
     breadcrumb.style.display = 'block';
 
-    detailTitle.textContent = 'Company Officers';
-    detailInfo.textContent = `${companyName} (${companyNumber})`;
-    detailGrid.innerHTML = '';
+    detailTitle.textContent = profile.company_name;
+    detailInfo.textContent = `Company Number: ${profile.company_number} (${profile.company_status})`;
 
-    officers.forEach((o, idx) => {
-        detailGrid.appendChild(renderers.createOfficerDetailCard(o, idx));
-    });
+    // Clear and build the dashboard content
+    detailGrid.innerHTML = '';
+    detailGrid.className = 'detail-dashboard';
+
+    // 1. Company Summary (Address, Inc, SIC)
+    detailGrid.appendChild(renderers.createCompanyHeader(profile));
+
+    // 2. Accounts (Last 2 filings)
+    const accTitle = document.createElement('h2');
+    accTitle.className = 'detail-section-title';
+    accTitle.textContent = 'Account Filing History';
+    detailGrid.appendChild(accTitle);
+    detailGrid.appendChild(renderers.createAccountsTable(filings));
+
+    // 3. Officers (Signif Control, Past/Disqualified, Current)
+    const pscTitle = document.createElement('h2');
+    pscTitle.className = 'detail-section-title';
+    pscTitle.textContent = 'Persons with Significant Control';
+    detailGrid.appendChild(pscTitle);
+
+    const pscGrid = document.createElement('div');
+    pscGrid.className = 'officers-grid';
+    pscs.forEach((p, idx) => pscGrid.appendChild(renderers.createPSCCard(p, idx)));
+    if (pscs.length === 0) pscGrid.innerHTML = '<p class="no-data">No persons with significant control listed.</p>';
+    detailGrid.appendChild(pscGrid);
+
+    const officersTitle = document.createElement('h2');
+    officersTitle.className = 'detail-section-title';
+    officersTitle.textContent = 'Company Officers';
+    detailGrid.appendChild(officersTitle);
+
+    const offGrid = document.createElement('div');
+    offGrid.className = 'officers-grid';
+    officers.forEach((o, idx) => offGrid.appendChild(renderers.createOfficerDetailCard(o, idx)));
+    detailGrid.appendChild(offGrid);
+
+    // 4. Filing History
+    const historyTitle = document.createElement('h2');
+    historyTitle.className = 'detail-section-title';
+    historyTitle.textContent = 'Filing History (Recent)';
+    detailGrid.appendChild(historyTitle);
+    detailGrid.appendChild(renderers.createFilingHistoryTable(filings.slice(0, 10)));
+
+    // 5. Mortgages / Charges
+    const chargesTitle = document.createElement('h2');
+    chargesTitle.className = 'detail-section-title';
+    chargesTitle.textContent = 'Mortgage Charges';
+    detailGrid.appendChild(chargesTitle);
+    detailGrid.appendChild(renderers.createChargesList(charges));
 
     ui.scrollToTop();
 }
