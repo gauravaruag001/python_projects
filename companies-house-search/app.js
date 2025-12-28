@@ -28,6 +28,14 @@ const peopleList = document.getElementById('peopleList');
 const noCompanies = document.getElementById('noCompanies');
 const noPeople = document.getElementById('noPeople');
 
+// Pagination elements
+const companiesLoadMoreContainer = document.getElementById('companiesLoadMoreContainer');
+const companiesStats = document.getElementById('companiesStats');
+const companiesLoadMoreBtn = document.getElementById('companiesLoadMoreBtn');
+const peopleLoadMoreContainer = document.getElementById('peopleLoadMoreContainer');
+const peopleStats = document.getElementById('peopleStats');
+const peopleLoadMoreBtn = document.getElementById('peopleLoadMoreBtn');
+
 // Detail section elements (for officers or appointments)
 const detailSection = document.getElementById('detailSection');
 const detailTitle = document.getElementById('detailTitle');
@@ -56,9 +64,26 @@ const apiStatus = document.getElementById('apiStatus');
 
 // Application State
 let currentApiKey = localStorage.getItem(API_KEY_STORAGE) || '';
+let currentSearchQuery = '';
 let currentSearchResults = {
     companies: [],
     people: []
+};
+
+// Pagination State
+const paginationState = {
+    companies: {
+        startIndex: 0,
+        itemsPerPage: 20,
+        totalResults: 0,
+        isLoadingMore: false
+    },
+    people: {
+        startIndex: 0,
+        itemsPerPage: 20,
+        totalResults: 0,
+        isLoadingMore: false
+    }
 };
 
 // Initialize when DOM is ready
@@ -79,6 +104,10 @@ function setupEventListeners() {
     cancelBtn.addEventListener('click', closeSettings);
     saveApiKeyBtn.addEventListener('click', saveApiKey);
     toggleVisibilityBtn.addEventListener('click', togglePasswordVisibility);
+
+    // Pagination listeners
+    companiesLoadMoreBtn.addEventListener('click', () => loadMoreResults('companies'));
+    peopleLoadMoreBtn.addEventListener('click', () => loadMoreResults('people'));
 
     settingsModal.addEventListener('click', (e) => {
         if (e.target === settingsModal) closeSettings();
@@ -148,13 +177,21 @@ async function performDualSearch(query) {
     detailSection.style.display = 'none';
     breadcrumb.style.display = 'none';
 
+    // Store query and reset state
+    currentSearchQuery = query;
+    currentSearchResults.companies = [];
+    currentSearchResults.people = [];
+
+    paginationState.companies.startIndex = 0;
+    paginationState.people.startIndex = 0;
+
     try {
         // Make both API calls simultaneously
         const [companiesResponse, peopleResponse] = await Promise.all([
-            fetch(`${API_BASE_URL}/search/companies?q=${encodeURIComponent(query)}`, {
+            fetch(`${API_BASE_URL}/search/companies?q=${encodeURIComponent(query)}&items_per_page=${paginationState.companies.itemsPerPage}`, {
                 headers: { 'X-API-Key': currentApiKey }
             }),
-            fetch(`${API_BASE_URL}/search/officers?q=${encodeURIComponent(query)}`, {
+            fetch(`${API_BASE_URL}/search/officers?q=${encodeURIComponent(query)}&items_per_page=${paginationState.people.itemsPerPage}`, {
                 headers: { 'X-API-Key': currentApiKey }
             })
         ]);
@@ -172,6 +209,9 @@ async function performDualSearch(query) {
         currentSearchResults.companies = companiesData.items || [];
         currentSearchResults.people = peopleData.items || [];
 
+        paginationState.companies.totalResults = companiesData.total_results || 0;
+        paginationState.people.totalResults = peopleData.total_results || 0;
+
         displaySearchResults();
 
     } catch (error) {
@@ -184,11 +224,12 @@ async function performDualSearch(query) {
 
 // Display search results in both tabs
 function displaySearchResults() {
-    companiesBadge.textContent = currentSearchResults.companies.length;
-    peopleBadge.textContent = currentSearchResults.people.length;
+    // Badges show total results found
+    companiesBadge.textContent = paginationState.companies.totalResults;
+    peopleBadge.textContent = paginationState.people.totalResults;
 
-    displayCompanies(currentSearchResults.companies);
-    displayPeople(currentSearchResults.people);
+    displayCompanies(currentSearchResults.companies, false);
+    displayPeople(currentSearchResults.people, false);
 
     resultsSection.style.display = 'block';
 
@@ -197,6 +238,54 @@ function displaySearchResults() {
         switchTab('companies');
     } else if (currentSearchResults.people.length > 0) {
         switchTab('people');
+    }
+}
+
+// Load more results for a specific type
+async function loadMoreResults(type) {
+    const state = paginationState[type];
+    if (state.isLoadingMore) return;
+
+    state.isLoadingMore = true;
+    state.startIndex += state.itemsPerPage;
+
+    const btn = type === 'companies' ? companiesLoadMoreBtn : peopleLoadMoreBtn;
+    const spinner = btn.querySelector('.btn-spinner');
+    const btnText = btn.querySelector('span');
+
+    spinner.style.display = 'block';
+    btnText.style.opacity = '0.5';
+    btn.disabled = true;
+
+    try {
+        const endpoint = type === 'companies' ? 'search/companies' : 'search/officers';
+        const response = await fetch(
+            `${API_BASE_URL}/${endpoint}?q=${encodeURIComponent(currentSearchQuery)}&items_per_page=${state.itemsPerPage}&start_index=${state.startIndex}`,
+            { headers: { 'X-API-Key': currentApiKey } }
+        );
+
+        if (!response.ok) throw new Error(`Failed to fetch more ${type}`);
+
+        const data = await response.json();
+        const newItems = data.items || [];
+
+        if (type === 'companies') {
+            currentSearchResults.companies = currentSearchResults.companies.concat(newItems);
+            displayCompanies(newItems, true);
+        } else {
+            currentSearchResults.people = currentSearchResults.people.concat(newItems);
+            displayPeople(newItems, true);
+        }
+
+    } catch (error) {
+        console.error(`Load more error (${type}):`, error);
+        showError(`Failed to load more ${type}. Please try again.`);
+        state.startIndex -= state.itemsPerPage; // Roll back on error
+    } finally {
+        state.isLoadingMore = false;
+        spinner.style.display = 'none';
+        btnText.style.opacity = '1';
+        btn.disabled = false;
     }
 }
 
@@ -216,20 +305,20 @@ function switchTab(tabName) {
 }
 
 // Display Companies
-function displayCompanies(companies) {
-    companyList.innerHTML = '';
-
-    if (companies.length === 0) {
-        noCompanies.style.display = 'block';
-        return;
+function displayCompanies(companies, isAppend = false) {
+    if (!isAppend) {
+        companyList.innerHTML = '';
+        noCompanies.style.display = companies.length === 0 ? 'block' : 'none';
     }
 
-    noCompanies.style.display = 'none';
+    if (companies.length === 0 && !isAppend) return;
 
     companies.forEach((company, index) => {
         const card = document.createElement('div');
         card.className = 'company-card';
-        card.style.animationDelay = `${index * 0.05}s`;
+        // When appending, we don't want the delay to restart from 0
+        const delayIndex = isAppend ? 0 : index;
+        card.style.animationDelay = `${delayIndex * 0.05}s`;
 
         const status = company.company_status || 'unknown';
         const statusClass = status === 'active' ? 'active' : 'dissolved';
@@ -244,23 +333,24 @@ function displayCompanies(companies) {
         card.addEventListener('click', () => loadOfficers(company.company_number, company.title));
         companyList.appendChild(card);
     });
+
+    updatePaginationUI('companies');
 }
 
 // Display People - FIXED: Better officer ID extraction
-function displayPeople(people) {
-    peopleList.innerHTML = '';
-
-    if (people.length === 0) {
-        noPeople.style.display = 'block';
-        return;
+function displayPeople(people, isAppend = false) {
+    if (!isAppend) {
+        peopleList.innerHTML = '';
+        noPeople.style.display = people.length === 0 ? 'block' : 'none';
     }
 
-    noPeople.style.display = 'none';
+    if (people.length === 0 && !isAppend) return;
 
     people.forEach((person, index) => {
         const card = document.createElement('div');
         card.className = 'person-card';
-        card.style.animationDelay = `${index * 0.05}s`;
+        const delayIndex = isAppend ? 0 : index;
+        card.style.animationDelay = `${delayIndex * 0.05}s`;
 
         const name = person.title || person.name || 'Unknown';
         const description = person.description || '';
@@ -273,11 +363,8 @@ function displayPeople(people) {
         `;
 
         // FIXED: Extract officer ID from API response links
-        // The officer ID can be in different places depending on the API response structure
         let officerId = null;
-
         if (person.links) {
-            // Use a more robust regex or path parsing to find the ID after /officers/
             const link = person.links.self || (person.links.officer && person.links.officer.appointments);
             if (link) {
                 const parts = link.split('/');
@@ -288,11 +375,9 @@ function displayPeople(people) {
             }
         }
 
-        // Add click handler if officer ID was found
         if (officerId) {
             card.addEventListener('click', () => loadAppointments(officerId, name));
         } else {
-            // Log for debugging and disable click
             console.warn('No officer ID found for:', person);
             card.style.cursor = 'not-allowed';
             card.style.opacity = '0.6';
@@ -300,6 +385,26 @@ function displayPeople(people) {
 
         peopleList.appendChild(card);
     });
+
+    updatePaginationUI('people');
+}
+
+// Update Pagination UI (button visibility and stats)
+function updatePaginationUI(type) {
+    const state = paginationState[type];
+    const container = type === 'companies' ? companiesLoadMoreContainer : peopleLoadMoreContainer;
+    const statsElem = type === 'companies' ? companiesStats : peopleStats;
+    const currentCount = currentSearchResults[type].length;
+
+    if (currentCount > 0 && currentCount < state.totalResults) {
+        container.style.display = 'flex';
+        statsElem.textContent = `Showing ${currentCount} of ${state.totalResults} results`;
+    } else {
+        container.style.display = 'none';
+        if (currentCount > 0 && currentCount >= state.totalResults) {
+            // Optional: show "All results loaded" message
+        }
+    }
 }
 
 // Load Officers for a Company - Fetches all pages

@@ -121,6 +121,15 @@
                     <!-- Container for company cards (populated by JavaScript) -->
                     <div class="company-list" id="companyList"></div>
 
+                    <!-- Load More section for Companies -->
+                    <div class="pagination-container" id="companiesLoadMoreContainer" style="display: none;">
+                        <p class="pagination-stats" id="companiesStats"></p>
+                        <button class="load-more-btn" id="companiesLoadMoreBtn">
+                            <span>Show More Companies</span>
+                            <div class="btn-spinner" style="display: none;"></div>
+                        </button>
+                    </div>
+
                     <!-- No results message (shown when no companies found) -->
                     <div class="no-results" id="noCompanies" style="display: none;">
                         <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -140,6 +149,15 @@
                 <div class="tab-pane" id="peoplePane">
                     <!-- Container for people cards (populated by JavaScript) -->
                     <div class="people-list" id="peopleList"></div>
+
+                    <!-- Load More section for People -->
+                    <div class="pagination-container" id="peopleLoadMoreContainer" style="display: none;">
+                        <p class="pagination-stats" id="peopleStats"></p>
+                        <button class="load-more-btn" id="peopleLoadMoreBtn">
+                            <span>Show More People</span>
+                            <div class="btn-spinner" style="display: none;"></div>
+                        </button>
+                    </div>
 
                     <!-- No results message (shown when no people found) -->
                     <div class="no-results" id="noPeople" style="display: none;">
