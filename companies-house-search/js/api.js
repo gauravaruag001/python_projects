@@ -171,17 +171,6 @@ export async function downloadDocumentPdf(documentId, filename) {
     }
 }
 
-/**
- * Fetch Google Maps API key from server.
- * Returns null if not configured.
- */
-export async function getGoogleMapsKey() {
-    try {
-        const response = await fetch(`${API_BASE_URL}/config/google-maps-key`);
-        const data = await response.json();
-        return data.key;
-    } catch (error) {
-        console.warn('Failed to fetch Google Maps key:', error);
-        return null;
-    }
-}
+// SECURITY FIX: Removed Google Maps API key endpoint
+// Google Maps API keys should not be exposed client-side to prevent abuse
+

@@ -331,7 +331,7 @@ async function renderExpandedCompanyView(profile, officers, pscs, filings, charg
     detailGrid.className = 'detail-dashboard';
 
     // 1. Company Summary (Address, Inc, SIC)
-    detailGrid.appendChild(await renderers.createCompanyHeader(profile));
+    detailGrid.appendChild(renderers.createCompanyHeader(profile));
 
     // 2. Company Performance (Balance Sheet) - NEW SECTION
     const perfTitle = document.createElement('h2');
