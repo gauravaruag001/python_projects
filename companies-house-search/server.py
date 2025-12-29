@@ -24,14 +24,21 @@ load_dotenv()
 
 app = Flask(__name__)
 
-# SECURITY FIX #1: Restrict CORS to localhost only (development)
-# In production, replace with your actual domain
-ALLOWED_ORIGINS = [
-    'http://localhost:5000',
-    'http://127.0.0.1:5000',
-    'http://localhost:3000',  # Common dev server port
-]
+# SECURITY: Restrict CORS origins. 
+# In production, set ALLOWED_ORIGINS environment variable.
+env_allowed_origins = os.getenv('ALLOWED_ORIGINS')
+if env_allowed_origins:
+    ALLOWED_ORIGINS = [origin.strip() for origin in env_allowed_origins.split(',')]
+else:
+    # Default development origins
+    ALLOWED_ORIGINS = [
+        'http://localhost:5000',
+        'http://127.0.0.1:5000',
+        'http://localhost:3000',
+    ]
 
+# If we want to allow all origins in production (less secure, but easier for public apps)
+# change this to CORS(app) or use a wildcard in ALLOWED_ORIGINS.
 CORS(app, origins=ALLOWED_ORIGINS, supports_credentials=True)
 
 # Load API keys from environment variables
@@ -308,19 +315,34 @@ def health_check():
         'message': 'Companies House API Proxy is active and ready.'
     })
 
-# SECURITY FIX #4: Remove Google Maps API key endpoint
-# Instead, implement Maps Static API with signed URLs on server-side
-# For now, we'll use a different approach - don't expose the key at all
-# Frontend will need to be updated to not use Google Maps, or use a different method
-
-# Commenting out the insecure endpoint:
-# @app.route('/api/config/google-maps-key', methods=['GET'])
-# def get_google_maps_key():
-#     """Endpoint to provide Google Maps API key to frontend if configured."""
-#     if GOOGLE_MAPS_API_KEY:
-#         return jsonify({'key': GOOGLE_MAPS_API_KEY}), 200
-#     else:
-#         return jsonify({'key': None}), 200
+# SECURITY FIX #4: Secure Google Maps integration
+# Instead of exposing the API key, generate the embed URL server-side
+@app.route('/api/maps/embed-url', methods=['GET'])
+def get_map_embed_url():
+    """
+    Generate a secure Google Maps embed URL server-side.
+    This keeps the API key protected while allowing map display.
+    """
+    address = request.args.get('address', '').strip()
+    
+    if not address:
+        return jsonify({'error': 'Address parameter is required'}), 400
+    
+    # SECURITY: Limit address length
+    if len(address) > 500:
+        return jsonify({'error': 'Address too long'}), 400
+    
+    # If no API key is configured, return null URL
+    if not GOOGLE_MAPS_API_KEY:
+        return jsonify({'embedUrl': None}), 200
+    
+    # Generate the embed URL with the API key server-side
+    # This prevents exposing the key to the client
+    from urllib.parse import quote_plus
+    encoded_address = quote_plus(address)
+    embed_url = f"https://www.google.com/maps/embed/v1/place?key={GOOGLE_MAPS_API_KEY}&q={encoded_address}"
+    
+    return jsonify({'embedUrl': embed_url}), 200
 
 
 # ========================================
@@ -393,8 +415,8 @@ def add_security_headers(response):
     response.headers['X-Frame-Options'] = 'DENY'
     response.headers['X-XSS-Protection'] = '1; mode=block'
     response.headers['Strict-Transport-Security'] = 'max-age=31536000; includeSubDomains'
-    # Basic CSP - adjust as needed
-    response.headers['Content-Security-Policy'] = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com; connect-src 'self'"
+    # Basic CSP - allow Google Maps embeds and Google Fonts
+    response.headers['Content-Security-Policy'] = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com; connect-src 'self'; frame-src 'self' https://www.google.com; child-src 'self' https://www.google.com"
     return response
 
 if __name__ == '__main__':

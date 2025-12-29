@@ -262,28 +262,11 @@ async function viewCompanyDetails(companyNumber, companyName) {
         // Get officers separately as it may require pagination
         const officers = await loadAllOfficers(companyNumber);
 
-        // EXTRACTION: Fetch and parse the last 2 account filings for the Performance section
-        const accountFilings = (filingsData.items || []).filter(f => f.category === 'accounts').slice(0, 2);
-        const performanceData = [];
+        // OPTIMIZATION: Removed blocking financial data fetching for improved performance
+        // Previously, this sequentially fetched and parsed iXBRL/XML documents which took 5-10+ seconds
+        // This can be re-implemented as a lazy-loaded "Load Financial Data" button if needed
 
-        for (const filing of accountFilings) {
-            if (filing.links?.document_metadata) {
-                // Extract document ID from link: https://document-api.../document/{id}
-                const docId = filing.links.document_metadata.split('/').pop();
-                try {
-                    // We attempt to get the iXBRL/XML content
-                    const content = await api.getDocumentContent(docId);
-                    if (content) {
-                        const parsed = renderers.parseBalanceSheet(content, filing.date);
-                        performanceData.push(parsed);
-                    }
-                } catch (e) {
-                    console.warn(`Could not load financial data for filing ${docId}:`, e);
-                }
-            }
-        }
-
-        renderExpandedCompanyView(profile, officers, pscData.items || [], filingsData.items || [], chargesData.items || [], performanceData);
+        renderExpandedCompanyView(profile, officers, pscData.items || [], filingsData.items || [], chargesData.items || []);
     } catch (err) {
         ui.showError(`Failed to load company details: ${err.message}`);
     } finally {
@@ -318,7 +301,7 @@ async function loadAllOfficers(companyNumber) {
 /**
  * Renders the full expanded dashboard for a company.
  */
-async function renderExpandedCompanyView(profile, officers, pscs, filings, charges, performanceData = []) {
+async function renderExpandedCompanyView(profile, officers, pscs, filings, charges) {
     resultsSection.style.display = 'none';
     detailSection.style.display = 'block';
     breadcrumb.style.display = 'block';
@@ -333,12 +316,16 @@ async function renderExpandedCompanyView(profile, officers, pscs, filings, charg
     // 1. Company Summary (Address, Inc, SIC)
     detailGrid.appendChild(renderers.createCompanyHeader(profile));
 
-    // 2. Company Performance (Balance Sheet) - NEW SECTION
+    // 2. Performance (Lazy Loaded)
     const perfTitle = document.createElement('h2');
     perfTitle.className = 'detail-section-title';
-    perfTitle.textContent = 'Company Performance (Balance Sheet)';
+    perfTitle.textContent = 'Company Performance (Accounts)';
     detailGrid.appendChild(perfTitle);
-    detailGrid.appendChild(renderers.createPerformanceSection(performanceData));
+
+    const financialPlaceholder = renderers.createFinancialDataPlaceholder((container) => {
+        handleLoadFinancialData(filings, container);
+    });
+    detailGrid.appendChild(financialPlaceholder);
 
     // 3. Accounts (Last 2 filings)
     const accTitle = document.createElement('h2');
@@ -482,6 +469,44 @@ function handleKeyboardShortcuts(e) {
     if ((e.ctrlKey || e.metaKey) && e.key === '2') {
         e.preventDefault();
         switchTab('people');
+    }
+}
+
+/**
+ * Logic to fetch and parse financial data on demand.
+ */
+async function handleLoadFinancialData(filings, container) {
+    try {
+        // Look for the latest 2 account filings
+        const accountFilings = filings.filter(f => f.category === 'accounts').slice(0, 2);
+
+        if (accountFilings.length === 0) {
+            container.innerHTML = '<p class="no-data">No account filings found to extract performance data.</p>';
+            return;
+        }
+
+        const performanceData = [];
+
+        // Fetch and parse them in parallel
+        await Promise.all(accountFilings.map(async (f) => {
+            const documentId = f.links?.document_metadata ? f.links.document_metadata.split('/').pop() : null;
+            if (!documentId) return;
+
+            try {
+                const ixbrlContent = await api.getDocumentContent(documentId);
+                const parsed = renderers.parseBalanceSheet(ixbrlContent, f.date);
+                if (parsed) performanceData.push(parsed);
+            } catch (e) {
+                console.warn(`Failed to parse filing ${f.date}:`, e);
+            }
+        }));
+
+        const performanceSection = renderers.createPerformanceSection(performanceData);
+        container.innerHTML = '';
+        container.appendChild(performanceSection);
+    } catch (err) {
+        console.error('Error loading financial data:', err);
+        container.innerHTML = `<p class="error-text" style="color: var(--error);">Error: ${err.message}</p>`;
     }
 }
 

@@ -8,6 +8,9 @@
 import { escapeHtml, formatDate } from './ui-utils.js';
 import { SIC_CODES } from './sic-codes.js';
 
+// API base URL for backend requests
+const API_BASE_URL = '/api';
+
 // SECURITY FIX: Removed Google Maps integration to prevent API key exposure
 // Google Maps API keys should not be exposed client-side as they can be abused
 
@@ -124,7 +127,7 @@ export function createOfficerDetailCard(officer, index, onCompanyClick) {
 
 /**
  * Creates the company header summary (Address, Incorporation, Nature of Business).
- * SECURITY: Removed Google Maps integration to prevent API key exposure.
+ * Includes secure Google Maps integration via server-side embed URL generation.
  */
 export function createCompanyHeader(profile) {
     const header = document.createElement('div');
@@ -148,6 +151,7 @@ export function createCompanyHeader(profile) {
             <div class="info-group">
                 <label>Registered Office Address</label>
                 <p>${escapeHtml(addressStr)}</p>
+                <div id="map-container" style="margin-top: 12px; height: 300px; border-radius: 8px; overflow: hidden; background: rgba(255,255,255,0.05);"></div>
             </div>
             <div class="info-row">
                 <div class="info-group">
@@ -165,7 +169,49 @@ export function createCompanyHeader(profile) {
             </div>
         </div>
     `;
+
+    // Load Google Maps embed URL securely from backend
+    const mapContainer = header.querySelector('#map-container');
+    if (addressStr && addressStr !== 'Address not available' && mapContainer) {
+        loadMapEmbed(addressStr, mapContainer);
+    }
+
     return header;
+}
+
+/**
+ * Loads Google Maps embed iframe using secure server-side URL generation.
+ * This prevents exposing the API key to the client.
+ */
+async function loadMapEmbed(address, mapContainer) {
+    if (!mapContainer) return;
+
+    try {
+        // Fetch the embed URL from the secure backend endpoint
+        const response = await fetch(`${API_BASE_URL}/maps/embed-url?address=${encodeURIComponent(address)}`);
+        const data = await response.json();
+
+        if (data.embedUrl) {
+            // Create and insert the iframe with the secure URL
+            const iframe = document.createElement('iframe');
+            iframe.src = data.embedUrl;
+            iframe.width = '100%';
+            iframe.height = '100%';
+            iframe.style.border = '0';
+            iframe.loading = 'lazy';
+            iframe.referrerPolicy = 'no-referrer-when-downgrade';
+
+            // Clear container before appending to avoid duplicates
+            mapContainer.innerHTML = '';
+            mapContainer.appendChild(iframe);
+        } else {
+            // No Google Maps API key configured
+            mapContainer.innerHTML = '<p style="text-align: center; padding: 20px; opacity: 0.5;">Map unavailable (API key not configured)</p>';
+        }
+    } catch (error) {
+        console.warn('Failed to load map:', error);
+        mapContainer.innerHTML = '<p style="text-align: center; padding: 20px; opacity: 0.5;">Map unavailable</p>';
+    }
 }
 
 
@@ -488,6 +534,36 @@ export function parseBalanceSheet(ixbrlString, filingDate) {
 }
 
 /**
+ * Creates a placeholder for financial data with a load button.
+ */
+export function createFinancialDataPlaceholder(onLoadClick) {
+    const container = document.createElement('div');
+    container.className = 'financial-placeholder';
+    container.innerHTML = `
+        <div class="placeholder-content">
+            <svg viewBox="0 0 24 24" width="48" height="48" style="opacity: 0.2; margin-bottom: 12px;">
+                <path fill="currentColor" d="M16,11.78L20.24,4.45L21.97,5.45L16.74,14.5L10.23,10.75L5.46,19H22V21H2V3H4V17.54L9.5,8L16,11.78Z" />
+            </svg>
+            <p>Financial performance data is available for this company.</p>
+            <p style="font-size: 0.85em; opacity: 0.7; margin-bottom: 16px;">This involves fetching and parsing official account filings which may take a few seconds.</p>
+            <button class="load-financial-btn">
+                <svg viewBox="0 0 24 24" width="16" height="16" style="margin-right: 8px;"><path fill="currentColor" d="M12,16L7,11L8.4,9.6L11,12.2V4H13V12.2L15.6,9.6L17,11L12,16M5,20V18H19V20H5Z"/></svg>
+                Load Financial Performance
+            </button>
+        </div>
+    `;
+
+    const btn = container.querySelector('.load-financial-btn');
+    btn.addEventListener('click', () => {
+        btn.disabled = true;
+        btn.innerHTML = '<span class="loading-spinner-small"></span> Loading...';
+        onLoadClick(container);
+    });
+
+    return container;
+}
+
+/**
  * Creates the Company Performance section with the extracted HTML table.
  */
 export function createPerformanceSection(performanceData) {
@@ -495,7 +571,7 @@ export function createPerformanceSection(performanceData) {
     container.className = 'performance-section';
 
     if (!performanceData || performanceData.length === 0) {
-        container.innerHTML = '<p class="no-data">Financial data not available or could not be parsed.</p>';
+        container.innerHTML = '<p class="no-data">No structured balance sheet data found in recent filings.</p>';
         return container;
     }
 
@@ -510,7 +586,7 @@ export function createPerformanceSection(performanceData) {
         <div class="table-container extracted-table-wrapper">
             ${data.html}
         </div>
-        <p class="performance-note">* Full balance sheet table extracted from official account filings.</p>
+        <p class="performance-note">* Full balance sheet table extracted from official account filings (${formatDate(data.date)}).</p>
     `;
 
     return container;

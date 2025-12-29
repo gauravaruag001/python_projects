@@ -5,7 +5,7 @@
  * API keys are managed server-side for security.
  */
 
-const API_BASE_URL = 'http://localhost:5000/api';
+const API_BASE_URL = '/api';
 
 /**
  * Common fetch wrapper for API calls.
