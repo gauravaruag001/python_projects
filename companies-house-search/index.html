@@ -27,15 +27,6 @@
                 </h1>
                 <p class="subtitle">Search UK companies and people - discover connections</p>
             </div>
-            <!-- Settings button to configure API key -->
-            <button class="settings-btn" id="settingsBtn" aria-label="Settings">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="12" cy="12" r="3"></circle>
-                    <path
-                        d="M12 1v6m0 6v6m0-6h6m-6 0H6m9.364-6.364l-4.243 4.243m0 0l-4.243 4.243m4.243-4.243l4.243 4.243m-4.243-4.243l-4.243-4.243">
-                    </path>
-                </svg>
-            </button>
         </header>
 
         <!-- ========================================
@@ -218,54 +209,7 @@
             </div>
         </div>
 
-        <!-- ========================================
-             SETTINGS MODAL
-             Allows user to configure their Companies House API key
-             API key is stored in browser localStorage
-        ========================================= -->
-        <div class="modal" id="settingsModal" style="display: none;">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h2 class="modal-title">API Settings</h2>
-                    <button class="modal-close-btn" id="closeModalBtn" aria-label="Close">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <line x1="18" y1="6" x2="6" y2="18"></line>
-                            <line x1="6" y1="6" x2="18" y2="18"></line>
-                        </svg>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <p class="modal-description">
-                        To use this application, you need a free REST API key from Companies House.
-                        <a href="https://developer.company-information.service.gov.uk/" target="_blank"
-                            rel="noopener noreferrer" class="modal-link">
-                            Get your API key here →
-                        </a>
-                    </p>
-                    <div class="form-group">
-                        <label for="apiKeyInput" class="form-label">API Key</label>
-                        <input type="password" id="apiKeyInput" class="form-input"
-                            placeholder="Enter your Companies House API key">
-                        <!-- Toggle button to show/hide API key -->
-                        <button type="button" class="toggle-visibility-btn" id="toggleVisibilityBtn"
-                            aria-label="Toggle password visibility">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                                <circle cx="12" cy="12" r="3"></circle>
-                            </svg>
-                        </button>
-                    </div>
-                    <div class="modal-actions">
-                        <button class="btn btn-secondary" id="cancelBtn">Cancel</button>
-                        <button class="btn btn-primary" id="saveApiKeyBtn">Save API Key</button>
-                    </div>
-                    <!-- Status message area (shows success/error after saving) -->
-                    <div class="api-status" id="apiStatus"></div>
-                </div>
-            </div>
-        </div>
+
     </div>
 
     <!-- Main JavaScript file containing all application logic -->

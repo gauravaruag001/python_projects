@@ -9,10 +9,8 @@ import * as api from './api.js';
 import * as ui from './ui-utils.js';
 import * as renderers from './renderers.js';
 import * as pagination from './pagination.js';
-import * as settings from './settings.js';
 
 // --- State ---
-let activeApiKey = settings.getApiKey();
 let activeSearchQuery = '';
 const searchResults = {
     companies: [],
@@ -38,7 +36,6 @@ const breadcrumb = document.getElementById('breadcrumb');
  */
 function init() {
     setupEventListeners();
-    if (!activeApiKey) settings.openSettings();
 }
 
 /**
@@ -55,19 +52,6 @@ function setupEventListeners() {
     // Navigation
     document.getElementById('backToResults').addEventListener('click', showResultsSection);
     document.getElementById('errorCloseBtn').addEventListener('click', ui.hideError);
-
-    // Settings
-    document.getElementById('settingsBtn').addEventListener('click', settings.openSettings);
-    document.getElementById('closeModalBtn').addEventListener('click', settings.closeSettings);
-    document.getElementById('cancelBtn').addEventListener('click', settings.closeSettings);
-    document.getElementById('saveApiKeyBtn').addEventListener('click', () => {
-        const key = settings.saveApiKey();
-        if (key) {
-            activeApiKey = key;
-            setTimeout(settings.closeSettings, 1000);
-        }
-    });
-    document.getElementById('toggleVisibilityBtn').addEventListener('click', settings.toggleApiKeyVisibility);
 
     // Pagination
     document.getElementById('companiesLoadMoreBtn').addEventListener('click', () => loadMore('companies'));
@@ -106,7 +90,7 @@ async function handleDownloadPdf(e) {
         btn.disabled = true;
         btn.innerHTML = '<span class="loading-spinner-small"></span>';
 
-        await api.downloadDocumentPdf(documentId, filename, activeApiKey);
+        await api.downloadDocumentPdf(documentId, filename);
         console.log('[Download Handler] Download completed successfully');
     } catch (err) {
         console.error('[Download Handler] Error:', err);
@@ -129,12 +113,6 @@ async function handleSearch(e) {
         return;
     }
 
-    if (!activeApiKey) {
-        ui.showError('API key not found. Please update settings.');
-        settings.openSettings();
-        return;
-    }
-
     activeSearchQuery = query;
     ui.showLoading(true);
     ui.hideError();
@@ -146,8 +124,8 @@ async function handleSearch(e) {
 
     try {
         const [compData, peepData] = await Promise.all([
-            api.searchCompanies(query, pagination.state.companies.itemsPerPage, 0, activeApiKey),
-            api.searchOfficers(query, pagination.state.people.itemsPerPage, 0, activeApiKey)
+            api.searchCompanies(query, pagination.state.companies.itemsPerPage, 0),
+            api.searchOfficers(query, pagination.state.people.itemsPerPage, 0)
         ]);
 
         searchResults.companies = compData.items || [];
@@ -194,11 +172,11 @@ async function loadMore(type) {
     try {
         let newData;
         if (type === 'companies') {
-            newData = await api.searchCompanies(activeSearchQuery, s.itemsPerPage, s.startIndex, activeApiKey);
+            newData = await api.searchCompanies(activeSearchQuery, s.itemsPerPage, s.startIndex);
             searchResults.companies = searchResults.companies.concat(newData.items || []);
             renderCompanyList(newData.items || [], true);
         } else {
-            newData = await api.searchOfficers(activeSearchQuery, s.itemsPerPage, s.startIndex, activeApiKey);
+            newData = await api.searchOfficers(activeSearchQuery, s.itemsPerPage, s.startIndex);
             searchResults.people = searchResults.people.concat(newData.items || []);
             renderPeopleList(newData.items || [], true);
         }
@@ -275,10 +253,10 @@ async function viewCompanyDetails(companyNumber, companyName) {
     try {
         // Fetch all required data in parallel
         const [profile, pscData, filingsData, chargesData] = await Promise.all([
-            api.getCompanyProfile(companyNumber, activeApiKey),
-            api.getCompanyPSCs(companyNumber, 100, 0, activeApiKey).catch(() => ({ items: [] })),
-            api.getFilingHistory(companyNumber, 100, 0, activeApiKey).catch(() => ({ items: [] })),
-            api.getCompanyCharges(companyNumber, 100, 0, activeApiKey).catch(() => ({ items: [] }))
+            api.getCompanyProfile(companyNumber),
+            api.getCompanyPSCs(companyNumber, 100, 0).catch(() => ({ items: [] })),
+            api.getFilingHistory(companyNumber, 100, 0).catch(() => ({ items: [] })),
+            api.getCompanyCharges(companyNumber, 100, 0).catch(() => ({ items: [] }))
         ]);
 
         // Get officers separately as it may require pagination
@@ -294,7 +272,7 @@ async function viewCompanyDetails(companyNumber, companyName) {
                 const docId = filing.links.document_metadata.split('/').pop();
                 try {
                     // We attempt to get the iXBRL/XML content
-                    const content = await api.getDocumentContent(docId, activeApiKey);
+                    const content = await api.getDocumentContent(docId);
                     if (content) {
                         const parsed = renderers.parseBalanceSheet(content, filing.date);
                         performanceData.push(parsed);
@@ -323,7 +301,7 @@ async function loadAllOfficers(companyNumber) {
 
     try {
         while (true) {
-            const data = await api.getCompanyOfficers(companyNumber, limit, start, activeApiKey).catch(() => ({ items: [] }));
+            const data = await api.getCompanyOfficers(companyNumber, limit, start).catch(() => ({ items: [] }));
             const items = data.items || [];
             allOfficers = allOfficers.concat(items);
 
@@ -340,7 +318,7 @@ async function loadAllOfficers(companyNumber) {
 /**
  * Renders the full expanded dashboard for a company.
  */
-function renderExpandedCompanyView(profile, officers, pscs, filings, charges, performanceData = []) {
+async function renderExpandedCompanyView(profile, officers, pscs, filings, charges, performanceData = []) {
     resultsSection.style.display = 'none';
     detailSection.style.display = 'block';
     breadcrumb.style.display = 'block';
@@ -353,7 +331,7 @@ function renderExpandedCompanyView(profile, officers, pscs, filings, charges, pe
     detailGrid.className = 'detail-dashboard';
 
     // 1. Company Summary (Address, Inc, SIC)
-    detailGrid.appendChild(renderers.createCompanyHeader(profile));
+    detailGrid.appendChild(await renderers.createCompanyHeader(profile));
 
     // 2. Company Performance (Balance Sheet) - NEW SECTION
     const perfTitle = document.createElement('h2');
@@ -421,7 +399,7 @@ async function loadOfficerAppointments(officerId, personName) {
         const limit = 100;
 
         while (true) {
-            const data = await api.getOfficerAppointments(officerId, limit, start, activeApiKey);
+            const data = await api.getOfficerAppointments(officerId, limit, start);
             const items = data.items || [];
             allAppts = allAppts.concat(items);
 
@@ -491,7 +469,6 @@ function hideDetails() {
 
 function handleKeyboardShortcuts(e) {
     if (e.key === 'Escape') {
-        settings.closeSettings();
         ui.hideError();
     }
     if ((e.ctrlKey || e.metaKey) && e.key === 'k') {

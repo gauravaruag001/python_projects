@@ -4,6 +4,8 @@ Companies House API Proxy Server
 This Flask server acts as a proxy to avoid CORS issues when calling the 
 Companies House API from the browser. It standardizes error handling and
 provides a clean interface for the frontend.
+
+API keys are stored securely in environment variables and never exposed to the client.
 """
 
 from flask import Flask, request, jsonify, send_from_directory
@@ -11,19 +13,34 @@ from flask_cors import CORS
 import requests
 import base64
 import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 app = Flask(__name__)
 # Enable CORS for all routes to allow requests from the frontend
 CORS(app)
+
+# Load API keys from environment variables
+COMPANIES_HOUSE_API_KEY = os.getenv('COMPANIES_HOUSE_API_KEY')
+GOOGLE_MAPS_API_KEY = os.getenv('GOOGLE_MAPS_API_KEY')
+
+# Validate that required API key is present
+if not COMPANIES_HOUSE_API_KEY:
+    print("WARNING: COMPANIES_HOUSE_API_KEY not found in environment variables!")
+    print("Please create a .env file with your API key. See .env.example for template.")
 
 # The base URL for all Companies House API requests
 API_BASE_URL = 'https://api.company-information.service.gov.uk'
 # The base URL for the Companies House Document API
 DOCUMENT_API_BASE_URL = 'https://document-api.company-information.service.gov.uk'
 
+
 def ch_api_request(endpoint, query_params=None):
     """
     Helper function to make requests to the Companies House API.
+    Uses the API key from environment variables (server-side only).
     
     Args:
         endpoint (str): The API endpoint to call (e.g., '/search/companies').
@@ -33,35 +50,35 @@ def ch_api_request(endpoint, query_params=None):
         tuple: (JSON response, status code)
     """
     try:
-        # 1. Extraction: Get the API key from the incoming request headers
-        api_key = request.headers.get('X-API-Key', '')
-        if not api_key:
-            return jsonify({'error': 'Companies House API key is missing. Please check your settings.'}), 401
+        # Use server-side API key from environment
+        if not COMPANIES_HOUSE_API_KEY:
+            return jsonify({'error': 'Server configuration error: Companies House API key not configured.'}), 500
 
-        # 2. Authentication: Prepare Basic Auth header
+        # Authentication: Prepare Basic Auth header
         # Companies House uses the API key as the username and an empty password
-        auth_string = base64.b64encode(f'{api_key}:'.encode()).decode()
+        auth_string = base64.b64encode(f'{COMPANIES_HOUSE_API_KEY}:'.encode()).decode()
         headers = {'Authorization': f'Basic {auth_string}'}
 
-        # 3. Request: Send the request to Companies House
+        # Request: Send the request to Companies House
         url = f'{API_BASE_URL}{endpoint}'
         print(f"Proxying request to: {url} with params: {query_params}")
         
         response = requests.get(url, params=query_params, headers=headers)
         
-        # 4. Error Handling: Check for specific status codes
+        # Error Handling: Check for specific status codes
         if response.status_code == 401:
             return jsonify({
-                'error': 'Invalid API key. Please verify your credentials on the Companies House Developer Hub.',
+                'error': 'Invalid API key. Please verify server configuration.',
                 'status': 401
             }), 401
             
-        # 5. Success: Return the raw JSON and the original status code
+        # Success: Return the raw JSON and the original status code
         return jsonify(response.json()), response.status_code
 
     except Exception as e:
         print(f"Error in ch_api_request: {str(e)}")
         return jsonify({'error': f"Internal server error: {str(e)}"}), 500
+
 
 # ========================================
 # API PROXY ROUTES
@@ -153,15 +170,15 @@ def get_officer_appointments(officer_id):
 def get_document_content(document_id):
     """Route for retrieving document content from the Document API."""
     try:
-        api_key = request.headers.get('X-API-Key', '')
-        if not api_key:
-            return jsonify({'error': 'API key is missing'}), 401
+        # Use server-side API key
+        if not COMPANIES_HOUSE_API_KEY:
+            return jsonify({'error': 'Server configuration error: API key not configured'}), 500
 
         accept_header = request.headers.get('Accept', '*/*')
         print(f"[Document Proxy] Request for document: {document_id}")
         print(f"[Document Proxy] Accept header: {accept_header}")
 
-        auth_string = base64.b64encode(f'{api_key}:'.encode()).decode()
+        auth_string = base64.b64encode(f'{COMPANIES_HOUSE_API_KEY}:'.encode()).decode()
         headers = {
             'Authorization': f'Basic {auth_string}',
             'Accept': accept_header
@@ -205,6 +222,7 @@ def get_document_content(document_id):
         traceback.print_exc()
         return jsonify({'error': f"Internal server error: {str(e)}"}), 500
 
+
 @app.route('/api/health', methods=['GET'])
 def health_check():
     """Utility endpoint to verify the proxy server is active."""
@@ -212,6 +230,15 @@ def health_check():
         'status': 'ok',
         'message': 'Companies House API Proxy is active and ready.'
     })
+
+@app.route('/api/config/google-maps-key', methods=['GET'])
+def get_google_maps_key():
+    """Endpoint to provide Google Maps API key to frontend if configured."""
+    if GOOGLE_MAPS_API_KEY:
+        return jsonify({'key': GOOGLE_MAPS_API_KEY}), 200
+    else:
+        return jsonify({'key': None}), 200
+
 
 # ========================================
 # STATIC FILE ROUTES

@@ -7,6 +7,29 @@
 
 import { escapeHtml, formatDate } from './ui-utils.js';
 import { SIC_CODES } from './sic-codes.js';
+import { getGoogleMapsKey } from './api.js';
+
+// Cache for Google Maps API key
+let cachedGoogleMapsKey = null;
+let keyFetchPromise = null;
+
+/**
+ * Get Google Maps API key (cached).
+ */
+async function getGoogleMapsApiKey() {
+    if (cachedGoogleMapsKey !== null) {
+        return cachedGoogleMapsKey;
+    }
+
+    if (!keyFetchPromise) {
+        keyFetchPromise = getGoogleMapsKey().then(key => {
+            cachedGoogleMapsKey = key;
+            return key;
+        });
+    }
+
+    return keyFetchPromise;
+}
 
 /**
  * Creates a company card element.
@@ -121,7 +144,7 @@ export function createOfficerDetailCard(officer, index, onCompanyClick) {
 /**
  * Creates the company header summary (Address, Incorporation, Nature of Business).
  */
-export function createCompanyHeader(profile) {
+export async function createCompanyHeader(profile) {
     const header = document.createElement('div');
     header.className = 'company-detail-header';
 
@@ -129,6 +152,12 @@ export function createCompanyHeader(profile) {
     const addressStr = address ?
         `${address.address_line_1 || ''}, ${address.address_line_2 || ''}, ${address.locality || ''}, ${address.postal_code || ''}` :
         'Address not available';
+
+    // Get Google Maps API key from server
+    const googleMapsKey = await getGoogleMapsApiKey();
+    const mapUrl = address && googleMapsKey ?
+        `https://www.google.com/maps/embed/v1/place?key=${googleMapsKey}&q=${encodeURIComponent(addressStr)}` :
+        null;
 
     const sicCodes = profile.sic_codes || [];
     const sicHtml = sicCodes.length > 0 ?
@@ -143,6 +172,19 @@ export function createCompanyHeader(profile) {
             <div class="info-group">
                 <label>Registered Office Address</label>
                 <p>${escapeHtml(addressStr)}</p>
+                ${mapUrl ? `
+                    <div class="map-container" style="margin-top: 16px; border-radius: 8px; overflow: hidden; height: 300px;">
+                        <iframe
+                            width="100%"
+                            height="100%"
+                            style="border:0;"
+                            loading="lazy"
+                            allowfullscreen
+                            referrerpolicy="no-referrer-when-downgrade"
+                            src="${mapUrl}">
+                        </iframe>
+                    </div>
+                ` : ''}
             </div>
             <div class="info-row">
                 <div class="info-group">
@@ -162,6 +204,7 @@ export function createCompanyHeader(profile) {
     `;
     return header;
 }
+
 
 /**
  * Creates a PSC (Person with Significant Control) card.
