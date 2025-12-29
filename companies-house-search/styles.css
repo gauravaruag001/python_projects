@@ -1497,7 +1497,66 @@ body::before {
 
 .performance-note {
     font-size: 0.75rem;
-    color: var(--text-muted);
+    color: var(--text-secondary);
     margin-top: var(--spacing-sm);
     font-style: italic;
+}
+
+/* Download PDF Button Styles */
+.download-pdf-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: rgba(99, 102, 241, 0.1);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    border-radius: var(--radius-md);
+    color: var(--accent-primary);
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.download-pdf-btn:hover {
+    background: var(--accent-primary);
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.download-pdf-btn:active {
+    transform: translateY(0);
+}
+
+.download-pdf-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.action-cell {
+    text-align: right !important;
+}
+
+.loading-spinner-small {
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.no-doc {
+    color: var(--text-muted);
+    font-style: italic;
+    font-size: 0.8rem;
 }

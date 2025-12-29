@@ -157,17 +157,24 @@ def get_document_content(document_id):
         if not api_key:
             return jsonify({'error': 'API key is missing'}), 401
 
+        accept_header = request.headers.get('Accept', '*/*')
+        print(f"[Document Proxy] Request for document: {document_id}")
+        print(f"[Document Proxy] Accept header: {accept_header}")
+
         auth_string = base64.b64encode(f'{api_key}:'.encode()).decode()
         headers = {
             'Authorization': f'Basic {auth_string}',
-            'Accept': '*/*'  # Let the proxy accept anything and pass it on
+            'Accept': accept_header
         }
 
         url = f'{DOCUMENT_API_BASE_URL}/document/{document_id}/content'
-        print(f"Proxying document request to: {url}")
+        print(f"[Document Proxy] Proxying to: {url}")
         
         # We use stream=True for potentially large documents
         response = requests.get(url, headers=headers, stream=True)
+        
+        print(f"[Document Proxy] Response status: {response.status_code}")
+        print(f"[Document Proxy] Response content-type: {response.headers.get('content-type')}")
         
         # Check if the request was successful
         if response.status_code != 200:
@@ -177,11 +184,25 @@ def get_document_content(document_id):
             except:
                 return jsonify({'error': f'Document API returned status {response.status_code}'}), response.status_code
 
-        # Return the response with same headers (important for Content-Type)
-        return (response.content, response.status_code, response.headers.items())
+        # Return the response as a stream with relevant headers
+        from flask import Response
+        
+        def generate():
+            for chunk in response.iter_content(chunk_size=8192):
+                yield chunk
+
+        # Filter headers to avoid conflicts
+        excluded_headers = ['content-encoding', 'content-length', 'transfer-encoding', 'connection']
+        headers = [(name, value) for (name, value) in response.headers.items()
+                  if name.lower() not in excluded_headers]
+        
+        print(f"[Document Proxy] Streaming response with {len(headers)} headers")
+        return Response(generate(), status=response.status_code, headers=headers)
 
     except Exception as e:
-        print(f"Error in get_document_content: {str(e)}")
+        print(f"[Document Proxy] Error: {str(e)}")
+        import traceback
+        traceback.print_exc()
         return jsonify({'error': f"Internal server error: {str(e)}"}), 500
 
 @app.route('/api/health', methods=['GET'])

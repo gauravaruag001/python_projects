@@ -214,14 +214,25 @@ export function createFilingHistoryTable(filings) {
         return container;
     }
 
-    let rows = filings.map(f => `
-        <tr>
-            <td>${formatDate(f.date)}</td>
-            <td><strong>${escapeHtml(f.category || 'Other')}</strong></td>
-            <td>${escapeHtml(f.description_original || f.description)}</td>
-            <td>${f.links?.document_metadata ? '<span class="doc-badge">Document Available</span>' : 'N/A'}</td>
-        </tr>
-    `).join('');
+    let rows = filings.map(f => {
+        const documentId = f.links?.document_metadata ? f.links.document_metadata.split('/').pop() : null;
+        const description = escapeHtml(f.description_original || f.description);
+        const downloadBtn = documentId
+            ? `<button class="download-pdf-btn" data-document-id="${documentId}" data-description="${description}" title="Download PDF">
+                 <svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M12,16L7,11L8.4,9.6L11,12.2V4H13V12.2L15.6,9.6L17,11L12,16M5,20V18H19V20H5Z"/></svg>
+                 PDF
+               </button>`
+            : '<span class="no-doc">N/A</span>';
+
+        return `
+            <tr>
+                <td>${formatDate(f.date)}</td>
+                <td><strong>${escapeHtml(f.category || 'Other')}</strong></td>
+                <td>${description}</td>
+                <td class="action-cell">${downloadBtn}</td>
+            </tr>
+        `;
+    }).join('');
 
     container.innerHTML = `
         <table class="detail-table">
@@ -230,7 +241,7 @@ export function createFilingHistoryTable(filings) {
                     <th>Date</th>
                     <th>Category</th>
                     <th>Description</th>
-                    <th>Ref</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>${rows}</tbody>
@@ -254,13 +265,24 @@ export function createAccountsTable(filings) {
         return container;
     }
 
-    let rows = accountFilings.map(f => `
-        <tr>
-            <td>${formatDate(f.date)}</td>
-            <td>${escapeHtml(f.description_original || f.description)}</td>
-            <td>${f.action_date ? formatDate(f.action_date) : 'N/A'}</td>
-        </tr>
-    `).join('');
+    let rows = accountFilings.map(f => {
+        const documentId = f.links?.document_metadata ? f.links.document_metadata.split('/').pop() : null;
+        const description = escapeHtml(f.description_original || f.description);
+        const downloadBtn = documentId
+            ? `<button class="download-pdf-btn" data-document-id="${documentId}" data-description="${description}" title="Download PDF">
+                 <svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M12,16L7,11L8.4,9.6L11,12.2V4H13V12.2L15.6,9.6L17,11L12,16M5,20V18H19V20H5Z"/></svg>
+               </button>`
+            : '';
+
+        return `
+            <tr>
+                <td>${formatDate(f.date)}</td>
+                <td>${description}</td>
+                <td>${f.action_date ? formatDate(f.action_date) : 'N/A'}</td>
+                <td class="action-cell">${downloadBtn}</td>
+            </tr>
+        `;
+    }).join('');
 
     container.innerHTML = `
         <table class="detail-table accounts-table">
@@ -269,6 +291,7 @@ export function createAccountsTable(filings) {
                     <th>Filing Date</th>
                     <th>Type</th>
                     <th>Period End</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>${rows}</tbody>

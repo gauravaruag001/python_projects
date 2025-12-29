@@ -125,3 +125,63 @@ export async function getDocumentContent(documentId, apiKey) {
     // Return the text content (iXBRL/XML)
     return response.text();
 }
+
+/**
+ * Download a document in PDF format from the Document API via proxy.
+ */
+export async function downloadDocumentPdf(documentId, filename, apiKey) {
+    if (!apiKey) {
+        throw new Error('API key is required.');
+    }
+
+    console.log(`[PDF Download] Starting download for document: ${documentId}`);
+    console.log(`[PDF Download] Filename: ${filename}`);
+
+    try {
+        const response = await fetch(`${API_BASE_URL}/document/${documentId}/content`, {
+            headers: {
+                'X-API-Key': apiKey,
+                'Accept': 'application/pdf'
+            }
+        });
+
+        console.log(`[PDF Download] Response status: ${response.status}`);
+        console.log(`[PDF Download] Response headers:`, response.headers);
+
+        if (!response.ok) {
+            const errorText = await response.text();
+            console.error(`[PDF Download] Error response:`, errorText);
+            throw new Error(`Failed to download PDF: ${response.status} - ${errorText}`);
+        }
+
+        const contentType = response.headers.get('content-type');
+        console.log(`[PDF Download] Content-Type: ${contentType}`);
+
+        const blobData = await response.blob();
+        console.log(`[PDF Download] Blob size: ${blobData.size} bytes`);
+
+        const blob = new Blob([blobData], { type: 'application/pdf' });
+        const url = window.URL.createObjectURL(blob);
+        console.log(`[PDF Download] Blob URL created: ${url}`);
+
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename || `document_${documentId}.pdf`;
+        a.style.display = 'none';
+        document.body.appendChild(a);
+
+        console.log(`[PDF Download] Triggering download...`);
+        a.click();
+
+        // Clean up after a short delay to ensure download starts
+        setTimeout(() => {
+            window.URL.revokeObjectURL(url);
+            document.body.removeChild(a);
+            console.log(`[PDF Download] Cleanup complete`);
+        }, 100);
+
+    } catch (error) {
+        console.error(`[PDF Download] Error:`, error);
+        throw error;
+    }
+}

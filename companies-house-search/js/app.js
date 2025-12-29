@@ -73,8 +73,48 @@ function setupEventListeners() {
     document.getElementById('companiesLoadMoreBtn').addEventListener('click', () => loadMore('companies'));
     document.getElementById('peopleLoadMoreBtn').addEventListener('click', () => loadMore('people'));
 
+    // Document Downloads (Delegated)
+    detailGrid.addEventListener('click', handleDownloadPdf);
+
     // Keyboard shortcuts
     document.addEventListener('keydown', handleKeyboardShortcuts);
+}
+
+/**
+ * Handles clicks on PDF download buttons.
+ */
+async function handleDownloadPdf(e) {
+    const btn = e.target.closest('.download-pdf-btn');
+    if (!btn) return;
+
+    const documentId = btn.dataset.documentId;
+    const description = btn.dataset.description || 'document';
+    const companyName = detailTitle.textContent.trim() || 'company';
+
+    console.log('[Download Handler] Document ID:', documentId);
+    console.log('[Download Handler] Description:', description);
+    console.log('[Download Handler] Company Name:', companyName);
+
+    // Sanitize filename: Replace non-alphanumeric (except underscores) with underscores
+    const sanitize = (str) => str.replace(/[^a-z0-9]/gi, '_').replace(/_+/g, '_').replace(/^_+|_+$/g, '');
+    const filename = `${sanitize(companyName)}_${sanitize(description)}.pdf`;
+
+    console.log('[Download Handler] Final filename:', filename);
+
+    const originalContent = btn.innerHTML;
+    try {
+        btn.disabled = true;
+        btn.innerHTML = '<span class="loading-spinner-small"></span>';
+
+        await api.downloadDocumentPdf(documentId, filename, activeApiKey);
+        console.log('[Download Handler] Download completed successfully');
+    } catch (err) {
+        console.error('[Download Handler] Error:', err);
+        ui.showError(`Failed to download PDF: ${err.message}`);
+    } finally {
+        btn.disabled = false;
+        btn.innerHTML = originalContent;
+    }
 }
 
 /**
