@@ -244,7 +244,28 @@ async function viewCompanyDetails(companyNumber, companyName) {
         // Get officers separately as it may require pagination
         const officers = await loadAllOfficers(companyNumber);
 
-        renderExpandedCompanyView(profile, officers, pscData.items || [], filingsData.items || [], chargesData.items || []);
+        // EXTRACTION: Fetch and parse the last 2 account filings for the Performance section
+        const accountFilings = (filingsData.items || []).filter(f => f.category === 'accounts').slice(0, 2);
+        const performanceData = [];
+
+        for (const filing of accountFilings) {
+            if (filing.links?.document_metadata) {
+                // Extract document ID from link: https://document-api.../document/{id}
+                const docId = filing.links.document_metadata.split('/').pop();
+                try {
+                    // We attempt to get the iXBRL/XML content
+                    const content = await api.getDocumentContent(docId, activeApiKey);
+                    if (content) {
+                        const parsed = renderers.parseBalanceSheet(content, filing.date);
+                        performanceData.push(parsed);
+                    }
+                } catch (e) {
+                    console.warn(`Could not load financial data for filing ${docId}:`, e);
+                }
+            }
+        }
+
+        renderExpandedCompanyView(profile, officers, pscData.items || [], filingsData.items || [], chargesData.items || [], performanceData);
     } catch (err) {
         ui.showError(`Failed to load company details: ${err.message}`);
     } finally {
@@ -279,7 +300,7 @@ async function loadAllOfficers(companyNumber) {
 /**
  * Renders the full expanded dashboard for a company.
  */
-function renderExpandedCompanyView(profile, officers, pscs, filings, charges) {
+function renderExpandedCompanyView(profile, officers, pscs, filings, charges, performanceData = []) {
     resultsSection.style.display = 'none';
     detailSection.style.display = 'block';
     breadcrumb.style.display = 'block';
@@ -294,7 +315,14 @@ function renderExpandedCompanyView(profile, officers, pscs, filings, charges) {
     // 1. Company Summary (Address, Inc, SIC)
     detailGrid.appendChild(renderers.createCompanyHeader(profile));
 
-    // 2. Accounts (Last 2 filings)
+    // 2. Company Performance (Balance Sheet) - NEW SECTION
+    const perfTitle = document.createElement('h2');
+    perfTitle.className = 'detail-section-title';
+    perfTitle.textContent = 'Company Performance (Balance Sheet)';
+    detailGrid.appendChild(perfTitle);
+    detailGrid.appendChild(renderers.createPerformanceSection(performanceData));
+
+    // 3. Accounts (Last 2 filings)
     const accTitle = document.createElement('h2');
     accTitle.className = 'detail-section-title';
     accTitle.textContent = 'Account Filing History';

@@ -18,6 +18,8 @@ CORS(app)
 
 # The base URL for all Companies House API requests
 API_BASE_URL = 'https://api.company-information.service.gov.uk'
+# The base URL for the Companies House Document API
+DOCUMENT_API_BASE_URL = 'https://document-api.company-information.service.gov.uk'
 
 def ch_api_request(endpoint, query_params=None):
     """
@@ -146,6 +148,41 @@ def get_officer_appointments(officer_id):
     }
     
     return ch_api_request(f'/officers/{officer_id}/appointments', params)
+
+@app.route('/api/document/<document_id>/content', methods=['GET'])
+def get_document_content(document_id):
+    """Route for retrieving document content from the Document API."""
+    try:
+        api_key = request.headers.get('X-API-Key', '')
+        if not api_key:
+            return jsonify({'error': 'API key is missing'}), 401
+
+        auth_string = base64.b64encode(f'{api_key}:'.encode()).decode()
+        headers = {
+            'Authorization': f'Basic {auth_string}',
+            'Accept': '*/*'  # Let the proxy accept anything and pass it on
+        }
+
+        url = f'{DOCUMENT_API_BASE_URL}/document/{document_id}/content'
+        print(f"Proxying document request to: {url}")
+        
+        # We use stream=True for potentially large documents
+        response = requests.get(url, headers=headers, stream=True)
+        
+        # Check if the request was successful
+        if response.status_code != 200:
+            # Try to return the error message if it's JSON
+            try:
+                return jsonify(response.json()), response.status_code
+            except:
+                return jsonify({'error': f'Document API returned status {response.status_code}'}), response.status_code
+
+        # Return the response with same headers (important for Content-Type)
+        return (response.content, response.status_code, response.headers.items())
+
+    except Exception as e:
+        print(f"Error in get_document_content: {str(e)}")
+        return jsonify({'error': f"Internal server error: {str(e)}"}), 500
 
 @app.route('/api/health', methods=['GET'])
 def health_check():

@@ -102,3 +102,26 @@ export async function getOfficerAppointments(officerId, itemsPerPage = 100, star
     const endpoint = `/officers/${officerId}/appointments?items_per_page=${itemsPerPage}&start_index=${startIndex}`;
     return apiFetch(endpoint, apiKey);
 }
+
+/**
+ * Retrieve document content from the Document API via proxy.
+ */
+export async function getDocumentContent(documentId, apiKey) {
+    if (!apiKey) {
+        throw new Error('API key is required for all requests.');
+    }
+
+    const response = await fetch(`${API_BASE_URL}/document/${documentId}/content`, {
+        headers: {
+            'X-API-Key': apiKey,
+            'Accept': '*/*'
+        }
+    });
+
+    if (!response.ok) {
+        throw new Error(`Failed to fetch document: ${response.status}`);
+    }
+
+    // Return the text content (iXBRL/XML)
+    return response.text();
+}

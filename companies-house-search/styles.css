@@ -1390,6 +1390,7 @@ body::before {
     border-radius: var(--radius-lg);
     border: 1px dashed var(--glass-border);
 }
+
 /* ========================================
    CORPORATE & CLICKABLE STYLES
    Styles for identifying corporate entities and making them clickable
@@ -1434,4 +1435,69 @@ body::before {
 .clickable-company-card:hover .view-company-link {
     opacity: 1;
     text-decoration: underline;
+}
+
+/* ========================================
+   COMPANY PERFORMANCE SECTION
+   Styles for balance sheet and metrics
+======================================== */
+.performance-section {
+    margin-bottom: var(--spacing-xl);
+    animation: fadeInUp 0.6s ease;
+}
+
+.balance-sheet-table {
+    width: 100%;
+    margin-top: var(--spacing-md);
+    background: var(--glass-bg);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.balance-sheet-table th {
+    background: rgba(99, 102, 241, 0.2);
+    color: var(--text-primary);
+    text-align: left;
+    padding: var(--spacing-md);
+    font-weight: 600;
+}
+
+.balance-sheet-table th:not(:first-child) {
+    text-align: center;
+}
+
+.balance-sheet-table td {
+    padding: var(--spacing-md);
+    border-bottom: 1px solid var(--glass-border);
+    color: var(--text-secondary);
+}
+
+.balance-sheet-table tr:hover td {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-primary);
+}
+
+.balance-sheet-table td:not(:first-child) {
+    text-align: center;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.performance-metric-label {
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.negative-value {
+    color: var(--error);
+}
+
+.positive-value {
+    color: var(--success);
+}
+
+.performance-note {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: var(--spacing-sm);
+    font-style: italic;
 }

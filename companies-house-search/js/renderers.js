@@ -354,3 +354,135 @@ export function createAppointmentCard(appointment, index, onCompanyClick) {
 
     return card;
 }
+
+/**
+ * Advanced iXBRL parser that extracts the actual balance sheet table
+ * to preserve the exact formatting and published data.
+ */
+export function parseBalanceSheet(ixbrlString, filingDate) {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(ixbrlString, 'text/html');
+
+    // 1. Find the Balance Sheet table with improved heuristic
+    const tables = doc.querySelectorAll('table');
+    let balanceSheetTable = null;
+    let maxNumericCells = -1;
+
+    for (const table of tables) {
+        const text = table.textContent.toLowerCase();
+        const hasKeywords = text.includes('balance sheet') ||
+            text.includes('statement of financial position') ||
+            text.includes('statement of financial condition');
+
+        // Count numeric-looking cells
+        const cells = Array.from(table.querySelectorAll('td, th'));
+        const numericCount = cells.filter(c => /[\d,]{3,}/.test(c.textContent)).length;
+
+        // A table is a good candidate if it has keywords AND some numbers
+        // OR if it's the biggest numeric table and the keywords are nearby
+        if (hasKeywords && numericCount > 5) {
+            // This is likely IT
+            balanceSheetTable = table;
+            break;
+        }
+
+        if (numericCount > maxNumericCells) {
+            maxNumericCells = numericCount;
+            balanceSheetTable = table;
+        }
+    }
+
+    // Final check for the best candidate
+    if (!balanceSheetTable || maxNumericCells < 5) {
+        // Try searching for the text "Balance Sheet" and then the NEXT table
+        const headings = Array.from(doc.querySelectorAll('h1, h2, h3, h4, p, div, b'));
+        const bsHeading = headings.find(h => {
+            const t = h.textContent.toLowerCase().trim();
+            return t === 'balance sheet' || t === 'consolidated balance sheet' || t === 'statement of financial position';
+        });
+
+        if (bsHeading) {
+            // Look for the next table in the DOM
+            let next = bsHeading.nextElementSibling;
+            while (next) {
+                if (next.tagName === 'TABLE') {
+                    balanceSheetTable = next;
+                    break;
+                }
+                const nestedTable = next.querySelector('table');
+                if (nestedTable) {
+                    balanceSheetTable = nestedTable;
+                    break;
+                }
+                next = next.nextElementSibling;
+            }
+        }
+    }
+
+    if (!balanceSheetTable) return null;
+
+    // Clone the table to avoid side effects
+    const clonedTable = balanceSheetTable.cloneNode(true);
+
+    // Clean up the table (remove excessive styling attributes but keep internal structure)
+    clonedTable.style.width = '100%';
+    clonedTable.style.borderCollapse = 'collapse';
+    clonedTable.className = 'extracted-balance-sheet';
+
+    // Add CSS classes for our center-alignment and highlight
+    const rows = clonedTable.querySelectorAll('tr');
+    rows.forEach(tr => {
+        const cells = tr.querySelectorAll('td, th');
+        cells.forEach((cell, idx) => {
+            if (idx > 0) {
+                // This is a value column - align center
+                cell.style.textAlign = 'center';
+                cell.style.padding = '8px';
+
+                // Highlight negative values
+                if (cell.textContent.includes('(') || cell.textContent.includes('-')) {
+                    cell.style.color = '#ef4444'; // var(--error)
+                }
+            } else {
+                // This is the label column
+                cell.style.padding = '8px';
+                cell.style.fontWeight = '500';
+                cell.style.textAlign = 'left';
+            }
+        });
+    });
+
+    return {
+        html: clonedTable.outerHTML,
+        date: filingDate
+    };
+}
+
+/**
+ * Creates the Company Performance section with the extracted HTML table.
+ */
+export function createPerformanceSection(performanceData) {
+    const container = document.createElement('div');
+    container.className = 'performance-section';
+
+    if (!performanceData || performanceData.length === 0) {
+        container.innerHTML = '<p class="no-data">Financial data not available or could not be parsed.</p>';
+        return container;
+    }
+
+    // Use the first successful table found
+    const data = performanceData.find(d => d && d.html);
+    if (!data) {
+        container.innerHTML = '<p class="no-data">No structured balance sheet data found in recent filings.</p>';
+        return container;
+    }
+
+    container.innerHTML = `
+        <div class="table-container extracted-table-wrapper">
+            ${data.html}
+        </div>
+        <p class="performance-note">* Full balance sheet table extracted from official account filings.</p>
+    `;
+
+    return container;
+}
