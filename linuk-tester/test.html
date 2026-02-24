@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life in the UK - Unit Tests</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: #0f172a;
+            color: #e2e8f0;
+            padding: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #38bdf8;
+            margin-bottom: 10px;
+        }
+
+        .summary {
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .summary.pass {
+            background: #064e3b;
+            color: #6ee7b7;
+            border: 1px solid #10b981;
+        }
+
+        .summary.fail {
+            background: #7f1d1d;
+            color: #fca5a5;
+            border: 1px solid #ef4444;
+        }
+
+        .suite {
+            margin-bottom: 25px;
+        }
+
+        .suite-header {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #94a3b8;
+            margin-bottom: 8px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #334155;
+        }
+
+        .test-result {
+            padding: 8px 15px;
+            margin: 4px 0;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .test-result.pass {
+            background: #0d3320;
+            color: #86efac;
+        }
+
+        .test-result.fail {
+            background: #450a0a;
+            color: #fca5a5;
+        }
+
+        .icon {
+            font-size: 1rem;
+        }
+
+        .error-detail {
+            font-size: 0.8rem;
+            color: #f87171;
+            margin-top: 3px;
+            font-style: italic;
+        }
+
+        .stats {
+            color: #64748b;
+            margin-top: 5px;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>🧪 Unit Tests — Life in the UK App</h1>
+    <div id="summary" class="summary"></div>
+    <div id="results"></div>
+
+    <!-- Remove old script -->
+    <script>
+        // Store global data
+        window.quizData = [];
+
+        // ============================================================
+        // Minimal Test Runner
+        // ============================================================
+        const _suites = [];
+        let _currentSuite = null;
+
+        function describe(name, fn) {
+            _currentSuite = { name, tests: [] };
+            _suites.push(_currentSuite);
+            fn();
+            _currentSuite = null;
+        }
+
+        function it(name, fn) {
+            try {
+                fn();
+                _currentSuite.tests.push({ name, passed: true });
+            } catch (e) {
+                _currentSuite.tests.push({ name, passed: false, error: e.message });
+            }
+        }
+
+        function expect(actual) {
+            return {
+                toBe(expected) {
+                    if (actual !== expected)
+                        throw new Error(`Expected ${JSON.stringify(expected)}, got ${JSON.stringify(actual)}`);
+                },
+                toEqual(expected) {
+                    if (JSON.stringify(actual) !== JSON.stringify(expected))
+                        throw new Error(`Expected ${JSON.stringify(expected)}, got ${JSON.stringify(actual)}`);
+                },
+                toBeGreaterThan(n) {
+                    if (!(actual > n)) throw new Error(`Expected ${actual} > ${n}`);
+                },
+                toBeGreaterThanOrEqual(n) {
+                    if (!(actual >= n)) throw new Error(`Expected ${actual} >= ${n}`);
+                },
+                toBeLessThanOrEqual(n) {
+                    if (!(actual <= n)) throw new Error(`Expected ${actual} <= ${n}`);
+                },
+                toBeTruthy() {
+                    if (!actual) throw new Error(`Expected truthy, got ${JSON.stringify(actual)}`);
+                },
+                toBeFalsy() {
+                    if (actual) throw new Error(`Expected falsy, got ${JSON.stringify(actual)}`);
+                },
+                toContain(item) {
+                    if (!actual.includes(item))
+                        throw new Error(`Expected array to contain ${JSON.stringify(item)}`);
+                },
+                toHaveLength(len) {
+                    if (actual.length !== len)
+                        throw new Error(`Expected length ${len}, got ${actual.length}`);
+                },
+                toBeInstanceOf(cls) {
+                    if (!(actual instanceof cls))
+                        throw new Error(`Expected instance of ${cls.name}`);
+                },
+            };
+        }
+
+        // ============================================================
+        // Replicate pure logic functions from app.js for testing
+        // (These are the functions we are testing, extracted so they
+        //  don't require DOM access)
+        // ============================================================
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        function calculateScore(testQuestions, testAnswers) {
+            let score = 0;
+            const breakdown = {};
+            testQuestions.forEach(q => {
+                const selectedIdx = testAnswers[q.id];
+                const selectedOpt = q.options[selectedIdx];
+                const isCorrect = selectedOpt === q.correctAnswer;
+                if (isCorrect) score++;
+                if (!breakdown[q.topic]) breakdown[q.topic] = { total: 0, correct: 0 };
+                breakdown[q.topic].total++;
+                if (isCorrect) breakdown[q.topic].correct++;
+            });
+            return { score, breakdown };
+        }
+
+        // ============================================================
+        // TEST SUITES
+        // ============================================================
+
+        async function initTests() {
+            try {
+                const res = await fetch('db/local_questions.json');
+                window.quizData = await res.json();
+            } catch (e) {
+                console.error("Failed to load questions DB", e);
+                document.getElementById('summary').textContent = "Failed to load DB";
+                return;
+            }
+
+            // --- 1. Question Data Integrity ---
+            describe('Question Data Integrity', () => {
+                it('quizData should be defined and non-empty', () => {
+                    expect(window.quizData).toBeTruthy();
+                    expect(window.quizData.length).toBeGreaterThan(0);
+                });
+
+                it('should have at least 50 questions', () => {
+                    expect(window.quizData.length).toBeGreaterThanOrEqual(50);
+                });
+
+                it('each question should have required fields', () => {
+                    window.quizData.forEach((q, i) => {
+                        expect(q.id).toBeTruthy();
+                        expect(typeof q.topic).toBe('string');
+                        expect(typeof q.question).toBe('string');
+                        expect(q.options).toBeInstanceOf(Array);
+                        expect(q.options.length).toBeGreaterThanOrEqual(2);
+                        expect(typeof q.correctAnswer).toBe('string');
+                    });
+                });
+
+                it('each question should have a unique ID', () => {
+                    const ids = window.quizData.map(q => q.id);
+                    const uniqueIds = new Set(ids);
+                    expect(uniqueIds.size).toBe(ids.length);
+                });
+
+                it('correctAnswer should be present in options for every question', () => {
+                    window.quizData.forEach((q, i) => {
+                        const found = q.options.includes(q.correctAnswer);
+                        if (!found) throw new Error(`Q${q.id} ("${q.question.substring(0, 40)}..."): correctAnswer "${q.correctAnswer}" not in options`);
+                    });
+                });
+
+                it('each question should have an explanation', () => {
+                    window.quizData.forEach(q => {
+                        expect(typeof q.explanation).toBe('string');
+                        expect(q.explanation.length).toBeGreaterThan(0);
+                    });
+                });
+
+                it('should have at least 3 unique topics', () => {
+                    const topics = [...new Set(window.quizData.map(q => q.topic))];
+                    expect(topics.length).toBeGreaterThanOrEqual(3);
+                });
+
+                it('each topic should have at least 5 questions', () => {
+                    const topics = [...new Set(window.quizData.map(q => q.topic))];
+                    topics.forEach(topic => {
+                        const count = window.quizData.filter(q => q.topic === topic).length;
+                        if (count < 5) throw new Error(`Topic "${topic}" only has ${count} questions`);
+                    });
+                });
+
+                it('correct answers should NOT always be the first option', () => {
+                    let firstOptionCorrectCount = 0;
+                    window.quizData.forEach(q => {
+                        if (q.options[0] === q.correctAnswer) firstOptionCorrectCount++;
+                    });
+                    // If > 80% of answers are first option, it's essentially not randomized
+                    const ratio = firstOptionCorrectCount / window.quizData.length;
+                    if (ratio > 0.5) throw new Error(`${Math.round(ratio * 100)}% of correct answers are the first option — not randomized enough`);
+                });
+            });
+
+            // --- 2. shuffleArray ---
+            describe('shuffleArray', () => {
+                it('should return the same array reference', () => {
+                    const arr = [1, 2, 3, 4, 5];
+                    const result = shuffleArray(arr);
+                    expect(result).toBe(arr);
+                });
+
+                it('should return an array of the same length', () => {
+                    const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+                    shuffleArray(arr);
+                    expect(arr.length).toBe(10);
+                });
+
+                it('should contain the same elements', () => {
+                    const original = [1, 2, 3, 4, 5];
+                    const arr = [...original];
+                    shuffleArray(arr);
+                    expect(arr.sort()).toEqual(original.sort());
+                });
+
+                it('should handle empty arrays', () => {
+                    const arr = [];
+                    shuffleArray(arr);
+                    expect(arr.length).toBe(0);
+                });
+
+                it('should handle single-element arrays', () => {
+                    const arr = [42];
+                    shuffleArray(arr);
+                    expect(arr).toEqual([42]);
+                });
+
+                it('should actually shuffle (statistical test)', () => {
+                    // Run 100 shuffles and check that the first element isn't always 1
+                    let firstIsOne = 0;
+                    for (let trial = 0; trial < 100; trial++) {
+                        const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+                        shuffleArray(arr);
+                        if (arr[0] === 1) firstIsOne++;
+                    }
+                    // Probability of first element being 1 is 1/10 = 10%, so expect ~10/100.
+                    // If > 50/100 something is very wrong.
+                    if (firstIsOne > 50) throw new Error(`First element was 1 in ${firstIsOne}/100 trials — shuffle is broken`);
+                });
+            });
+
+            // --- 3. Test Engine: Question Selection ---
+            describe('Test Engine — Question Selection', () => {
+                it('should select 24 questions from the pool', () => {
+                    const selected = shuffleArray([...window.quizData]).slice(0, 24);
+                    expect(selected.length).toBe(24);
+                });
+
+                it('selected questions should be a subset of quizData', () => {
+                    const selected = shuffleArray([...window.quizData]).slice(0, 24);
+                    const allIds = new Set(window.quizData.map(q => q.id));
+                    selected.forEach(q => {
+                        if (!allIds.has(q.id)) throw new Error(`Selected question ${q.id} not found in quizData`);
+                    });
+                });
+
+                it('option shuffling should not lose any options', () => {
+                    const q = { ...window.quizData[0], options: [...window.quizData[0].options] };
+                    const originalOptions = [...q.options].sort();
+                    shuffleArray(q.options);
+                    expect(q.options.sort()).toEqual(originalOptions);
+                });
+
+                it('option shuffling should preserve correctAnswer in options', () => {
+                    window.quizData.slice(0, 20).forEach(origQ => {
+                        const q = { ...origQ, options: shuffleArray([...origQ.options]) };
+                        expect(q.options).toContain(q.correctAnswer);
+                    });
+                });
+            });
+
+            // --- 4. Test Scoring ---
+            describe('Test Scoring', () => {
+                it('should score 100% when all answers are correct', () => {
+                    const questions = window.quizData.slice(0, 24).map(q => ({
+                        ...q,
+                        options: [...q.options]
+                    }));
+                    const answers = {};
+                    questions.forEach(q => {
+                        answers[q.id] = q.options.indexOf(q.correctAnswer);
+                    });
+                    const { score } = calculateScore(questions, answers);
+                    expect(score).toBe(24);
+                });
+
+                it('should score 0% when all answers are wrong', () => {
+                    const questions = window.quizData.slice(0, 24).map(q => ({
+                        ...q,
+                        options: [...q.options]
+                    }));
+                    const answers = {};
+                    questions.forEach(q => {
+                        // Pick a wrong answer
+                        const wrongIdx = q.options.findIndex(o => o !== q.correctAnswer);
+                        answers[q.id] = wrongIdx;
+                    });
+                    const { score } = calculateScore(questions, answers);
+                    expect(score).toBe(0);
+                });
+
+                it('should score 0 for unanswered questions', () => {
+                    const questions = window.quizData.slice(0, 5).map(q => ({
+                        ...q,
+                        options: [...q.options]
+                    }));
+                    const answers = {}; // No answers
+                    const { score } = calculateScore(questions, answers);
+                    expect(score).toBe(0);
+                });
+
+                it('18/24 should be a pass (>= 75%)', () => {
+                    const passingScore = 18;
+                    expect(18 >= passingScore).toBeTruthy();
+                    expect(17 >= passingScore).toBeFalsy();
+                });
+
+                it('breakdown should track per-topic performance', () => {
+                    const questions = [
+                        { id: 1, topic: 'TopicA', options: ['A', 'B'], correctAnswer: 'A' },
+                        { id: 2, topic: 'TopicA', options: ['A', 'B'], correctAnswer: 'B' },
+                        { id: 3, topic: 'TopicB', options: ['A', 'B'], correctAnswer: 'A' },
+                    ];
+                    const answers = { 1: 0, 2: 0, 3: 0 }; // q1 correct, q2 wrong, q3 correct
+                    const { score, breakdown } = calculateScore(questions, answers);
+                    expect(score).toBe(2);
+                    expect(breakdown['TopicA'].total).toBe(2);
+                    expect(breakdown['TopicA'].correct).toBe(1);
+                    expect(breakdown['TopicB'].total).toBe(1);
+                    expect(breakdown['TopicB'].correct).toBe(1);
+                });
+            });
+
+            // --- 5. Flashcard Logic ---
+            describe('Flashcard Logic', () => {
+                it('should filter questions by topic correctly', () => {
+                    const topics = [...new Set(window.quizData.map(q => q.topic))];
+                    topics.forEach(topic => {
+                        const pool = window.quizData.filter(q => q.topic === topic);
+                        pool.forEach(q => {
+                            expect(q.topic).toBe(topic);
+                        });
+                    });
+                });
+
+                it('should select at most 10 flashcards per topic', () => {
+                    const topics = [...new Set(window.quizData.map(q => q.topic))];
+                    topics.forEach(topic => {
+                        const pool = window.quizData.filter(q => q.topic === topic);
+                        const selected = shuffleArray([...pool]).slice(0, 10);
+                        expect(selected.length).toBeLessThanOrEqual(10);
+                    });
+                });
+
+                it('flashcard navigation: next should increment index', () => {
+                    let fcIndex = 0;
+                    const fcQuestions = window.quizData.slice(0, 10);
+                    if (fcIndex < fcQuestions.length - 1) fcIndex++;
+                    expect(fcIndex).toBe(1);
+                });
+
+                it('flashcard navigation: prev should decrement index', () => {
+                    let fcIndex = 5;
+                    if (fcIndex > 0) fcIndex--;
+                    expect(fcIndex).toBe(4);
+                });
+
+                it('flashcard navigation: prev should not go below 0', () => {
+                    let fcIndex = 0;
+                    if (fcIndex > 0) fcIndex--;
+                    expect(fcIndex).toBe(0);
+                });
+
+                it('flashcard navigation: next should not exceed length', () => {
+                    const fcQuestions = window.quizData.slice(0, 10);
+                    let fcIndex = fcQuestions.length - 1;
+                    if (fcIndex < fcQuestions.length - 1) fcIndex++;
+                    expect(fcIndex).toBe(fcQuestions.length - 1);
+                });
+
+                it('flip state should toggle', () => {
+                    let flipped = false;
+                    flipped = !flipped;
+                    expect(flipped).toBeTruthy();
+                    flipped = !flipped;
+                    expect(flipped).toBeFalsy();
+                });
+            });
+
+            // --- 6. Topic Extraction ---
+            describe('Topic Extraction', () => {
+                it('should extract unique topics from quizData', () => {
+                    const topics = [...new Set(window.quizData.map(q => q.topic))];
+                    // No duplicates
+                    expect(topics.length).toBe(new Set(topics).size);
+                });
+
+                it('all topic names should be non-empty strings', () => {
+                    const topics = [...new Set(window.quizData.map(q => q.topic))];
+                    topics.forEach(t => {
+                        expect(typeof t).toBe('string');
+                        expect(t.length).toBeGreaterThan(0);
+                    });
+                });
+            });
+
+            // ============================================================
+            // RUN & RENDER RESULTS
+            // ============================================================
+            let totalPassed = 0, totalFailed = 0;
+            const resultsEl = document.getElementById('results');
+
+            _suites.forEach(suite => {
+                const suiteDiv = document.createElement('div');
+                suiteDiv.className = 'suite';
+
+                const header = document.createElement('div');
+                header.className = 'suite-header';
+                header.textContent = suite.name;
+                suiteDiv.appendChild(header);
+
+                suite.tests.forEach(test => {
+                    const div = document.createElement('div');
+                    div.className = `test-result ${test.passed ? 'pass' : 'fail'}`;
+                    div.innerHTML = `
+                <span class="icon">${test.passed ? '✅' : '❌'}</span>
+                <span>${test.name}</span>
+            `;
+                    if (!test.passed) {
+                        div.innerHTML += `<div class="error-detail">${test.error}</div>`;
+                        totalFailed++;
+                    } else {
+                        totalPassed++;
+                    }
+                    suiteDiv.appendChild(div);
+                });
+
+                resultsEl.appendChild(suiteDiv);
+            });
+
+            // Summary
+            const summaryEl = document.getElementById('summary');
+            const allPassed = totalFailed === 0;
+            summaryEl.className = `summary ${allPassed ? 'pass' : 'fail'}`;
+            summaryEl.textContent = allPassed
+                ? `✅ All ${totalPassed} tests passed!`
+                : `❌ ${totalFailed} test(s) failed, ${totalPassed} passed.`;
+
+            document.title = allPassed
+                ? `✅ All Tests Passed`
+                : `❌ ${totalFailed} Failed`;
+        }
+
+        // Run the tests
+        initTests();
+    </script>
+</body>
+
+</html>

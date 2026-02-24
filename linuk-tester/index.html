@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Life in the UK Test</title>
     <meta name="description" content="Study for the Life in the UK Test with Flashcards and Mock Exams">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css?v=6">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#4f46e5">
     <link rel="apple-touch-icon" href="assets/icon-192.png">
 </head>
+
 <body>
     <div id="app">
         <!-- Navigation -->
@@ -57,13 +59,14 @@
                 </div>
                 <div class="flashcard-container" onclick="flipCard()">
                     <div class="flashcard">
-                        <div class="front">
+                        <div class="fc-front" id="fc-front">
                             <p id="fc-question">Question goes here?</p>
-                            <span class="hint">Tap to flip</span>
+                            <span class="hint">Tap to reveal answer</span>
                         </div>
-                        <div class="back">
+                        <div class="fc-back" id="fc-back" style="display:none;">
                             <p id="fc-answer">Answer goes here</p>
                             <div id="fc-explanation" class="explanation"></div>
+                            <span class="hint">Tap to see question</span>
                         </div>
                     </div>
                 </div>
@@ -111,14 +114,24 @@
     </div>
 
     <!-- Scripts -->
-    <script src="js/questions.js"></script>
-    <script src="js/app.js"></script>
+    <script src="js/app.js?v=6"></script>
     <script>
         if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('sw.js')
-                .then(reg => console.log('Service Worker registered', reg))
-                .catch(err => console.error('Service Worker failed', err));
+            // Unregister all old service workers and clear caches, then re-register fresh
+            navigator.serviceWorker.getRegistrations().then(registrations => {
+                const unregisterPromises = registrations.map(r => r.unregister());
+                return Promise.all(unregisterPromises);
+            }).then(() => {
+                return caches.keys();
+            }).then(keys => {
+                return Promise.all(keys.map(key => caches.delete(key)));
+            }).then(() => {
+                return navigator.serviceWorker.register('sw.js');
+            }).then(reg => {
+                console.log('Service Worker re-registered fresh', reg);
+            }).catch(err => console.error('Service Worker setup failed', err));
         }
     </script>
 </body>
+
 </html>

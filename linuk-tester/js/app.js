@@ -17,18 +17,44 @@ const state = {
 
 // DOM Elements
 const screens = {
-    home: document.getElementById('home-screen'),
-    topicSelection: document.getElementById('topic-selection-screen'),
-    flashcard: document.getElementById('flashcard-screen'),
-    test: document.getElementById('test-screen'),
-    results: document.getElementById('results-screen'),
+    'home': document.getElementById('home-screen'),
+    'topic-selection': document.getElementById('topic-selection-screen'),
+    'flashcard': document.getElementById('flashcard-screen'),
+    'test': document.getElementById('test-screen'),
+    'results': document.getElementById('results-screen'),
 };
 
 // Initialization
-document.addEventListener('DOMContentLoaded', () => {
-    // initHome(); // Home screen is active by default in HTML
+document.addEventListener('DOMContentLoaded', async () => {
+    await loadDatabase();
     console.log("App initialized");
 });
+
+async function loadDatabase() {
+    try {
+        const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+        const dbUrl = isStandalone ? 'db/local_questions.json' : 'db/master_questions.json';
+
+        console.log(`Loading database from: ${dbUrl}`);
+
+        // Add cache busting for master DB to ensure it's always fresh if not standalone
+        const fetchUrl = isStandalone ? dbUrl : `${dbUrl}?t=${new Date().getTime()}`;
+
+        const response = await fetch(fetchUrl);
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+
+        window.quizData = await response.json();
+        console.log(`Loaded ${window.quizData.length} questions successfully.`);
+
+        // Re-render topic list if on topic selection screen
+        if (state.currentScreen === 'topic-selection') {
+            renderTopicList();
+        }
+    } catch (error) {
+        console.error("Failed to load questions database:", error);
+        alert("Failed to load questions. Please check your connection or refresh the page.");
+    }
+}
 
 function showScreen(screenName) {
     // Hide all screens
@@ -116,21 +142,26 @@ function updateFlashcardUI() {
     document.getElementById('flashcard-topic-title').textContent = state.fcTopic;
     document.getElementById('flashcard-counter').textContent = `${state.fcIndex + 1} / ${state.fcQuestions.length}`;
 
-    const card = document.querySelector('.flashcard');
-    card.classList.remove('flipped');
+    // Always show front when navigating to a new card
+    document.getElementById('fc-front').style.display = 'flex';
+    document.getElementById('fc-back').style.display = 'none';
     state.fcFlipped = false;
 
-    // Reset content with small delay for animation if needed, but immediate is fine
-    setTimeout(() => {
-        document.getElementById('fc-question').textContent = q.question;
-        document.getElementById('fc-answer').textContent = q.correctAnswer;
-        document.getElementById('fc-explanation').textContent = q.explanation || "";
-    }, 200);
+    document.getElementById('fc-question').textContent = q.question;
+    document.getElementById('fc-answer').textContent = q.correctAnswer;
+    document.getElementById('fc-explanation').textContent = q.explanation || "";
 }
 
 function flipCard() {
-    const card = document.querySelector('.flashcard');
-    card.classList.toggle('flipped');
+    const front = document.getElementById('fc-front');
+    const back = document.getElementById('fc-back');
+    if (state.fcFlipped) {
+        front.style.display = 'flex';
+        back.style.display = 'none';
+    } else {
+        front.style.display = 'none';
+        back.style.display = 'flex';
+    }
     state.fcFlipped = !state.fcFlipped;
 }
 
@@ -163,7 +194,15 @@ function startTest() {
         return;
     }
 
-    state.testQuestions = shuffleArray([...window.quizData]).slice(0, 24);
+    // Select random questions
+    const selectedQuestions = shuffleArray([...window.quizData]).slice(0, 24);
+
+    // Deep clone and shuffle options for each question so original data isn't modified
+    state.testQuestions = selectedQuestions.map(q => ({
+        ...q,
+        options: shuffleArray([...q.options])
+    }));
+
     state.testAnswers = {};
     state.testIndex = 0;
     state.timeRemaining = 45 * 60;
