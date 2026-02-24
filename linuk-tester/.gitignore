@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+venv/
+ENV/
+
+# Database raw files
+db/*.json
+!db/index.json
+
+# If questions.json is generated, don't track it
+db/questions.json

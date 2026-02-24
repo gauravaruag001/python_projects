@@ -30,33 +30,80 @@ document.addEventListener('DOMContentLoaded', async () => {
     console.log("App initialized");
 });
 
+const SECRET_KEY_STR = "linuk-secret-key-123456789012345";
+let decryptionKey = null;
+
+async function getDecryptionKey() {
+    if (decryptionKey) return decryptionKey;
+    const encoder = new TextEncoder();
+    const keyData = encoder.encode(SECRET_KEY_STR);
+    decryptionKey = await crypto.subtle.importKey(
+        "raw", keyData, { name: "AES-GCM" }, false, ["decrypt"]
+    );
+    return decryptionKey;
+}
+
+async function fetchAndDecryptChunk(filename) {
+    const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+    const url = isStandalone ? `db/chunks/${filename}` : `db/chunks/${filename}?t=${new Date().getTime()}`;
+
+    const response = await fetch(url);
+    if (!response.ok) throw new Error(`HTTP error fetching chunk: ${response.status}`);
+    const b64Str = await response.text();
+
+    // Decode base64
+    const binaryStr = atob(b64Str);
+    const rawData = new Uint8Array(binaryStr.length);
+    for (let i = 0; i < binaryStr.length; i++) {
+        rawData[i] = binaryStr.charCodeAt(i);
+    }
+
+    const iv = rawData.slice(0, 12);
+    const ciphertext = rawData.slice(12);
+
+    const key = await getDecryptionKey();
+    const decryptedBuffer = await crypto.subtle.decrypt(
+        { name: "AES-GCM", iv: iv },
+        key,
+        ciphertext
+    );
+
+    const decryptedText = new TextDecoder().decode(decryptedBuffer);
+    return JSON.parse(decryptedText);
+}
+
 async function loadDatabase() {
     try {
         const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
-        const dbUrl = isStandalone ? 'db/local_questions.json' : 'db/master_questions.json';
+        const dbUrl = 'db/index.json';
 
-        console.log(`Loading database from: ${dbUrl}`);
+        console.log(`Loading index from: ${dbUrl}`);
 
-        // Add cache busting for master DB to ensure it's always fresh if not standalone
         const fetchUrl = isStandalone ? dbUrl : `${dbUrl}?t=${new Date().getTime()}`;
 
         const response = await fetch(fetchUrl);
         if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
 
-        window.quizData = await response.json();
-        console.log(`Loaded ${window.quizData.length} questions successfully.`);
+        window.quizIndex = await response.json();
+        console.log(`Loaded index successfully with ${window.quizIndex.topics.length} topics and ${window.quizIndex.tests.length} tests.`);
 
         // Re-render topic list if on topic selection screen
         if (state.currentScreen === 'topic-selection') {
             renderTopicList();
         }
     } catch (error) {
-        console.error("Failed to load questions database:", error);
-        alert("Failed to load questions. Please check your connection or refresh the page.");
+        console.error("Failed to load questions index:", error);
+        alert("Failed to securely load questions index. Please check your connection or refresh the page.");
     }
 }
 
 function showScreen(screenName) {
+    if (screenName === 'home' || screenName === 'topic-selection') {
+        // Aggressively clear unencrypted questions from memory when leaving a session
+        state.fcQuestions = [];
+        state.testQuestions = [];
+    }
+
     // Hide all screens
     Object.values(screens).forEach(el => {
         el.classList.remove('active', 'hidden');
@@ -92,47 +139,51 @@ function renderTopicList() {
     const topicList = document.getElementById('topic-list');
     topicList.innerHTML = '';
 
-    // Extract unique topics
-    if (!window.quizData || window.quizData.length === 0) {
-        console.error("Quiz data not loaded!");
-        topicList.innerHTML = '<p>Error loading questions. Please refresh the page.</p>';
+    if (!window.quizIndex || !window.quizIndex.topics) {
+        console.error("Quiz index not loaded!");
+        topicList.innerHTML = '<p>Error loading index. Please refresh the page.</p>';
         return;
     }
-    const topics = [...new Set(window.quizData.map(q => q.topic))];
-    console.log(`Rendered topics: ${topics.join(', ')}`);
+
+    const topics = window.quizIndex.topics;
+    console.log(`Rendered topics: ${topics.map(t => t.name).join(', ')}`);
 
     topics.forEach(topic => {
         const btn = document.createElement('div');
         btn.className = 'topic-btn card';
         btn.innerHTML = `
-            <strong>${topic}</strong>
-            <br><span style="font-size:0.8em; color:#666">${window.quizData.filter(q => q.topic === topic).length} questions</span>
+            <strong>${topic.name}</strong>
+            <br><span style="font-size:0.8em; color:#666">${topic.count} questions</span>
         `;
         btn.onclick = () => startFlashcards(topic);
         topicList.appendChild(btn);
     });
 }
 
-function startFlashcards(topic) {
+async function startFlashcards(topicObj) {
     state.mode = 'flashcards';
-    state.fcTopic = topic;
-    console.log(`Starting flashcards for topic: ${topic}`);
+    state.fcTopic = topicObj.name;
+    console.log(`Starting flashcards for topic: ${topicObj.name}`);
 
-    // Get all cards for topic and shuffle, take 10
-    const pool = window.quizData.filter(q => q.topic === topic);
+    try {
+        const pool = await fetchAndDecryptChunk(topicObj.file);
 
-    if (pool.length === 0) {
-        console.error(`No questions found for topic: ${topic}`);
-        alert("No questions available for this topic.");
-        return;
+        if (pool.length === 0) {
+            console.error(`No questions found for topic: ${topicObj.name}`);
+            alert("No questions available for this topic.");
+            return;
+        }
+
+        state.fcQuestions = shuffleArray([...pool]).slice(0, 10);
+        state.fcIndex = 0;
+        state.fcFlipped = false;
+
+        updateFlashcardUI();
+        showScreen('flashcard');
+    } catch (err) {
+        console.error("Decryption failed:", err);
+        alert("Failed to securely decrypt the questions.");
     }
-
-    state.fcQuestions = shuffleArray([...pool]).slice(0, 10);
-    state.fcIndex = 0;
-    state.fcFlipped = false;
-
-    updateFlashcardUI();
-    showScreen('flashcard');
 }
 
 function updateFlashcardUI() {
@@ -185,31 +236,38 @@ window.prevCard = prevCard;
 
 // --- Feature: Test Engine ---
 
-function startTest() {
+async function startTest() {
     state.mode = 'test';
-    // Select 24 random questions from the ENTIRE pool
-    // Ensure we have enough questions
-    if (!window.quizData || window.quizData.length === 0) {
-        alert("No questions loaded!");
+
+    if (!window.quizIndex || !window.quizIndex.tests || window.quizIndex.tests.length === 0) {
+        alert("No tests available in index!");
         return;
     }
 
-    // Select random questions
-    const selectedQuestions = shuffleArray([...window.quizData]).slice(0, 24);
+    // Select a random pre-generated test chunk
+    const randomTest = window.quizIndex.tests[Math.floor(Math.random() * window.quizIndex.tests.length)];
+    console.log(`Fetching encrypted test chunk: ${randomTest.file}`);
 
-    // Deep clone and shuffle options for each question so original data isn't modified
-    state.testQuestions = selectedQuestions.map(q => ({
-        ...q,
-        options: shuffleArray([...q.options])
-    }));
+    try {
+        const selectedQuestions = await fetchAndDecryptChunk(randomTest.file);
 
-    state.testAnswers = {};
-    state.testIndex = 0;
-    state.timeRemaining = 45 * 60;
+        // Deep clone and shuffle options for each question so original data isn't modified
+        state.testQuestions = selectedQuestions.map(q => ({
+            ...q,
+            options: shuffleArray([...q.options])
+        }));
 
-    startTimer();
-    updateTestUI();
-    showScreen('test');
+        state.testAnswers = {};
+        state.testIndex = 0;
+        state.timeRemaining = 45 * 60;
+
+        startTimer();
+        updateTestUI();
+        showScreen('test');
+    } catch (err) {
+        console.error("Test decryption failed:", err);
+        alert("Failed to securely decrypt the test.");
+    }
 }
 
 function startTimer() {

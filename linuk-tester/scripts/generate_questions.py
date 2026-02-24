@@ -14,9 +14,9 @@ import pypdf
 
 API_KEY = os.environ.get("GEMINI_API_KEY", "")
 PDF_PATH = r"c:\Users\44743\Desktop\LinUK - Study Materials.pdf"
-OUTPUT_FILE = r"db\questions.json"
+OUTPUT_FILE = r"db\local_questions.json"
 QUESTIONS_PER_BATCH = 20
-TOTAL_TARGET_QUESTIONS = 1000
+TOTAL_TARGET_NEW_QUESTIONS = 120
 
 # =====================================================================
 
@@ -95,15 +95,31 @@ def main():
     chunk_size = 20000
     chunks = [text_content[i:i+chunk_size] for i in range(0, len(text_content), chunk_size)]
     
+    # Load existing database to append to it
     all_questions = []
     current_id = 1000
     
-    print(f"Starting generation of {TOTAL_TARGET_QUESTIONS} questions...")
+    if os.path.exists(OUTPUT_FILE):
+        try:
+            with open(OUTPUT_FILE, 'r', encoding='utf-8') as f:
+                all_questions = json.load(f)
+            print(f"Loaded {len(all_questions)} existing questions from {OUTPUT_FILE}")
+            
+            # Find the highest existing ID to continue from there
+            if all_questions:
+                current_id = max(q.get("id", 1000) for q in all_questions) + 1
+        except Exception as e:
+            print(f"Error reading existing database: {e}")
+            
+    initial_count = len(all_questions)
+    target_total_count = initial_count + TOTAL_TARGET_NEW_QUESTIONS
+    
+    print(f"Starting generation of {TOTAL_TARGET_NEW_QUESTIONS} new questions...")
     
     chunk_idx = 0
-    while len(all_questions) < TOTAL_TARGET_QUESTIONS and chunk_idx < len(chunks):
+    while len(all_questions) < target_total_count and chunk_idx < len(chunks):
         # Determine how many we need in this batch
-        remaining = TOTAL_TARGET_QUESTIONS - len(all_questions)
+        remaining = target_total_count - len(all_questions)
         batch_size = min(QUESTIONS_PER_BATCH, remaining)
         
         batch = generate_questions_batch(client, chunks[chunk_idx], current_id, batch_size)
@@ -111,7 +127,7 @@ def main():
         if batch:
             all_questions.extend(batch)
             current_id += len(batch)
-            print(f"Successfully generated {len(batch)} questions. Total so far: {len(all_questions)}")
+            print(f"Successfully generated {len(batch)} new questions. Total in DB so far: {len(all_questions)}")
             
             # Save intermediate progress
             with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
@@ -123,7 +139,8 @@ def main():
         # Sleep to avoid rate limits
         time.sleep(3)
         
-    print(f"\nDone! Successfully generated {len(all_questions)} questions.")
+    print(f"\nDone! Successfully generated {len(all_questions) - initial_count} new questions.")
+    print(f"Total database size: {len(all_questions)} questions.")
     print(f"Data saved to {OUTPUT_FILE}")
 
 if __name__ == "__main__":

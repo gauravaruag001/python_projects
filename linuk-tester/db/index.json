@@ -1,0 +1,71 @@
+{
+    "topics": [
+        {
+            "name": "Values and Principles",
+            "file": "topic_values_and_principles.enc",
+            "count": 10
+        },
+        {
+            "name": "What is the UK?",
+            "file": "topic_what_is_the_uk.enc",
+            "count": 13
+        },
+        {
+            "name": "History",
+            "file": "topic_history.enc",
+            "count": 33
+        },
+        {
+            "name": "Modern Society",
+            "file": "topic_modern_society.enc",
+            "count": 13
+        },
+        {
+            "name": "Government & Law",
+            "file": "topic_government__law.enc",
+            "count": 10
+        }
+    ],
+    "tests": [
+        {
+            "id": 1,
+            "file": "test_1.enc"
+        },
+        {
+            "id": 2,
+            "file": "test_2.enc"
+        },
+        {
+            "id": 3,
+            "file": "test_3.enc"
+        },
+        {
+            "id": 4,
+            "file": "test_4.enc"
+        },
+        {
+            "id": 5,
+            "file": "test_5.enc"
+        },
+        {
+            "id": 6,
+            "file": "test_6.enc"
+        },
+        {
+            "id": 7,
+            "file": "test_7.enc"
+        },
+        {
+            "id": 8,
+            "file": "test_8.enc"
+        },
+        {
+            "id": 9,
+            "file": "test_9.enc"
+        },
+        {
+            "id": 10,
+            "file": "test_10.enc"
+        }
+    ]
+}
