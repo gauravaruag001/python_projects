@@ -39,6 +39,11 @@
                         <h3>Mock Test</h3>
                         <p>24 Questions • 45 Minutes</p>
                     </div>
+                    <div class="card action-card" onclick="showProgressDashboard()">
+                        <div class="icon">📈</div>
+                        <h3>Progress</h3>
+                        <p>Track your scores and daily activity.</p>
+                    </div>
                 </div>
             </section>
 
@@ -110,11 +115,44 @@
                 </div>
                 <button class="primary-btn" onclick="showScreen('home')">Back to Home</button>
             </section>
+
+            <!-- Progress Dashboard -->
+            <section id="progress-screen" class="screen hidden">
+                <div class="header-row">
+                    <h2>Your Progress</h2>
+                    <button class="back-btn" onclick="showScreen('home')">Back to Home</button>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="chart-wrapper card" style="position: relative; height: 300px; padding-bottom: 2rem;">
+                        <h3 style="margin-top: 0;">Activity Trend (30 Days)</h3>
+                        <div style="position: relative; height: 230px; width: 100%;">
+                            <canvas id="activityChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="chart-wrapper card" style="position: relative; height: 300px; padding-bottom: 2rem;">
+                        <h3 style="margin-top: 0;">Average Score Trend</h3>
+                        <div style="position: relative; height: 230px; width: 100%;">
+                            <canvas id="scoreChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="chart-wrapper card"
+                        style="grid-column: 1 / -1; position: relative; height: 400px; padding-bottom: 2rem;">
+                        <h3 style="margin-top: 0; text-align: center;">Topic Performance</h3>
+                        <div style="position: relative; height: 330px; width: 100%;">
+                            <canvas id="topicChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </main>
     </div>
 
     <!-- Scripts -->
-    <script src="js/app.js?v=6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/app.js?v=7"></script>
     <script>
         if ('serviceWorker' in navigator) {
             // Unregister all old service workers and clear caches, then re-register fresh

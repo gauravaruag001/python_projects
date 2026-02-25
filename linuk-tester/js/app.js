@@ -22,6 +22,7 @@ const screens = {
     'flashcard': document.getElementById('flashcard-screen'),
     'test': document.getElementById('test-screen'),
     'results': document.getElementById('results-screen'),
+    'progress-screen': document.getElementById('progress-screen'),
 };
 
 // Initialization
@@ -294,19 +295,37 @@ function finishTest() {
 
     let score = 0;
     const breakdown = {}; // { topic: { total, correct } }
+    const responses = [];
 
     state.testQuestions.forEach(q => {
         const selectedIdx = state.testAnswers[q.id];
-        const selectedOpt = q.options[selectedIdx];
+        const selectedOpt = selectedIdx !== undefined ? q.options[selectedIdx] : null;
         const isCorrect = selectedOpt === q.correctAnswer;
 
         if (isCorrect) score++;
+        responses.push({
+            topic: q.topic,
+            is_correct: isCorrect
+        });
 
         // Track topic performance
         if (!breakdown[q.topic]) breakdown[q.topic] = { total: 0, correct: 0 };
         breakdown[q.topic].total++;
         if (isCorrect) breakdown[q.topic].correct++;
     });
+
+    // Record progress asynchronously without blocking UI
+    if (responses.length > 0) {
+        fetch('/api/progress/record', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                score: (score / state.testQuestions.length) * 100,
+                total_questions: state.testQuestions.length,
+                responses: responses
+            })
+        }).catch(err => console.error("Failed to sync progress:", err));
+    }
 
     // Render Results
     const passingScore = 18; // 75% of 24
@@ -336,8 +355,92 @@ function finishTest() {
     showScreen('results');
 }
 
+// --- Feature: Progress Dashboard ---
+let activityChartInst = null;
+let scoreChartInst = null;
+let topicChartInst = null;
+
+async function showProgressDashboard() {
+    showScreen('progress-screen');
+
+    try {
+        const stats = await fetchFromAPI('/api/progress/stats');
+
+        // 1. Activity Chart (Bar)
+        const actCtx = document.getElementById('activityChart').getContext('2d');
+        if (activityChartInst) activityChartInst.destroy();
+        activityChartInst = new Chart(actCtx, {
+            type: 'bar',
+            data: {
+                labels: stats.activity_trend.map(d => d.date),
+                datasets: [{
+                    label: 'Questions Answered',
+                    data: stats.activity_trend.map(d => d.count),
+                    backgroundColor: '#4f46e5',
+                }]
+            },
+            options: { responsive: true, maintainAspectRatio: false }
+        });
+
+        // 2. Score Chart (Line)
+        const scoreCtx = document.getElementById('scoreChart').getContext('2d');
+        if (scoreChartInst) scoreChartInst.destroy();
+        scoreChartInst = new Chart(scoreCtx, {
+            type: 'line',
+            data: {
+                labels: stats.score_trend.map(d => d.date),
+                datasets: [{
+                    label: 'Average Score (%)',
+                    data: stats.score_trend.map(d => d.avg_score),
+                    borderColor: '#10b981',
+                    fill: false,
+                    tension: 0.1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: { y: { min: 0, max: 100 } }
+            }
+        });
+
+        // 3. Topic Chart (Radar)
+        const topicCtx = document.getElementById('topicChart').getContext('2d');
+        if (topicChartInst) topicChartInst.destroy();
+        topicChartInst = new Chart(topicCtx, {
+            type: 'radar',
+            data: {
+                labels: stats.topic_performance.map(t => t.topic),
+                datasets: [{
+                    label: 'Correct (%)',
+                    data: stats.topic_performance.map(t => t.percentage),
+                    backgroundColor: 'rgba(236, 72, 153, 0.2)',
+                    borderColor: '#ec4899',
+                    pointBackgroundColor: '#ec4899',
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: { r: { min: 0, max: 100 } },
+                plugins: {
+                    legend: { display: false }
+                }
+            }
+        });
+
+    } catch (err) {
+        console.error("Failed to load progress stats", err);
+        // Only alert if we're still on the progress screen
+        if (state.currentScreen === 'progress-screen') {
+            alert("Failed to load progress statistics. You may not have completed any tests yet.");
+        }
+    }
+}
+
 // Global Exports
 window.startTest = startTest;
 window.nextTestQuestion = nextTestQuestion;
 window.showScreen = showScreen;
 window.startFlashcards = startFlashcards;
+window.showProgressDashboard = showProgressDashboard;

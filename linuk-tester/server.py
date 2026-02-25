@@ -2,8 +2,11 @@ import json
 from fastapi import FastAPI, HTTPException
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
-from sqlalchemy import create_engine, Column, Integer, String, Text, func
+from sqlalchemy import create_engine, Column, Integer, String, Text, func, Float, Boolean, DateTime, ForeignKey
 from sqlalchemy.orm import declarative_base, sessionmaker
+from datetime import datetime, timedelta
+from pydantic import BaseModel
+from typing import List
 import random
 import os
 
@@ -33,6 +36,34 @@ class Question(Base):
             "correctAnswer": self.correct_answer,
             "explanation": self.explanation
         }
+
+class TestSession(Base):
+    __tablename__ = 'test_sessions'
+    id = Column(Integer, primary_key=True)
+    timestamp = Column(DateTime, default=datetime.utcnow)
+    score = Column(Float, nullable=False)
+    total_questions = Column(Integer, nullable=False)
+
+class UserResponse(Base):
+    __tablename__ = 'user_responses'
+    id = Column(Integer, primary_key=True)
+    session_id = Column(Integer, ForeignKey('test_sessions.id'), nullable=True)
+    topic = Column(String, nullable=False)
+    is_correct = Column(Boolean, nullable=False)
+    timestamp = Column(DateTime, default=datetime.utcnow)
+
+# Pydantic models for API
+class QuestionResponseItem(BaseModel):
+    topic: str
+    is_correct: bool
+
+class ProgressRecordPayload(BaseModel):
+    score: float
+    total_questions: int
+    responses: List[QuestionResponseItem]
+
+# Ensure database tables exist
+Base.metadata.create_all(bind=engine)
 
 # Mount static files (css, js)
 app.mount("/css", StaticFiles(directory="css"), name="css")
@@ -97,3 +128,89 @@ async def get_test(limit: int = 24):
     finally:
         session.close()
 
+@app.post("/api/progress/record")
+async def record_progress(payload: ProgressRecordPayload):
+    session = SessionLocal()
+    try:
+        new_session = TestSession(
+            score=payload.score,
+            total_questions=payload.total_questions,
+            timestamp=datetime.utcnow()
+        )
+        session.add(new_session)
+        session.flush() # Get the auto-incremented ID
+        
+        for resp in payload.responses:
+            new_resp = UserResponse(
+                session_id=new_session.id,
+                topic=resp.topic,
+                is_correct=resp.is_correct,
+                timestamp=datetime.utcnow()
+            )
+            session.add(new_resp)
+            
+        session.commit()
+        return {"status": "success", "session_id": new_session.id}
+    except Exception as e:
+        session.rollback()
+        raise HTTPException(status_code=500, detail=str(e))
+    finally:
+        session.close()
+
+@app.get("/api/progress/stats")
+async def get_progress_stats():
+    session = SessionLocal()
+    try:
+        thirty_days_ago = datetime.utcnow() - timedelta(days=30)
+        
+        # 1. Activity Trend: count of questions answered per day over the last 30 days
+        activity_query = session.query(
+            func.date(UserResponse.timestamp).label("day"),
+            func.count(UserResponse.id).label("count")
+        ).filter(UserResponse.timestamp >= thirty_days_ago)\
+         .group_by(func.date(UserResponse.timestamp))\
+         .order_by(func.date(UserResponse.timestamp)).all()
+         
+        activity_trend = [{"date": r.day, "count": r.count} for r in activity_query]
+        
+        # 2. Score Trend: average score per day
+        score_query = session.query(
+            func.date(TestSession.timestamp).label("day"),
+            func.avg(TestSession.score).label("avg_score")
+        ).filter(TestSession.timestamp >= thirty_days_ago)\
+         .group_by(func.date(TestSession.timestamp))\
+         .order_by(func.date(TestSession.timestamp)).all()
+         
+        score_trend = [{"date": r.day, "avg_score": round(r.avg_score, 2)} for r in score_query]
+        
+        # 3. Topic Performance: percentage correct per topic (all time)
+        topic_totals = session.query(
+            UserResponse.topic,
+            func.count(UserResponse.id).label("total")
+        ).group_by(UserResponse.topic).all()
+        
+        topic_corrects = session.query(
+            UserResponse.topic,
+            func.count(UserResponse.id).label("correct")
+        ).filter(UserResponse.is_correct == True)\
+         .group_by(UserResponse.topic).all()
+         
+        correct_map = {r.topic: r.correct for r in topic_corrects}
+        
+        topic_performance = []
+        for r in topic_totals:
+            correct = correct_map.get(r.topic, 0)
+            percentage = (correct / r.total) * 100 if r.total > 0 else 0
+            topic_performance.append({
+                "topic": r.topic,
+                "percentage": round(percentage, 2),
+                "total_answered": r.total
+            })
+            
+        return {
+            "activity_trend": activity_trend,
+            "score_trend": score_trend,
+            "topic_performance": topic_performance
+        }
+    finally:
+        session.close()
