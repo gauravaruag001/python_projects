@@ -4,15 +4,18 @@ import time
 from google import genai
 from google.genai import types
 import pypdf
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 # =====================================================================
 # Configuration
 # =====================================================================
-# Ensure you set your API key as an environment variable:
-# set GEMINI_API_KEY=your_api_key_here
-# or replace os.environ.get("GEMINI_API_KEY") with "your_api_key_here"
+# The Gemini API Key is loaded automatically from the .env file.
+# Create a .env file in the root of the project with: GEMINI_API_KEY=your_key_here
 
-API_KEY = os.environ.get("GEMINI_API_KEY", "")
+API_KEY = os.getenv("GEMINI_API_KEY")
 PDF_PATH = r"c:\Users\44743\Desktop\LinUK - Study Materials.pdf"
 OUTPUT_FILE = r"db\local_questions.json"
 QUESTIONS_PER_BATCH = 20

@@ -30,70 +30,31 @@ document.addEventListener('DOMContentLoaded', async () => {
     console.log("App initialized");
 });
 
-const SECRET_KEY_STR = "linuk-secret-key-123456789012345";
-let decryptionKey = null;
-
-async function getDecryptionKey() {
-    if (decryptionKey) return decryptionKey;
-    const encoder = new TextEncoder();
-    const keyData = encoder.encode(SECRET_KEY_STR);
-    decryptionKey = await crypto.subtle.importKey(
-        "raw", keyData, { name: "AES-GCM" }, false, ["decrypt"]
-    );
-    return decryptionKey;
-}
-
-async function fetchAndDecryptChunk(filename) {
-    const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
-    const url = isStandalone ? `db/chunks/${filename}` : `db/chunks/${filename}?t=${new Date().getTime()}`;
-
-    const response = await fetch(url);
-    if (!response.ok) throw new Error(`HTTP error fetching chunk: ${response.status}`);
-    const b64Str = await response.text();
-
-    // Decode base64
-    const binaryStr = atob(b64Str);
-    const rawData = new Uint8Array(binaryStr.length);
-    for (let i = 0; i < binaryStr.length; i++) {
-        rawData[i] = binaryStr.charCodeAt(i);
+// Removed decryption logic as the backend handles data securely now.
+async function fetchFromAPI(endpoint) {
+    try {
+        const response = await fetch(endpoint);
+        if (!response.ok) throw new Error(`HTTP error fetching ${endpoint}: ${response.status}`);
+        return await response.json();
+    } catch (error) {
+        console.error("API Error:", error);
+        throw error;
     }
-
-    const iv = rawData.slice(0, 12);
-    const ciphertext = rawData.slice(12);
-
-    const key = await getDecryptionKey();
-    const decryptedBuffer = await crypto.subtle.decrypt(
-        { name: "AES-GCM", iv: iv },
-        key,
-        ciphertext
-    );
-
-    const decryptedText = new TextDecoder().decode(decryptedBuffer);
-    return JSON.parse(decryptedText);
 }
 
 async function loadDatabase() {
     try {
-        const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
-        const dbUrl = 'db/index.json';
-
-        console.log(`Loading index from: ${dbUrl}`);
-
-        const fetchUrl = isStandalone ? dbUrl : `${dbUrl}?t=${new Date().getTime()}`;
-
-        const response = await fetch(fetchUrl);
-        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-
-        window.quizIndex = await response.json();
-        console.log(`Loaded index successfully with ${window.quizIndex.topics.length} topics and ${window.quizIndex.tests.length} tests.`);
+        console.log(`Loading index from API...`);
+        window.quizIndex = await fetchFromAPI('/api/index');
+        console.log(`Loaded index successfully from backend APIs.`);
 
         // Re-render topic list if on topic selection screen
         if (state.currentScreen === 'topic-selection') {
             renderTopicList();
         }
     } catch (error) {
-        console.error("Failed to load questions index:", error);
-        alert("Failed to securely load questions index. Please check your connection or refresh the page.");
+        console.error("Failed to load backend index:", error);
+        alert("Failed to securely connect to the backend server. Please check your connection.");
     }
 }
 
@@ -166,7 +127,7 @@ async function startFlashcards(topicObj) {
     console.log(`Starting flashcards for topic: ${topicObj.name}`);
 
     try {
-        const pool = await fetchAndDecryptChunk(topicObj.file);
+        const pool = await fetchFromAPI(`/api/topics/${encodeURIComponent(topicObj.name)}?limit=10`);
 
         if (pool.length === 0) {
             console.error(`No questions found for topic: ${topicObj.name}`);
@@ -174,15 +135,15 @@ async function startFlashcards(topicObj) {
             return;
         }
 
-        state.fcQuestions = shuffleArray([...pool]).slice(0, 10);
+        state.fcQuestions = pool; // Already randomized by backend
         state.fcIndex = 0;
         state.fcFlipped = false;
 
         updateFlashcardUI();
         showScreen('flashcard');
     } catch (err) {
-        console.error("Decryption failed:", err);
-        alert("Failed to securely decrypt the questions.");
+        console.error("Failed to fetch topic:", err);
+        alert("Failed to securely get questions from the server.");
     }
 }
 
@@ -239,17 +200,14 @@ window.prevCard = prevCard;
 async function startTest() {
     state.mode = 'test';
 
-    if (!window.quizIndex || !window.quizIndex.tests || window.quizIndex.tests.length === 0) {
-        alert("No tests available in index!");
-        return;
-    }
-
-    // Select a random pre-generated test chunk
-    const randomTest = window.quizIndex.tests[Math.floor(Math.random() * window.quizIndex.tests.length)];
-    console.log(`Fetching encrypted test chunk: ${randomTest.file}`);
-
     try {
-        const selectedQuestions = await fetchAndDecryptChunk(randomTest.file);
+        console.log(`Fetching random mock test from API...`);
+        const selectedQuestions = await fetchFromAPI('/api/test?limit=24');
+
+        if (!selectedQuestions || selectedQuestions.length === 0) {
+            alert("Failed to fetch questions for mock test.");
+            return;
+        }
 
         // Deep clone and shuffle options for each question so original data isn't modified
         state.testQuestions = selectedQuestions.map(q => ({
@@ -265,8 +223,8 @@ async function startTest() {
         updateTestUI();
         showScreen('test');
     } catch (err) {
-        console.error("Test decryption failed:", err);
-        alert("Failed to securely decrypt the test.");
+        console.error("Test fetch failed:", err);
+        alert("Failed to securely load the test from the server.");
     }
 }
 

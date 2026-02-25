@@ -7,6 +7,10 @@ env/
 venv/
 ENV/
 
+# Environment Variables
+.env
+.env.*
+
 # Database raw files
 db/*.json
 !db/index.json

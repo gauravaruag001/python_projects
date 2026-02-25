@@ -1,1027 +1,2587 @@
 [
-  {
-    "id": 101,
-    "topic": "Values and Principles",
-    "question": "Which of the following statements represents a fundamental principle of British life?",
-    "options": [
-      "Intolerance is a fundamental principle",
-      "Democracy is a fundamental principle",
-      "Communism is a fundamental principle",
-      "Inequality is a fundamental principle"
-    ],
-    "correctAnswer": "Democracy is a fundamental principle",
-    "explanation": "Democracy is a core value of British society, along with the rule of law, individual liberty, and mutual respect."
-  },
-  {
-    "id": 102,
-    "topic": "Values and Principles",
-    "question": "What is a primary responsibility of a permanent resident in the UK?",
-    "options": [
-      "To avoid paying taxes",
-      "To only look after oneself",
-      "To respect and obey the law",
-      "To never vote in elections"
-    ],
-    "correctAnswer": "To respect and obey the law",
-    "explanation": "All residents are expected to respect and obey the law, treat others with fairness, and look after the environment."
-  },
-  {
-    "id": 103,
-    "topic": "Values and Principles",
-    "question": "Which of these rights is protected by law in the UK?",
-    "options": [
-      "The right to drive without a licence",
-      "The right to not pay tax",
-      "The right to commit a crime",
-      "The right to freedom of speech"
-    ],
-    "correctAnswer": "The right to freedom of speech",
-    "explanation": "Freedom of speech is a fundamental right, alongside freedom of belief and the right to a fair trial."
-  },
-  {
-    "id": 104,
-    "topic": "Values and Principles",
-    "question": "What important pledge do you make at a citizenship ceremony?",
-    "options": [
-      "You promise to buy a house",
-      "You take an oath of allegiance to the Monarch",
-      "You promise to pay a fine",
-      "You promise to join the police"
-    ],
-    "correctAnswer": "You take an oath of allegiance to the Monarch",
-    "explanation": "New citizens pledge loyalty to the King and the UK at a citizenship ceremony."
-  },
-  {
-    "id": 105,
-    "topic": "Values and Principles",
-    "question": "Is there any place for extremism or intolerance in British society?",
-    "options": [
-      "Yes, it is encouraged",
-      "Only on weekends",
-      "No, there is no place for extremism",
-      "Yes, but only for some people"
-    ],
-    "correctAnswer": "No, there is no place for extremism",
-    "explanation": "British society is based on tolerance and mutual respect; there is no place for extremism or intolerance."
-  },
-  {
-    "id": 106,
-    "topic": "Values and Principles",
-    "question": "Which of the following is a key value of British society?",
-    "options": [
-      "Complete state control",
-      "Individual liberty",
-      "Media censorship",
-      "Dictatorship"
-    ],
-    "correctAnswer": "Individual liberty",
-    "explanation": "Individual liberty is one of the fundamental principles of British life."
-  },
-  {
-    "id": 107,
-    "topic": "Values and Principles",
-    "question": "What must you respect if you wish to be a permanent resident of the UK?",
-    "options": [
-      "Only the weather",
-      "Nothing at all",
-      "The UK's laws, values and traditions",
-      "Only your direct neighbours"
-    ],
-    "correctAnswer": "The UK's laws, values and traditions",
-    "explanation": "Residents must make a commitment to respect the laws, values and traditions of the UK."
-  },
-  {
-    "id": 108,
-    "topic": "Values and Principles",
-    "question": "What does the concept 'The Rule of Law' mean?",
-    "options": [
-      "Ministers can ignore the law",
-      "The King is above the law",
-      "The Police make the laws",
-      "No one is above the law"
-    ],
-    "correctAnswer": "No one is above the law",
-    "explanation": "The rule of law means that everyone, including the government and the wealthy, is subject to the law."
-  },
-  {
-    "id": 109,
-    "topic": "Values and Principles",
-    "question": "Which of these is NOT a fundamental principle of British life?",
-    "options": [
-      "Democracy",
-      "Inequality",
-      "The Rule of Law",
-      "Tolerance of those with different faiths"
-    ],
-    "correctAnswer": "Inequality",
-    "explanation": "Inequality contradicts the British value of fairness and equality."
-  },
-  {
-    "id": 110,
-    "topic": "Values and Principles",
-    "question": "What are good citizens expected to do regarding their family?",
-    "options": [
-      "Work to provide for themselves and their family",
-      "Ignore their family",
-      "Break the law to support them",
-      "Let the state provide everything"
-    ],
-    "correctAnswer": "Work to provide for themselves and their family",
-    "explanation": "Working to provide for yourself and your family is a key responsibility of living in the UK."
-  },
-  {
-    "id": 201,
-    "topic": "What is the UK?",
-    "question": "Which countries make up the entity known as 'Great Britain'?",
-    "options": [
-      "The UK and Ireland",
-      "England, Scotland and Wales",
-      "England and Wales only",
-      "England and Northern Ireland"
-    ],
-    "correctAnswer": "England, Scotland and Wales",
-    "explanation": "Great Britain refers specifically to England, Scotland and Wales. The 'UK' includes Northern Ireland."
-  },
-  {
-    "id": 202,
-    "topic": "What is the UK?",
-    "question": "What is the capital city of Scotland?",
-    "options": [
-      "Glasgow",
-      "Edinburgh",
-      "Aberdeen",
-      "Dundee"
-    ],
-    "correctAnswer": "Edinburgh",
-    "explanation": "Edinburgh is the capital city of Scotland."
-  },
-  {
-    "id": 203,
-    "topic": "What is the UK?",
-    "question": "Which of the following is a Crown Dependency?",
-    "options": [
-      "Anglesey",
-      "The Isle of Man",
-      "The Isle of Wight",
-      "Skye"
-    ],
-    "correctAnswer": "The Isle of Man",
-    "explanation": "The Isle of Man and the Channel Islands are Crown Dependencies, meaning they are not part of the UK but are linked to it."
-  },
-  {
-    "id": 204,
-    "topic": "What is the UK?",
-    "question": "What is the capital city of Wales?",
-    "options": [
-      "Swansea",
-      "Newport",
-      "Cardiff",
-      "Bangor"
-    ],
-    "correctAnswer": "Cardiff",
-    "explanation": "Cardiff is the capital city of Wales."
-  },
-  {
-    "id": 205,
-    "topic": "What is the UK?",
-    "question": "What is the official currency used in the UK?",
-    "options": [
-      "Euro (\u20ac)",
-      "Pound Sterling (\u00a3)",
-      "US Dollar ($)",
-      "Swiss Franc"
-    ],
-    "correctAnswer": "Pound Sterling (\u00a3)",
-    "explanation": "The currency in the UK is the pound sterling (\u00a3)."
-  },
-  {
-    "id": 206,
-    "topic": "What is the UK?",
-    "question": "Which flower is traditionally associated with England?",
-    "options": [
-      "The Thistle",
-      "The Daffodil",
-      "The Shamrock",
-      "The Rose"
-    ],
-    "correctAnswer": "The Rose",
-    "explanation": "The Rose (specifically the Tudor Rose) is the national flower of England."
-  },
-  {
-    "id": 207,
-    "topic": "What is the UK?",
-    "question": "Which flower is traditionally associated with Scotland?",
-    "options": [
-      "The Rose",
-      "The Thistle",
-      "The Daffodil",
-      "The Shamrock"
-    ],
-    "correctAnswer": "The Thistle",
-    "explanation": "The Thistle is the national flower of Scotland."
-  },
-  {
-    "id": 208,
-    "topic": "What is the UK?",
-    "question": "Which flower is traditionally associated with Wales?",
-    "options": [
-      "The Daffodil",
-      "The Rose",
-      "The Shamrock",
-      "The Thistle"
-    ],
-    "correctAnswer": "The Daffodil",
-    "explanation": "The Daffodil is the national flower of Wales."
-  },
-  {
-    "id": 209,
-    "topic": "What is the UK?",
-    "question": "Which flower is traditionally associated with Northern Ireland?",
-    "options": [
-      "The Rose",
-      "The Shamrock",
-      "The Thistle",
-      "The Daffodil"
-    ],
-    "correctAnswer": "The Shamrock",
-    "explanation": "The Shamrock is the national flower of Northern Ireland."
-  },
-  {
-    "id": 210,
-    "topic": "What is the UK?",
-    "question": "The St. George's Cross is the national flag of which country?",
-    "options": [
-      "Scotland",
-      "Wales",
-      "England",
-      "Northern Ireland"
-    ],
-    "correctAnswer": "England",
-    "explanation": "The red cross on a white background is the flag of St. George, the patron saint of England."
-  },
-  {
-    "id": 211,
-    "topic": "What is the UK?",
-    "question": "What is the 'Union Jack'?",
-    "options": [
-      "A traditional British food",
-      "The name of the National Anthem",
-      "The official flag of the United Kingdom",
-      "A famous British dance"
-    ],
-    "correctAnswer": "The official flag of the United Kingdom",
-    "explanation": "The Union Jack is the official flag of the United Kingdom, combining the crosses of St George, St Andrew, and St Patrick."
-  },
-  {
-    "id": 212,
-    "topic": "What is the UK?",
-    "question": "What is the capital city of Northern Ireland?",
-    "options": [
-      "Dublin",
-      "Belfast",
-      "Cork",
-      "Londonderry"
-    ],
-    "correctAnswer": "Belfast",
-    "explanation": "Belfast is the capital city of Northern Ireland."
-  },
-  {
-    "id": 213,
-    "topic": "What is the UK?",
-    "question": "Is the Republic of Ireland part of the United Kingdom?",
-    "options": [
-      "No, it is a separate independent country",
-      "Yes, it is part of the UK"
-    ],
-    "correctAnswer": "No, it is a separate independent country",
-    "explanation": "The Republic of Ireland is an independent sovereign state."
-  },
-  {
-    "id": 301,
-    "topic": "History",
-    "question": "Who led the Norman invasion of England in 1066?",
-    "options": [
-      "Henry VIII",
-      "William the Conqueror",
-      "Julius Caesar",
-      "King Alfred"
-    ],
-    "correctAnswer": "William the Conqueror",
-    "explanation": "William, Duke of Normandy, defeated King Harold at the Battle of Hastings in 1066."
-  },
-  {
-    "id": 302,
-    "topic": "History",
-    "question": "What was the Domesday Book?",
-    "options": [
-      "A book of fairy tales",
-      "A book of laws",
-      "A census and land survey commanded by William the Conqueror",
-      "A religious text"
-    ],
-    "correctAnswer": "A census and land survey commanded by William the Conqueror",
-    "explanation": "William I commissioned it to record towns, people, and land ownership across England."
-  },
-  {
-    "id": 303,
-    "topic": "History",
-    "question": "Who was Boudicca?",
-    "options": [
-      "A Viking warrior",
-      "Queen of Scotland",
-      "A Roman Empress",
-      "Queen of the Iceni who fought the Romans"
-    ],
-    "correctAnswer": "Queen of the Iceni who fought the Romans",
-    "explanation": "She led a rebellion against the Roman occupation of Britain."
-  },
-  {
-    "id": 304,
-    "topic": "History",
-    "question": "What did the Romans build in the north of England to keep out the Picts?",
-    "options": [
-      "Offa's Dyke",
-      "Hadrian's Wall",
-      "The Great Wall",
-      "The Berlin Wall"
-    ],
-    "correctAnswer": "Hadrian's Wall",
-    "explanation": "Hadrian's Wall was built by the Emperor Hadrian to defend the province of Britannia."
-  },
-  {
-    "id": 305,
-    "topic": "History",
-    "question": "In which year did the Romans leave Britain?",
-    "options": [
-      "1066",
-      "AD 410",
-      "AD 43",
-      "1485"
-    ],
-    "correctAnswer": "AD 410",
-    "explanation": "The Roman army left in AD 410 to defend other parts of the Empire."
-  },
-  {
-    "id": 306,
-    "topic": "History",
-    "question": "Which document, signed in 1215, limited the King's power?",
-    "options": [
-      "The Bill of Rights",
-      "The Act of Union",
-      "The Magna Carta",
-      "The Reform Act"
-    ],
-    "correctAnswer": "The Magna Carta",
-    "explanation": "Magna Carta (Great Charter) established that even the king was subject to the law."
-  },
-  {
-    "id": 307,
-    "topic": "History",
-    "question": "What event killed one-third of the population in 1348?",
-    "options": [
-      "The Spanish Flu",
-      "The Great Fire",
-      "The Civil War",
-      "The Black Death"
-    ],
-    "correctAnswer": "The Black Death",
-    "explanation": "The Black Death was a plague that devastated the population in the Middle Ages."
-  },
-  {
-    "id": 308,
-    "topic": "History",
-    "question": "Who wrote 'The Canterbury Tales'?",
-    "options": [
-      "William Shakespeare",
-      "Geoffrey Chaucer",
-      "Charles Dickens",
-      "Jane Austen"
-    ],
-    "correctAnswer": "Geoffrey Chaucer",
-    "explanation": "Geoffrey Chaucer wrote The Canterbury Tales in the Middle Ages."
-  },
-  {
-    "id": 309,
-    "topic": "History",
-    "question": "Who led the English to victory at the Battle of Agincourt in 1415?",
-    "options": [
-      "King Richard III",
-      "King Henry VIII",
-      "King Henry V",
-      "King Edward I"
-    ],
-    "correctAnswer": "King Henry V",
-    "explanation": "Henry V led the English army to a famous victory against the French."
-  },
-  {
-    "id": 310,
-    "topic": "History",
-    "question": "The Wars of the Roses were fought between which two families?",
-    "options": [
-      "The Tudors and the Stuarts",
-      "Britain and France",
-      "The House of York and the House of Lancaster",
-      "England and Scotland"
-    ],
-    "correctAnswer": "The House of York and the House of Lancaster",
-    "explanation": "It was a civil war between the House of York (White Rose) and the House of Lancaster (Red Rose)."
-  },
-  {
-    "id": 311,
-    "topic": "History",
-    "question": "What happened at the Battle of Bosworth Field in 1485?",
-    "options": [
-      "William the Conqueror invaded England",
-      "The Spanish Armada was defeated",
-      "The Romans left Britain",
-      "Henry Tudor defeated Richard III, ending the Wars of the Roses"
-    ],
-    "correctAnswer": "Henry Tudor defeated Richard III, ending the Wars of the Roses",
-    "explanation": "This battle marked the end of the Middle Ages and the start of the Tudor dynasty."
-  },
-  {
-    "id": 312,
-    "topic": "History",
-    "question": "Which King had six wives?",
-    "options": [
-      "James I",
-      "Henry VIII",
-      "Henry VII",
-      "Edward VI"
-    ],
-    "correctAnswer": "Henry VIII",
-    "explanation": "Henry VIII is famous for his six wives and breaking from the Church of Rome."
-  },
-  {
-    "id": 313,
-    "topic": "History",
-    "question": "Who was the first female monarch to rule England in her own right?",
-    "options": [
-      "Queen Victoria",
-      "Mary I (Mary Tudor)",
-      "Elizabeth I",
-      "Queen Anne"
-    ],
-    "correctAnswer": "Mary I (Mary Tudor)",
-    "explanation": "Mary I (often called 'Bloody Mary') was the first Queen Regnant."
-  },
-  {
-    "id": 314,
-    "topic": "History",
-    "question": "In which year was the Spanish Armada defeated?",
-    "options": [
-      "1066",
-      "1940",
-      "1588",
-      "1415"
-    ],
-    "correctAnswer": "1588",
-    "explanation": "The Spanish Armada was defeated during the reign of Elizabeth I."
-  },
-  {
-    "id": 315,
-    "topic": "History",
-    "question": "Who became King James I of England?",
-    "options": [
-      "King James VI of Scotland",
-      "Charles I",
-      "Henry VIII",
-      "The King of France"
-    ],
-    "correctAnswer": "King James VI of Scotland",
-    "explanation": "James VI of Scotland inherited the English throne, becoming James I."
-  },
-  {
-    "id": 316,
-    "topic": "History",
-    "question": "What is celebrated on Bonfire Night (November 5th)?",
-    "options": [
-      "The end of World War I",
-      "The Queen's birthday",
-      "The failure of the Gunpowder Plot",
-      "New Year's Eve"
-    ],
-    "correctAnswer": "The failure of the Gunpowder Plot",
-    "explanation": "It commemorates the failure of Guy Fawkes' plot to blow up Parliament in 1605."
-  },
-  {
-    "id": 317,
-    "topic": "History",
-    "question": "Which King was executed after the English Civil War?",
-    "options": [
-      "Henry VIII",
-      "Charles I",
-      "James II",
-      "George I"
-    ],
-    "correctAnswer": "Charles I",
-    "explanation": "Charles I was executed in 1649 after losing the Civil War to Parliament."
-  },
-  {
-    "id": 318,
-    "topic": "History",
-    "question": "Who became 'Lord Protector' during the English Republic?",
-    "options": [
-      "Winston Churchill",
-      "Oliver Cromwell",
-      "Horatio Nelson",
-      "The Duke of Wellington"
-    ],
-    "correctAnswer": "Oliver Cromwell",
-    "explanation": "Oliver Cromwell ruled Britain as Lord Protector during the interregnum."
-  },
-  {
-    "id": 319,
-    "topic": "History",
-    "question": "When was the Great Fire of London?",
-    "options": [
-      "1666",
-      "1605",
-      "1665",
-      "1066"
-    ],
-    "correctAnswer": "1666",
-    "explanation": "The Great Fire destroyed much of the City of London in 1666."
-  },
-  {
-    "id": 320,
-    "topic": "History",
-    "question": "What did the Habeas Corpus Act of 1679 ensure?",
-    "options": [
-      "That the King had absolute power",
-      "That everyone must pay tax",
-      "That no one could be held prisoner unlawfully",
-      "That women could vote"
-    ],
-    "correctAnswer": "That no one could be held prisoner unlawfully",
-    "explanation": "It protected individuals against unlawful imprisonment."
-  },
-  {
-    "id": 321,
-    "topic": "History",
-    "question": "What happened during the Glorious Revolution of 1688?",
-    "options": [
-      "The King was executed",
-      "William of Orange and Mary II replaced James II peacefully",
-      "England invaded France",
-      "The monarchy was abolished"
-    ],
-    "correctAnswer": "William of Orange and Mary II replaced James II peacefully",
-    "explanation": "It established a constitutional monarchy and the dominance of Parliament."
-  },
-  {
-    "id": 322,
-    "topic": "History",
-    "question": "What did the Act of Union in 1707 create?",
-    "options": [
-      "The United Kingdom of Great Britain and Ireland",
-      "The Kingdom of Great Britain",
-      "The European Union",
-      "The Commonwealth"
-    ],
-    "correctAnswer": "The Kingdom of Great Britain",
-    "explanation": "It united the kingdoms of England (and Wales) and Scotland."
-  },
-  {
-    "id": 323,
-    "topic": "History",
-    "question": "Who is considered the first Prime Minister of the UK?",
-    "options": [
-      "Winston Churchill",
-      "Margaret Thatcher",
-      "Sir Robert Walpole",
-      "William Pitt"
-    ],
-    "correctAnswer": "Sir Robert Walpole",
-    "explanation": "Walpole served from 1721 to 1742 and is considered the first PM."
-  },
-  {
-    "id": 324,
-    "topic": "History",
-    "question": "Who defeated Napoleon at the Battle of Waterloo in 1815?",
-    "options": [
-      "Admiral Nelson",
-      "The Duke of Wellington",
-      "Winston Churchill",
-      "General Montgomery"
-    ],
-    "correctAnswer": "The Duke of Wellington",
-    "explanation": "The Duke of Wellington led the allied forces to victory against Napoleon."
-  },
-  {
-    "id": 325,
-    "topic": "History",
-    "question": "When was slavery abolished throughout the British Empire?",
-    "options": [
-      "1807",
-      "1776",
-      "1900",
-      "1833"
-    ],
-    "correctAnswer": "1833",
-    "explanation": "The Emancipation Act abolished slavery in 1833."
-  },
-  {
-    "id": 326,
-    "topic": "History",
-    "question": "Who was the monarch during the Victorian Age?",
-    "options": [
-      "Queen Elizabeth I",
-      "Queen Victoria",
-      "Queen Elizabeth II",
-      "King George III"
-    ],
-    "correctAnswer": "Queen Victoria",
-    "explanation": "Queen Victoria reigned from 1837 to 1901."
-  },
-  {
-    "id": 327,
-    "topic": "History",
-    "question": "Who is famous for founding modern nursing during the Crimean War?",
-    "options": [
-      "Edith Cavell",
-      "Marie Curie",
-      "Florence Nightingale",
-      "Mary Seacole"
-    ],
-    "correctAnswer": "Florence Nightingale",
-    "explanation": "She established nursing as a profession during the Crimean War."
-  },
-  {
-    "id": 328,
-    "topic": "History",
-    "question": "In 1918, which women were given the right to vote?",
-    "options": [
-      "All women over 18",
-      "Only women who were married",
-      "Women over the age of 30",
-      "No women were given the vote"
-    ],
-    "correctAnswer": "Women over the age of 30",
-    "explanation": "The 1918 Act gave the vote to women over 30; equality with men (21) came in 1928."
-  },
-  {
-    "id": 329,
-    "topic": "History",
-    "question": "Who was the British Prime Minister during the Second World War?",
-    "options": [
-      "Neville Chamberlain",
-      "Tony Blair",
-      "Winston Churchill",
-      "Clement Attlee"
-    ],
-    "correctAnswer": "Winston Churchill",
-    "explanation": "Winston Churchill led Britain from 1940 to 1945."
-  },
-  {
-    "id": 330,
-    "topic": "History",
-    "question": "When was the National Health Service (NHS) established?",
-    "options": [
-      "1950",
-      "1948",
-      "1945",
-      "1939"
-    ],
-    "correctAnswer": "1948",
-    "explanation": "Aneurin Bevan launched the NHS in 1948."
-  },
-  {
-    "id": 331,
-    "topic": "History",
-    "question": "Who was the first female Prime Minister of the UK?",
-    "options": [
-      "Theresa May",
-      "Emmeline Pankhurst",
-      "Margaret Thatcher",
-      "Florence Nightingale"
-    ],
-    "correctAnswer": "Margaret Thatcher",
-    "explanation": "Margaret Thatcher became the first woman Prime Minister in 1979."
-  },
-  {
-    "id": 332,
-    "topic": "History",
-    "question": "Which war ended with a British victory in 1982?",
-    "options": [
-      "The Korean War",
-      "The Falklands War",
-      "The Gulf War",
-      "The Second World War"
-    ],
-    "correctAnswer": "The Falklands War",
-    "explanation": "Britain successfully regained the Falkland Islands from Argentina."
-  },
-  {
-    "id": 333,
-    "topic": "History",
-    "question": "What did the Good Friday Agreement of 1998 help to establish?",
-    "options": [
-      "The European Union",
-      "The National Health Service",
-      "Peace in Northern Ireland",
-      "Devolution in Scotland"
-    ],
-    "correctAnswer": "Peace in Northern Ireland",
-    "explanation": "It was a major step in the Northern Ireland peace process."
-  },
-  {
-    "id": 401,
-    "topic": "Modern Society",
-    "question": "On which date is Christmas Day celebrated in the UK?",
-    "options": [
-      "24 December",
-      "1 January",
-      "25 December",
-      "31 December"
-    ],
-    "correctAnswer": "25 December",
-    "explanation": "Christmas Day, celebrating the birth of Jesus, is on 25 December."
-  },
-  {
-    "id": 402,
-    "topic": "Modern Society",
-    "question": "What day is celebrated on the day after Christmas Day?",
-    "options": [
-      "Easter Monday",
-      "Boxing Day",
-      "New Year's Eve",
-      "Good Friday"
-    ],
-    "correctAnswer": "Boxing Day",
-    "explanation": "Boxing Day is celebrated on 26 December."
-  },
-  {
-    "id": 403,
-    "topic": "Modern Society",
-    "question": "What is the name of the period of 40 days before Easter?",
-    "options": [
-      "Advent",
-      "Ramadan",
-      "Lent",
-      "Diwali"
-    ],
-    "correctAnswer": "Lent",
-    "explanation": "Lent is the Christian period of fasting and reflection before Easter."
-  },
-  {
-    "id": 404,
-    "topic": "Modern Society",
-    "question": "What is Diwali also known as?",
-    "options": [
-      "New Year",
-      "The Festival of Colors",
-      "The Festival of Lights",
-      "Harvest Festival"
-    ],
-    "correctAnswer": "The Festival of Lights",
-    "explanation": "Diwali is a major Hindu and Sikh festival known as the Festival of Lights."
-  },
-  {
-    "id": 405,
-    "topic": "Modern Society",
-    "question": "What does Remembrance Day (11 November) commemorate?",
-    "options": [
-      "The end of World War II",
-      "Those who died fighting for the UK and its allies",
-      "The Queen's birthday",
-      "The start of spring"
-    ],
-    "correctAnswer": "Those who died fighting for the UK and its allies",
-    "explanation": "It commemorates the end of WWI and all who died in wars since."
-  },
-  {
-    "id": 406,
-    "topic": "Modern Society",
-    "question": "What is 'Hogmanay'?",
-    "options": [
-      "Christmas in Wales",
-      "New Year's Eve in Scotland",
-      "A summer festival",
-      "A type of food"
-    ],
-    "correctAnswer": "New Year's Eve in Scotland",
-    "explanation": "Hogmanay is the traditional Scottish celebration of New Year's Eve."
-  },
-  {
-    "id": 407,
-    "topic": "Modern Society",
-    "question": "Which sport is the most popular in the UK?",
-    "options": [
-      "Cricket",
-      "Football",
-      "Rugby",
-      "Tennis"
-    ],
-    "correctAnswer": "Football",
-    "explanation": "Football is the most popular sport in the UK."
-  },
-  {
-    "id": 408,
-    "topic": "Modern Society",
-    "question": "Where is the Wimbledon tennis championship held?",
-    "options": [
-      "Manchester",
-      "Edinburgh",
-      "London",
-      "Cardiff"
-    ],
-    "correctAnswer": "London",
-    "explanation": "Wimbledon is held at the All England Club in London."
-  },
-  {
-    "id": 409,
-    "topic": "Modern Society",
-    "question": "What is the 'Grand National'?",
-    "options": [
-      "A car race",
-      "A marathon",
-      "A famous horse race",
-      "A dog race"
-    ],
-    "correctAnswer": "A famous horse race",
-    "explanation": "The Grand National is a famous steeplechase horse race held at Aintree."
-  },
-  {
-    "id": 410,
-    "topic": "Modern Society",
-    "question": "Which British author wrote the 'Harry Potter' series?",
-    "options": [
-      "J.R.R. Tolkien",
-      "J.K. Rowling",
-      "Roald Dahl",
-      "Charles Dickens"
-    ],
-    "correctAnswer": "J.K. Rowling",
-    "explanation": "J.K. Rowling is the author of the Harry Potter books."
-  },
-  {
-    "id": 411,
-    "topic": "Modern Society",
-    "question": "Who wrote the play 'Romeo and Juliet'?",
-    "options": [
-      "Geoffrey Chaucer",
-      "Charles Dickens",
-      "William Shakespeare",
-      "Jane Austen"
-    ],
-    "correctAnswer": "William Shakespeare",
-    "explanation": "William Shakespeare wrote Romeo and Juliet."
-  },
-  {
-    "id": 412,
-    "topic": "Modern Society",
-    "question": "What is the 'London Eye'?",
-    "options": [
-      "A skyscraper",
-      "A giant Ferris wheel on the River Thames",
-      "A bridge",
-      "A museum"
-    ],
-    "correctAnswer": "A giant Ferris wheel on the River Thames",
-    "explanation": "The London Eye is a popular tourist attraction on the South Bank of the Thames."
-  },
-  {
-    "id": 413,
-    "topic": "Modern Society",
-    "question": "What is the minimum age to buy alcohol in the UK?",
-    "options": [
-      "16",
-      "21",
-      "18",
-      "25"
-    ],
-    "correctAnswer": "18",
-    "explanation": "You must be 18 or older to buy alcohol in a pub or shop."
-  },
-  {
-    "id": 501,
-    "topic": "Government & Law",
-    "question": "Who is the Head of State of the United Kingdom?",
-    "options": [
-      "The Prime Minister",
-      "The Monarch",
-      "The Archbishop of Canterbury",
-      "The Speaker of the House"
-    ],
-    "correctAnswer": "The Monarch",
-    "explanation": "The King or Queen is the ceremonial Head of State."
-  },
-  {
-    "id": 502,
-    "topic": "Government & Law",
-    "question": "What is the official residence of the Prime Minister?",
-    "options": [
-      "Buckingham Palace",
-      "The Houses of Parliament",
-      "10 Downing Street",
-      "Windsor Castle"
-    ],
-    "correctAnswer": "10 Downing Street",
-    "explanation": "The Prime Minister lives and works at 10 Downing Street."
-  },
-  {
-    "id": 503,
-    "topic": "Government & Law",
-    "question": "What is the minimum age to vote in a General Election?",
-    "options": [
-      "16",
-      "18",
-      "21",
-      "25"
-    ],
-    "correctAnswer": "18",
-    "explanation": "You must be at least 18 years old to vote in a General Election."
-  },
-  {
-    "id": 504,
-    "topic": "Government & Law",
-    "question": "In England, which court deals with minor criminal cases?",
-    "options": [
-      "Crown Court",
-      "Magistrates' Court",
-      "High Court",
-      "County Court"
-    ],
-    "correctAnswer": "Magistrates' Court",
-    "explanation": "About 95% of criminal cases are dealt with in a Magistrates' Court."
-  },
-  {
-    "id": 505,
-    "topic": "Government & Law",
-    "question": "Which court uses a jury to decide the verdict?",
-    "options": [
-      "Magistrates' Court",
-      "Crown Court",
-      "County Court",
-      "Small Claims Court"
-    ],
-    "correctAnswer": "Crown Court",
-    "explanation": "Serious criminal cases are heard in the Crown Court with a judge and a jury."
-  },
-  {
-    "id": 506,
-    "topic": "Government & Law",
-    "question": "What is the 'Shadow Cabinet'?",
-    "options": [
-      "A secret government group",
-      "Senior MPs from the opposition party who challenge the government",
-      "The Prime Minister's private advisers",
-      "A group of spies"
-    ],
-    "correctAnswer": "Senior MPs from the opposition party who challenge the government",
-    "explanation": "The Shadow Cabinet is formed by the leader of the opposition to challenge the government's policies."
-  },
-  {
-    "id": 507,
-    "topic": "Government & Law",
-    "question": "How often must General Elections be held?",
-    "options": [
-      "Every 4 years",
-      "Every 10 years",
-      "At least every 5 years",
-      "Whenever the Monarch decides"
-    ],
-    "correctAnswer": "At least every 5 years",
-    "explanation": "Under current laws, a General Election must be held at least every five years."
-  },
-  {
-    "id": 508,
-    "topic": "Government & Law",
-    "question": "What is the main role of the police in the UK?",
-    "options": [
-      "To make new laws",
-      "To collect taxes",
-      "To judge criminals in court",
-      "To protect life and property, prevent disturbance, and detect crime"
-    ],
-    "correctAnswer": "To protect life and property, prevent disturbance, and detect crime",
-    "explanation": "The police are responsible for maintaining law and order, not making laws."
-  },
-  {
-    "id": 509,
-    "topic": "Government & Law",
-    "question": "What is the name of the devolved administration in Scotland?",
-    "options": [
-      "The Senedd",
-      "The Scottish Parliament",
-      "The Scottish Assembly",
-      "The Dail"
-    ],
-    "correctAnswer": "The Scottish Parliament",
-    "explanation": "The Scottish Parliament acts as the devolved legislature for Scotland."
-  },
-  {
-    "id": 510,
-    "topic": "Government & Law",
-    "question": "What is a 'Jury Service'?",
-    "options": [
-      "Serving in the army",
-      "Citizens are randomly selected to decide a verdict in court",
-      "Working for the local council",
-      "Helping the police patrol streets"
-    ],
-    "correctAnswer": "Citizens are randomly selected to decide a verdict in court",
-    "explanation": "British citizens can be called to serve on a jury to decide if a defendant is guilty or not."
-  }
+    {
+        "id": 101,
+        "topic": "Values and Principles",
+        "question": "Which of the following statements represents a fundamental principle of British life?",
+        "options": [
+            "Intolerance is a fundamental principle",
+            "Democracy is a fundamental principle",
+            "Communism is a fundamental principle",
+            "Inequality is a fundamental principle"
+        ],
+        "correctAnswer": "Democracy is a fundamental principle",
+        "explanation": "Democracy is a core value of British society, along with the rule of law, individual liberty, and mutual respect."
+    },
+    {
+        "id": 102,
+        "topic": "Values and Principles",
+        "question": "What is a primary responsibility of a permanent resident in the UK?",
+        "options": [
+            "To avoid paying taxes",
+            "To only look after oneself",
+            "To respect and obey the law",
+            "To never vote in elections"
+        ],
+        "correctAnswer": "To respect and obey the law",
+        "explanation": "All residents are expected to respect and obey the law, treat others with fairness, and look after the environment."
+    },
+    {
+        "id": 103,
+        "topic": "Values and Principles",
+        "question": "Which of these rights is protected by law in the UK?",
+        "options": [
+            "The right to drive without a licence",
+            "The right to not pay tax",
+            "The right to commit a crime",
+            "The right to freedom of speech"
+        ],
+        "correctAnswer": "The right to freedom of speech",
+        "explanation": "Freedom of speech is a fundamental right, alongside freedom of belief and the right to a fair trial."
+    },
+    {
+        "id": 104,
+        "topic": "Values and Principles",
+        "question": "What important pledge do you make at a citizenship ceremony?",
+        "options": [
+            "You promise to buy a house",
+            "You take an oath of allegiance to the Monarch",
+            "You promise to pay a fine",
+            "You promise to join the police"
+        ],
+        "correctAnswer": "You take an oath of allegiance to the Monarch",
+        "explanation": "New citizens pledge loyalty to the King and the UK at a citizenship ceremony."
+    },
+    {
+        "id": 105,
+        "topic": "Values and Principles",
+        "question": "Is there any place for extremism or intolerance in British society?",
+        "options": [
+            "Yes, it is encouraged",
+            "Only on weekends",
+            "No, there is no place for extremism",
+            "Yes, but only for some people"
+        ],
+        "correctAnswer": "No, there is no place for extremism",
+        "explanation": "British society is based on tolerance and mutual respect; there is no place for extremism or intolerance."
+    },
+    {
+        "id": 106,
+        "topic": "Values and Principles",
+        "question": "Which of the following is a key value of British society?",
+        "options": [
+            "Complete state control",
+            "Individual liberty",
+            "Media censorship",
+            "Dictatorship"
+        ],
+        "correctAnswer": "Individual liberty",
+        "explanation": "Individual liberty is one of the fundamental principles of British life."
+    },
+    {
+        "id": 107,
+        "topic": "Values and Principles",
+        "question": "What must you respect if you wish to be a permanent resident of the UK?",
+        "options": [
+            "Only the weather",
+            "Nothing at all",
+            "The UK's laws, values and traditions",
+            "Only your direct neighbours"
+        ],
+        "correctAnswer": "The UK's laws, values and traditions",
+        "explanation": "Residents must make a commitment to respect the laws, values and traditions of the UK."
+    },
+    {
+        "id": 108,
+        "topic": "Values and Principles",
+        "question": "What does the concept 'The Rule of Law' mean?",
+        "options": [
+            "Ministers can ignore the law",
+            "The King is above the law",
+            "The Police make the laws",
+            "No one is above the law"
+        ],
+        "correctAnswer": "No one is above the law",
+        "explanation": "The rule of law means that everyone, including the government and the wealthy, is subject to the law."
+    },
+    {
+        "id": 109,
+        "topic": "Values and Principles",
+        "question": "Which of these is NOT a fundamental principle of British life?",
+        "options": [
+            "Democracy",
+            "Inequality",
+            "The Rule of Law",
+            "Tolerance of those with different faiths"
+        ],
+        "correctAnswer": "Inequality",
+        "explanation": "Inequality contradicts the British value of fairness and equality."
+    },
+    {
+        "id": 110,
+        "topic": "Values and Principles",
+        "question": "What are good citizens expected to do regarding their family?",
+        "options": [
+            "Work to provide for themselves and their family",
+            "Ignore their family",
+            "Break the law to support them",
+            "Let the state provide everything"
+        ],
+        "correctAnswer": "Work to provide for themselves and their family",
+        "explanation": "Working to provide for yourself and your family is a key responsibility of living in the UK."
+    },
+    {
+        "id": 201,
+        "topic": "What is the UK?",
+        "question": "Which countries make up the entity known as 'Great Britain'?",
+        "options": [
+            "The UK and Ireland",
+            "England, Scotland and Wales",
+            "England and Wales only",
+            "England and Northern Ireland"
+        ],
+        "correctAnswer": "England, Scotland and Wales",
+        "explanation": "Great Britain refers specifically to England, Scotland and Wales. The 'UK' includes Northern Ireland."
+    },
+    {
+        "id": 202,
+        "topic": "What is the UK?",
+        "question": "What is the capital city of Scotland?",
+        "options": [
+            "Glasgow",
+            "Edinburgh",
+            "Aberdeen",
+            "Dundee"
+        ],
+        "correctAnswer": "Edinburgh",
+        "explanation": "Edinburgh is the capital city of Scotland."
+    },
+    {
+        "id": 203,
+        "topic": "What is the UK?",
+        "question": "Which of the following is a Crown Dependency?",
+        "options": [
+            "Anglesey",
+            "The Isle of Man",
+            "The Isle of Wight",
+            "Skye"
+        ],
+        "correctAnswer": "The Isle of Man",
+        "explanation": "The Isle of Man and the Channel Islands are Crown Dependencies, meaning they are not part of the UK but are linked to it."
+    },
+    {
+        "id": 204,
+        "topic": "What is the UK?",
+        "question": "What is the capital city of Wales?",
+        "options": [
+            "Swansea",
+            "Newport",
+            "Cardiff",
+            "Bangor"
+        ],
+        "correctAnswer": "Cardiff",
+        "explanation": "Cardiff is the capital city of Wales."
+    },
+    {
+        "id": 205,
+        "topic": "What is the UK?",
+        "question": "What is the official currency used in the UK?",
+        "options": [
+            "Euro (\u20ac)",
+            "Pound Sterling (\u00a3)",
+            "US Dollar ($)",
+            "Swiss Franc"
+        ],
+        "correctAnswer": "Pound Sterling (\u00a3)",
+        "explanation": "The currency in the UK is the pound sterling (\u00a3)."
+    },
+    {
+        "id": 206,
+        "topic": "What is the UK?",
+        "question": "Which flower is traditionally associated with England?",
+        "options": [
+            "The Thistle",
+            "The Daffodil",
+            "The Shamrock",
+            "The Rose"
+        ],
+        "correctAnswer": "The Rose",
+        "explanation": "The Rose (specifically the Tudor Rose) is the national flower of England."
+    },
+    {
+        "id": 207,
+        "topic": "What is the UK?",
+        "question": "Which flower is traditionally associated with Scotland?",
+        "options": [
+            "The Rose",
+            "The Thistle",
+            "The Daffodil",
+            "The Shamrock"
+        ],
+        "correctAnswer": "The Thistle",
+        "explanation": "The Thistle is the national flower of Scotland."
+    },
+    {
+        "id": 208,
+        "topic": "What is the UK?",
+        "question": "Which flower is traditionally associated with Wales?",
+        "options": [
+            "The Daffodil",
+            "The Rose",
+            "The Shamrock",
+            "The Thistle"
+        ],
+        "correctAnswer": "The Daffodil",
+        "explanation": "The Daffodil is the national flower of Wales."
+    },
+    {
+        "id": 209,
+        "topic": "What is the UK?",
+        "question": "Which flower is traditionally associated with Northern Ireland?",
+        "options": [
+            "The Rose",
+            "The Shamrock",
+            "The Thistle",
+            "The Daffodil"
+        ],
+        "correctAnswer": "The Shamrock",
+        "explanation": "The Shamrock is the national flower of Northern Ireland."
+    },
+    {
+        "id": 210,
+        "topic": "What is the UK?",
+        "question": "The St. George's Cross is the national flag of which country?",
+        "options": [
+            "Scotland",
+            "Wales",
+            "England",
+            "Northern Ireland"
+        ],
+        "correctAnswer": "England",
+        "explanation": "The red cross on a white background is the flag of St. George, the patron saint of England."
+    },
+    {
+        "id": 211,
+        "topic": "What is the UK?",
+        "question": "What is the 'Union Jack'?",
+        "options": [
+            "A traditional British food",
+            "The name of the National Anthem",
+            "The official flag of the United Kingdom",
+            "A famous British dance"
+        ],
+        "correctAnswer": "The official flag of the United Kingdom",
+        "explanation": "The Union Jack is the official flag of the United Kingdom, combining the crosses of St George, St Andrew, and St Patrick."
+    },
+    {
+        "id": 212,
+        "topic": "What is the UK?",
+        "question": "What is the capital city of Northern Ireland?",
+        "options": [
+            "Dublin",
+            "Belfast",
+            "Cork",
+            "Londonderry"
+        ],
+        "correctAnswer": "Belfast",
+        "explanation": "Belfast is the capital city of Northern Ireland."
+    },
+    {
+        "id": 213,
+        "topic": "What is the UK?",
+        "question": "Is the Republic of Ireland part of the United Kingdom?",
+        "options": [
+            "No, it is a separate independent country",
+            "Yes, it is part of the UK"
+        ],
+        "correctAnswer": "No, it is a separate independent country",
+        "explanation": "The Republic of Ireland is an independent sovereign state."
+    },
+    {
+        "id": 301,
+        "topic": "History",
+        "question": "Who led the Norman invasion of England in 1066?",
+        "options": [
+            "Henry VIII",
+            "William the Conqueror",
+            "Julius Caesar",
+            "King Alfred"
+        ],
+        "correctAnswer": "William the Conqueror",
+        "explanation": "William, Duke of Normandy, defeated King Harold at the Battle of Hastings in 1066."
+    },
+    {
+        "id": 302,
+        "topic": "History",
+        "question": "What was the Domesday Book?",
+        "options": [
+            "A book of fairy tales",
+            "A book of laws",
+            "A census and land survey commanded by William the Conqueror",
+            "A religious text"
+        ],
+        "correctAnswer": "A census and land survey commanded by William the Conqueror",
+        "explanation": "William I commissioned it to record towns, people, and land ownership across England."
+    },
+    {
+        "id": 303,
+        "topic": "History",
+        "question": "Who was Boudicca?",
+        "options": [
+            "A Viking warrior",
+            "Queen of Scotland",
+            "A Roman Empress",
+            "Queen of the Iceni who fought the Romans"
+        ],
+        "correctAnswer": "Queen of the Iceni who fought the Romans",
+        "explanation": "She led a rebellion against the Roman occupation of Britain."
+    },
+    {
+        "id": 304,
+        "topic": "History",
+        "question": "What did the Romans build in the north of England to keep out the Picts?",
+        "options": [
+            "Offa's Dyke",
+            "Hadrian's Wall",
+            "The Great Wall",
+            "The Berlin Wall"
+        ],
+        "correctAnswer": "Hadrian's Wall",
+        "explanation": "Hadrian's Wall was built by the Emperor Hadrian to defend the province of Britannia."
+    },
+    {
+        "id": 305,
+        "topic": "History",
+        "question": "In which year did the Romans leave Britain?",
+        "options": [
+            "1066",
+            "AD 410",
+            "AD 43",
+            "1485"
+        ],
+        "correctAnswer": "AD 410",
+        "explanation": "The Roman army left in AD 410 to defend other parts of the Empire."
+    },
+    {
+        "id": 306,
+        "topic": "History",
+        "question": "Which document, signed in 1215, limited the King's power?",
+        "options": [
+            "The Bill of Rights",
+            "The Act of Union",
+            "The Magna Carta",
+            "The Reform Act"
+        ],
+        "correctAnswer": "The Magna Carta",
+        "explanation": "Magna Carta (Great Charter) established that even the king was subject to the law."
+    },
+    {
+        "id": 307,
+        "topic": "History",
+        "question": "What event killed one-third of the population in 1348?",
+        "options": [
+            "The Spanish Flu",
+            "The Great Fire",
+            "The Civil War",
+            "The Black Death"
+        ],
+        "correctAnswer": "The Black Death",
+        "explanation": "The Black Death was a plague that devastated the population in the Middle Ages."
+    },
+    {
+        "id": 308,
+        "topic": "History",
+        "question": "Who wrote 'The Canterbury Tales'?",
+        "options": [
+            "William Shakespeare",
+            "Geoffrey Chaucer",
+            "Charles Dickens",
+            "Jane Austen"
+        ],
+        "correctAnswer": "Geoffrey Chaucer",
+        "explanation": "Geoffrey Chaucer wrote The Canterbury Tales in the Middle Ages."
+    },
+    {
+        "id": 309,
+        "topic": "History",
+        "question": "Who led the English to victory at the Battle of Agincourt in 1415?",
+        "options": [
+            "King Richard III",
+            "King Henry VIII",
+            "King Henry V",
+            "King Edward I"
+        ],
+        "correctAnswer": "King Henry V",
+        "explanation": "Henry V led the English army to a famous victory against the French."
+    },
+    {
+        "id": 310,
+        "topic": "History",
+        "question": "The Wars of the Roses were fought between which two families?",
+        "options": [
+            "The Tudors and the Stuarts",
+            "Britain and France",
+            "The House of York and the House of Lancaster",
+            "England and Scotland"
+        ],
+        "correctAnswer": "The House of York and the House of Lancaster",
+        "explanation": "It was a civil war between the House of York (White Rose) and the House of Lancaster (Red Rose)."
+    },
+    {
+        "id": 311,
+        "topic": "History",
+        "question": "What happened at the Battle of Bosworth Field in 1485?",
+        "options": [
+            "William the Conqueror invaded England",
+            "The Spanish Armada was defeated",
+            "The Romans left Britain",
+            "Henry Tudor defeated Richard III, ending the Wars of the Roses"
+        ],
+        "correctAnswer": "Henry Tudor defeated Richard III, ending the Wars of the Roses",
+        "explanation": "This battle marked the end of the Middle Ages and the start of the Tudor dynasty."
+    },
+    {
+        "id": 312,
+        "topic": "History",
+        "question": "Which King had six wives?",
+        "options": [
+            "James I",
+            "Henry VIII",
+            "Henry VII",
+            "Edward VI"
+        ],
+        "correctAnswer": "Henry VIII",
+        "explanation": "Henry VIII is famous for his six wives and breaking from the Church of Rome."
+    },
+    {
+        "id": 313,
+        "topic": "History",
+        "question": "Who was the first female monarch to rule England in her own right?",
+        "options": [
+            "Queen Victoria",
+            "Mary I (Mary Tudor)",
+            "Elizabeth I",
+            "Queen Anne"
+        ],
+        "correctAnswer": "Mary I (Mary Tudor)",
+        "explanation": "Mary I (often called 'Bloody Mary') was the first Queen Regnant."
+    },
+    {
+        "id": 314,
+        "topic": "History",
+        "question": "In which year was the Spanish Armada defeated?",
+        "options": [
+            "1066",
+            "1940",
+            "1588",
+            "1415"
+        ],
+        "correctAnswer": "1588",
+        "explanation": "The Spanish Armada was defeated during the reign of Elizabeth I."
+    },
+    {
+        "id": 315,
+        "topic": "History",
+        "question": "Who became King James I of England?",
+        "options": [
+            "King James VI of Scotland",
+            "Charles I",
+            "Henry VIII",
+            "The King of France"
+        ],
+        "correctAnswer": "King James VI of Scotland",
+        "explanation": "James VI of Scotland inherited the English throne, becoming James I."
+    },
+    {
+        "id": 316,
+        "topic": "History",
+        "question": "What is celebrated on Bonfire Night (November 5th)?",
+        "options": [
+            "The end of World War I",
+            "The Queen's birthday",
+            "The failure of the Gunpowder Plot",
+            "New Year's Eve"
+        ],
+        "correctAnswer": "The failure of the Gunpowder Plot",
+        "explanation": "It commemorates the failure of Guy Fawkes' plot to blow up Parliament in 1605."
+    },
+    {
+        "id": 317,
+        "topic": "History",
+        "question": "Which King was executed after the English Civil War?",
+        "options": [
+            "Henry VIII",
+            "Charles I",
+            "James II",
+            "George I"
+        ],
+        "correctAnswer": "Charles I",
+        "explanation": "Charles I was executed in 1649 after losing the Civil War to Parliament."
+    },
+    {
+        "id": 318,
+        "topic": "History",
+        "question": "Who became 'Lord Protector' during the English Republic?",
+        "options": [
+            "Winston Churchill",
+            "Oliver Cromwell",
+            "Horatio Nelson",
+            "The Duke of Wellington"
+        ],
+        "correctAnswer": "Oliver Cromwell",
+        "explanation": "Oliver Cromwell ruled Britain as Lord Protector during the interregnum."
+    },
+    {
+        "id": 319,
+        "topic": "History",
+        "question": "When was the Great Fire of London?",
+        "options": [
+            "1666",
+            "1605",
+            "1665",
+            "1066"
+        ],
+        "correctAnswer": "1666",
+        "explanation": "The Great Fire destroyed much of the City of London in 1666."
+    },
+    {
+        "id": 320,
+        "topic": "History",
+        "question": "What did the Habeas Corpus Act of 1679 ensure?",
+        "options": [
+            "That the King had absolute power",
+            "That everyone must pay tax",
+            "That no one could be held prisoner unlawfully",
+            "That women could vote"
+        ],
+        "correctAnswer": "That no one could be held prisoner unlawfully",
+        "explanation": "It protected individuals against unlawful imprisonment."
+    },
+    {
+        "id": 321,
+        "topic": "History",
+        "question": "What happened during the Glorious Revolution of 1688?",
+        "options": [
+            "The King was executed",
+            "William of Orange and Mary II replaced James II peacefully",
+            "England invaded France",
+            "The monarchy was abolished"
+        ],
+        "correctAnswer": "William of Orange and Mary II replaced James II peacefully",
+        "explanation": "It established a constitutional monarchy and the dominance of Parliament."
+    },
+    {
+        "id": 322,
+        "topic": "History",
+        "question": "What did the Act of Union in 1707 create?",
+        "options": [
+            "The United Kingdom of Great Britain and Ireland",
+            "The Kingdom of Great Britain",
+            "The European Union",
+            "The Commonwealth"
+        ],
+        "correctAnswer": "The Kingdom of Great Britain",
+        "explanation": "It united the kingdoms of England (and Wales) and Scotland."
+    },
+    {
+        "id": 323,
+        "topic": "History",
+        "question": "Who is considered the first Prime Minister of the UK?",
+        "options": [
+            "Winston Churchill",
+            "Margaret Thatcher",
+            "Sir Robert Walpole",
+            "William Pitt"
+        ],
+        "correctAnswer": "Sir Robert Walpole",
+        "explanation": "Walpole served from 1721 to 1742 and is considered the first PM."
+    },
+    {
+        "id": 324,
+        "topic": "History",
+        "question": "Who defeated Napoleon at the Battle of Waterloo in 1815?",
+        "options": [
+            "Admiral Nelson",
+            "The Duke of Wellington",
+            "Winston Churchill",
+            "General Montgomery"
+        ],
+        "correctAnswer": "The Duke of Wellington",
+        "explanation": "The Duke of Wellington led the allied forces to victory against Napoleon."
+    },
+    {
+        "id": 325,
+        "topic": "History",
+        "question": "When was slavery abolished throughout the British Empire?",
+        "options": [
+            "1807",
+            "1776",
+            "1900",
+            "1833"
+        ],
+        "correctAnswer": "1833",
+        "explanation": "The Emancipation Act abolished slavery in 1833."
+    },
+    {
+        "id": 326,
+        "topic": "History",
+        "question": "Who was the monarch during the Victorian Age?",
+        "options": [
+            "Queen Elizabeth I",
+            "Queen Victoria",
+            "Queen Elizabeth II",
+            "King George III"
+        ],
+        "correctAnswer": "Queen Victoria",
+        "explanation": "Queen Victoria reigned from 1837 to 1901."
+    },
+    {
+        "id": 327,
+        "topic": "History",
+        "question": "Who is famous for founding modern nursing during the Crimean War?",
+        "options": [
+            "Edith Cavell",
+            "Marie Curie",
+            "Florence Nightingale",
+            "Mary Seacole"
+        ],
+        "correctAnswer": "Florence Nightingale",
+        "explanation": "She established nursing as a profession during the Crimean War."
+    },
+    {
+        "id": 328,
+        "topic": "History",
+        "question": "In 1918, which women were given the right to vote?",
+        "options": [
+            "All women over 18",
+            "Only women who were married",
+            "Women over the age of 30",
+            "No women were given the vote"
+        ],
+        "correctAnswer": "Women over the age of 30",
+        "explanation": "The 1918 Act gave the vote to women over 30; equality with men (21) came in 1928."
+    },
+    {
+        "id": 329,
+        "topic": "History",
+        "question": "Who was the British Prime Minister during the Second World War?",
+        "options": [
+            "Neville Chamberlain",
+            "Tony Blair",
+            "Winston Churchill",
+            "Clement Attlee"
+        ],
+        "correctAnswer": "Winston Churchill",
+        "explanation": "Winston Churchill led Britain from 1940 to 1945."
+    },
+    {
+        "id": 330,
+        "topic": "History",
+        "question": "When was the National Health Service (NHS) established?",
+        "options": [
+            "1950",
+            "1948",
+            "1945",
+            "1939"
+        ],
+        "correctAnswer": "1948",
+        "explanation": "Aneurin Bevan launched the NHS in 1948."
+    },
+    {
+        "id": 331,
+        "topic": "History",
+        "question": "Who was the first female Prime Minister of the UK?",
+        "options": [
+            "Theresa May",
+            "Emmeline Pankhurst",
+            "Margaret Thatcher",
+            "Florence Nightingale"
+        ],
+        "correctAnswer": "Margaret Thatcher",
+        "explanation": "Margaret Thatcher became the first woman Prime Minister in 1979."
+    },
+    {
+        "id": 332,
+        "topic": "History",
+        "question": "Which war ended with a British victory in 1982?",
+        "options": [
+            "The Korean War",
+            "The Falklands War",
+            "The Gulf War",
+            "The Second World War"
+        ],
+        "correctAnswer": "The Falklands War",
+        "explanation": "Britain successfully regained the Falkland Islands from Argentina."
+    },
+    {
+        "id": 333,
+        "topic": "History",
+        "question": "What did the Good Friday Agreement of 1998 help to establish?",
+        "options": [
+            "The European Union",
+            "The National Health Service",
+            "Peace in Northern Ireland",
+            "Devolution in Scotland"
+        ],
+        "correctAnswer": "Peace in Northern Ireland",
+        "explanation": "It was a major step in the Northern Ireland peace process."
+    },
+    {
+        "id": 401,
+        "topic": "Modern Society",
+        "question": "On which date is Christmas Day celebrated in the UK?",
+        "options": [
+            "24 December",
+            "1 January",
+            "25 December",
+            "31 December"
+        ],
+        "correctAnswer": "25 December",
+        "explanation": "Christmas Day, celebrating the birth of Jesus, is on 25 December."
+    },
+    {
+        "id": 402,
+        "topic": "Modern Society",
+        "question": "What day is celebrated on the day after Christmas Day?",
+        "options": [
+            "Easter Monday",
+            "Boxing Day",
+            "New Year's Eve",
+            "Good Friday"
+        ],
+        "correctAnswer": "Boxing Day",
+        "explanation": "Boxing Day is celebrated on 26 December."
+    },
+    {
+        "id": 403,
+        "topic": "Modern Society",
+        "question": "What is the name of the period of 40 days before Easter?",
+        "options": [
+            "Advent",
+            "Ramadan",
+            "Lent",
+            "Diwali"
+        ],
+        "correctAnswer": "Lent",
+        "explanation": "Lent is the Christian period of fasting and reflection before Easter."
+    },
+    {
+        "id": 404,
+        "topic": "Modern Society",
+        "question": "What is Diwali also known as?",
+        "options": [
+            "New Year",
+            "The Festival of Colors",
+            "The Festival of Lights",
+            "Harvest Festival"
+        ],
+        "correctAnswer": "The Festival of Lights",
+        "explanation": "Diwali is a major Hindu and Sikh festival known as the Festival of Lights."
+    },
+    {
+        "id": 405,
+        "topic": "Modern Society",
+        "question": "What does Remembrance Day (11 November) commemorate?",
+        "options": [
+            "The end of World War II",
+            "Those who died fighting for the UK and its allies",
+            "The Queen's birthday",
+            "The start of spring"
+        ],
+        "correctAnswer": "Those who died fighting for the UK and its allies",
+        "explanation": "It commemorates the end of WWI and all who died in wars since."
+    },
+    {
+        "id": 406,
+        "topic": "Modern Society",
+        "question": "What is 'Hogmanay'?",
+        "options": [
+            "Christmas in Wales",
+            "New Year's Eve in Scotland",
+            "A summer festival",
+            "A type of food"
+        ],
+        "correctAnswer": "New Year's Eve in Scotland",
+        "explanation": "Hogmanay is the traditional Scottish celebration of New Year's Eve."
+    },
+    {
+        "id": 407,
+        "topic": "Modern Society",
+        "question": "Which sport is the most popular in the UK?",
+        "options": [
+            "Cricket",
+            "Football",
+            "Rugby",
+            "Tennis"
+        ],
+        "correctAnswer": "Football",
+        "explanation": "Football is the most popular sport in the UK."
+    },
+    {
+        "id": 408,
+        "topic": "Modern Society",
+        "question": "Where is the Wimbledon tennis championship held?",
+        "options": [
+            "Manchester",
+            "Edinburgh",
+            "London",
+            "Cardiff"
+        ],
+        "correctAnswer": "London",
+        "explanation": "Wimbledon is held at the All England Club in London."
+    },
+    {
+        "id": 409,
+        "topic": "Modern Society",
+        "question": "What is the 'Grand National'?",
+        "options": [
+            "A car race",
+            "A marathon",
+            "A famous horse race",
+            "A dog race"
+        ],
+        "correctAnswer": "A famous horse race",
+        "explanation": "The Grand National is a famous steeplechase horse race held at Aintree."
+    },
+    {
+        "id": 410,
+        "topic": "Modern Society",
+        "question": "Which British author wrote the 'Harry Potter' series?",
+        "options": [
+            "J.R.R. Tolkien",
+            "J.K. Rowling",
+            "Roald Dahl",
+            "Charles Dickens"
+        ],
+        "correctAnswer": "J.K. Rowling",
+        "explanation": "J.K. Rowling is the author of the Harry Potter books."
+    },
+    {
+        "id": 411,
+        "topic": "Modern Society",
+        "question": "Who wrote the play 'Romeo and Juliet'?",
+        "options": [
+            "Geoffrey Chaucer",
+            "Charles Dickens",
+            "William Shakespeare",
+            "Jane Austen"
+        ],
+        "correctAnswer": "William Shakespeare",
+        "explanation": "William Shakespeare wrote Romeo and Juliet."
+    },
+    {
+        "id": 412,
+        "topic": "Modern Society",
+        "question": "What is the 'London Eye'?",
+        "options": [
+            "A skyscraper",
+            "A giant Ferris wheel on the River Thames",
+            "A bridge",
+            "A museum"
+        ],
+        "correctAnswer": "A giant Ferris wheel on the River Thames",
+        "explanation": "The London Eye is a popular tourist attraction on the South Bank of the Thames."
+    },
+    {
+        "id": 413,
+        "topic": "Modern Society",
+        "question": "What is the minimum age to buy alcohol in the UK?",
+        "options": [
+            "16",
+            "21",
+            "18",
+            "25"
+        ],
+        "correctAnswer": "18",
+        "explanation": "You must be 18 or older to buy alcohol in a pub or shop."
+    },
+    {
+        "id": 501,
+        "topic": "Government & Law",
+        "question": "Who is the Head of State of the United Kingdom?",
+        "options": [
+            "The Prime Minister",
+            "The Monarch",
+            "The Archbishop of Canterbury",
+            "The Speaker of the House"
+        ],
+        "correctAnswer": "The Monarch",
+        "explanation": "The King or Queen is the ceremonial Head of State."
+    },
+    {
+        "id": 502,
+        "topic": "Government & Law",
+        "question": "What is the official residence of the Prime Minister?",
+        "options": [
+            "Buckingham Palace",
+            "The Houses of Parliament",
+            "10 Downing Street",
+            "Windsor Castle"
+        ],
+        "correctAnswer": "10 Downing Street",
+        "explanation": "The Prime Minister lives and works at 10 Downing Street."
+    },
+    {
+        "id": 503,
+        "topic": "Government & Law",
+        "question": "What is the minimum age to vote in a General Election?",
+        "options": [
+            "16",
+            "18",
+            "21",
+            "25"
+        ],
+        "correctAnswer": "18",
+        "explanation": "You must be at least 18 years old to vote in a General Election."
+    },
+    {
+        "id": 504,
+        "topic": "Government & Law",
+        "question": "In England, which court deals with minor criminal cases?",
+        "options": [
+            "Crown Court",
+            "Magistrates' Court",
+            "High Court",
+            "County Court"
+        ],
+        "correctAnswer": "Magistrates' Court",
+        "explanation": "About 95% of criminal cases are dealt with in a Magistrates' Court."
+    },
+    {
+        "id": 505,
+        "topic": "Government & Law",
+        "question": "Which court uses a jury to decide the verdict?",
+        "options": [
+            "Magistrates' Court",
+            "Crown Court",
+            "County Court",
+            "Small Claims Court"
+        ],
+        "correctAnswer": "Crown Court",
+        "explanation": "Serious criminal cases are heard in the Crown Court with a judge and a jury."
+    },
+    {
+        "id": 506,
+        "topic": "Government & Law",
+        "question": "What is the 'Shadow Cabinet'?",
+        "options": [
+            "A secret government group",
+            "Senior MPs from the opposition party who challenge the government",
+            "The Prime Minister's private advisers",
+            "A group of spies"
+        ],
+        "correctAnswer": "Senior MPs from the opposition party who challenge the government",
+        "explanation": "The Shadow Cabinet is formed by the leader of the opposition to challenge the government's policies."
+    },
+    {
+        "id": 507,
+        "topic": "Government & Law",
+        "question": "How often must General Elections be held?",
+        "options": [
+            "Every 4 years",
+            "Every 10 years",
+            "At least every 5 years",
+            "Whenever the Monarch decides"
+        ],
+        "correctAnswer": "At least every 5 years",
+        "explanation": "Under current laws, a General Election must be held at least every five years."
+    },
+    {
+        "id": 508,
+        "topic": "Government & Law",
+        "question": "What is the main role of the police in the UK?",
+        "options": [
+            "To make new laws",
+            "To collect taxes",
+            "To judge criminals in court",
+            "To protect life and property, prevent disturbance, and detect crime"
+        ],
+        "correctAnswer": "To protect life and property, prevent disturbance, and detect crime",
+        "explanation": "The police are responsible for maintaining law and order, not making laws."
+    },
+    {
+        "id": 509,
+        "topic": "Government & Law",
+        "question": "What is the name of the devolved administration in Scotland?",
+        "options": [
+            "The Senedd",
+            "The Scottish Parliament",
+            "The Scottish Assembly",
+            "The Dail"
+        ],
+        "correctAnswer": "The Scottish Parliament",
+        "explanation": "The Scottish Parliament acts as the devolved legislature for Scotland."
+    },
+    {
+        "id": 510,
+        "topic": "Government & Law",
+        "question": "What is a 'Jury Service'?",
+        "options": [
+            "Serving in the army",
+            "Citizens are randomly selected to decide a verdict in court",
+            "Working for the local council",
+            "Helping the police patrol streets"
+        ],
+        "correctAnswer": "Citizens are randomly selected to decide a verdict in court",
+        "explanation": "British citizens can be called to serve on a jury to decide if a defendant is guilty or not."
+    },
+    {
+        "id": 511,
+        "topic": "Values and Principles",
+        "question": "What is one of the fundamental principles of British life that all residents should respect and support?",
+        "options": [
+            "A) Absolute monarchy",
+            "B) Individual liberty",
+            "C) Economic protectionism",
+            "D) State-controlled media"
+        ],
+        "correctAnswer": "B) Individual liberty",
+        "explanation": "The text lists 'Individual liberty' as one of the fundamental principles of British life, alongside democracy, the rule of law, tolerance, and participation in community life."
+    },
+    {
+        "id": 512,
+        "topic": "Becoming a permanent resident",
+        "question": "As of January 2013, which TWO requirements did a person need to meet to apply to become a permanent resident or citizen of the UK?",
+        "options": [
+            "A) Be born in the UK and have a UK passport",
+            "B) Speak and read English, and have a good understanding of life in the UK",
+            "C) Have a university degree and a job offer",
+            "D) Own property in the UK and pay taxes for 10 years"
+        ],
+        "correctAnswer": "B) Speak and read English, and have a good understanding of life in the UK",
+        "explanation": "The text states: 'To apply to become a permanent resident or citizen of the UK, you will need to: speak and read English; have a good understanding of life in the UK.'"
+    },
+    {
+        "id": 513,
+        "topic": "Taking the Life in the UK test",
+        "question": "How many questions does the Life in the UK test consist of?",
+        "options": [
+            "A) 12",
+            "B) 20",
+            "C) 24",
+            "D) 30"
+        ],
+        "correctAnswer": "C) 24",
+        "explanation": "The handbook states, 'The test consists of 24 questions about important aspects of life in the UK.'"
+    },
+    {
+        "id": 514,
+        "topic": "Values and Principles",
+        "question": "What is part of the pledge new citizens make during the citizenship ceremony?",
+        "options": [
+            "A) 'I will contribute to global peace and prosperity.'",
+            "B) 'I will uphold its democratic values.'",
+            "C) 'I will strive for economic success above all else.'",
+            "D) 'I will always put my personal interests first.'"
+        ],
+        "correctAnswer": "B) 'I will uphold its democratic values.'",
+        "explanation": "The pledge includes: 'I will give my loyalty to the United Kingdom and respect its rights and freedoms. I will uphold its democratic values. I will observe its laws faithfully and fulfil my duties and obligations as a British citizen.'"
+    },
+    {
+        "id": 515,
+        "topic": "Becoming a permanent resident",
+        "question": "From October 2013, what were the new English language requirements for settlement or permanent residence, in addition to passing the Life in the UK test?",
+        "options": [
+            "A) Producing evidence of speaking and listening skills at C2 of the Common European Framework of Reference.",
+            "B) Producing acceptable evidence of speaking and listening skills in English at B1 of the Common European Framework of Reference.",
+            "C) Taking a separate advanced English literature exam.",
+            "D) Completing a full degree in English from a UK university."
+        ],
+        "correctAnswer": "B) Producing acceptable evidence of speaking and listening skills in English at B1 of the Common European Framework of Reference.",
+        "explanation": "The text explicitly states: 'From October 2013... for settlement or permanent residence, you will need to: Pass the Life in the UK test AND Produce acceptable evidence of speaking and listening skills in English at B1 of the Common European Framework of Reference.'"
+    },
+    {
+        "id": 516,
+        "topic": "Values and Principles",
+        "question": "Which of the following is NOT listed as a freedom offered by the UK to its residents?",
+        "options": [
+            "A) Freedom of belief and religion",
+            "B) Freedom of speech",
+            "C) Freedom to disregard laws",
+            "D) Freedom from unfair discrimination"
+        ],
+        "correctAnswer": "C) Freedom to disregard laws",
+        "explanation": "The text lists 'freedom of belief and religion', 'freedom of speech', 'freedom from unfair discrimination', 'a right to a fair trial', and 'a right to join in the election of a government' as freedoms. Disregarding laws is contrary to the responsibility to 'respect and obey the law'."
+    },
+    {
+        "id": 517,
+        "topic": "Taking the Life in the UK test",
+        "question": "Where can you only book your Life in the UK test online?",
+        "options": [
+            "A) At any local library",
+            "B) Directly at a test centre",
+            "C) At www.lifeintheuktest.gov.uk",
+            "D) Through the UK Border Agency website"
+        ],
+        "correctAnswer": "C) At www.lifeintheuktest.gov.uk",
+        "explanation": "The text states: 'You can only book your test online, at www.lifeintheuktest.gov.uk.'"
+    },
+    {
+        "id": 518,
+        "topic": "What is the UK?",
+        "question": "Which countries make up the United Kingdom?",
+        "options": [
+            "A) England, Wales, Scotland, and the Republic of Ireland",
+            "B) England, Scotland, Wales, and Northern Ireland",
+            "C) Great Britain, Channel Islands, and the Isle of Man",
+            "D) England, Scotland, Ireland, and France"
+        ],
+        "correctAnswer": "B) England, Scotland, Wales, and Northern Ireland",
+        "explanation": "The text states: 'The UK is made up of England, Scotland, Wales and Northern Ireland. The rest of Ireland is an independent country.'"
+    },
+    {
+        "id": 519,
+        "topic": "What is the UK?",
+        "question": "What does the term 'Great Britain' refer to in the context of the UK?",
+        "options": [
+            "A) England, Scotland, Wales, and Northern Ireland",
+            "B) England, Scotland, and Wales only",
+            "C) The entire island of Ireland",
+            "D) All the British overseas territories"
+        ],
+        "correctAnswer": "B) England, Scotland, and Wales only",
+        "explanation": "The text clarifies: '\u2018Great Britain\u2019 refers only to England, Scotland and Wales, not to Northern Ireland.'"
+    },
+    {
+        "id": 520,
+        "topic": "What is the UK?",
+        "question": "Which of the following are described as 'Crown dependencies' and are closely linked with the UK but are not part of it?",
+        "options": [
+            "A) St Helena and the Falkland Islands",
+            "B) India and Pakistan",
+            "C) The Channel Islands and the Isle of Man",
+            "D) Northern Ireland and Scotland"
+        ],
+        "correctAnswer": "C) The Channel Islands and the Isle of Man",
+        "explanation": "The text states: 'There are also several islands which are closely linked with the UK but are not part of it: the Channel Islands and the Isle of Man. These have their own governments and are called \u2018Crown dependencies\u2019.'"
+    },
+    {
+        "id": 521,
+        "topic": "History",
+        "question": "Who was the Prime Minister elected in 1945 who promised to introduce the welfare state outlined in the Beveridge Report?",
+        "options": [
+            "A) Winston Churchill",
+            "B) Harold Macmillan",
+            "C) Clement Attlee",
+            "D) R A Butler"
+        ],
+        "correctAnswer": "C) Clement Attlee",
+        "explanation": "The text states: 'In 1945 the British people elected a Labour government. The new Prime Minister was Clement Atlee, who promised to introduce the welfare state outlined in the Beveridge Report.'"
+    },
+    {
+        "id": 522,
+        "topic": "History",
+        "question": "In which year was the National Health Service (NHS) established, guaranteeing a minimum standard of healthcare for all, free at the point of use?",
+        "options": [
+            "A) 1938",
+            "B) 1942",
+            "C) 1945",
+            "D) 1948"
+        ],
+        "correctAnswer": "D) 1948",
+        "explanation": "The text says: 'In 1948, Aneurin (Nye) Bevan, the Minister for Health, led the establishment of the National Health Service (NHS)...'"
+    },
+    {
+        "id": 523,
+        "topic": "History",
+        "question": "What was the main purpose of the Beveridge Report, commissioned in 1941?",
+        "options": [
+            "A) To recommend strategies for winning the Second World War.",
+            "B) To outline the need for nationalisation of major industries.",
+            "C) To propose ways of fighting the five \u2018Giant Evils\u2019 and form the basis of the modern welfare state.",
+            "D) To document the history of the British Empire."
+        ],
+        "correctAnswer": "C) To propose ways of fighting the five \u2018Giant Evils\u2019 and form the basis of the modern welfare state.",
+        "explanation": "The Beveridge Report 'recommended that the government should find ways of fighting the five \u2018Giant Evils\u2019 of Want, Disease, Ignorance, Squalor and Idleness and provided the basis of the modern welfare state.'"
+    },
+    {
+        "id": 524,
+        "topic": "History",
+        "question": "Which significant Act, often called \u2018The Butler Act\u2019, introduced free secondary education in England and Wales?",
+        "options": [
+            "A) The National Health Service Act",
+            "B) The Equal Pay Act",
+            "C) The Education Act 1944",
+            "D) The Immigration Act 1948"
+        ],
+        "correctAnswer": "C) The Education Act 1944",
+        "explanation": "R A Butler 'oversaw the introduction of the Education Act 1944 (often called \u2018The Butler Act\u2019), which introduced free secondary education in England and Wales.'"
+    },
+    {
+        "id": 525,
+        "topic": "History",
+        "question": "During the 1950s, why was further immigration to the UK encouraged?",
+        "options": [
+            "A) To boost the population for military service.",
+            "B) For economic reasons due to labour shortages.",
+            "C) To increase the number of students in universities.",
+            "D) To promote cultural exchange programmes."
+        ],
+        "correctAnswer": "B) For economic reasons due to labour shortages.",
+        "explanation": "The text states: 'During the 1950s, there was still a shortage of labour in the UK. Further immigration was therefore encouraged for economic reasons, and many industries advertised for workers from overseas.'"
+    },
+    {
+        "id": 526,
+        "topic": "Modern Society",
+        "question": "Which of these was a characteristic of the 'Swinging Sixties' in Britain?",
+        "options": [
+            "A) A period of strict social conservatism and austerity.",
+            "B) Growth in British fashion, cinema, and popular music.",
+            "C) Decline in women's rights and workplace equality.",
+            "D) Economic recession and high unemployment."
+        ],
+        "correctAnswer": "B) Growth in British fashion, cinema, and popular music.",
+        "explanation": "The text describes the 1960s as a 'period of significant social change. It was known as \u2018the Swinging Sixties\u2019. There was growth in British fashion, cinema and popular music.'"
+    },
+    {
+        "id": 527,
+        "topic": "Modern Society",
+        "question": "Which Welsh poet and writer is known for works like the radio play 'Under Milk Wood' and the poem 'Do Not Go Gentle into That Good Night'?",
+        "options": [
+            "A) William Shakespeare",
+            "B) Dylan Thomas",
+            "C) Lord Byron",
+            "D) Robert Burns"
+        ],
+        "correctAnswer": "B) Dylan Thomas",
+        "explanation": "The text features a biography of Dylan Thomas, stating he 'was a Welsh poet and writer. His most well-known works include the radio play Under Milk Wood... and the poem Do Not Go Gentle into That Good Night'."
+    },
+    {
+        "id": 528,
+        "topic": "History",
+        "question": "What type of former British colonies achieved independence in 1947, including India, Pakistan, and Ceylon?",
+        "options": [
+            "A) Colonies in the Caribbean",
+            "B) Colonies in Africa",
+            "C) Colonies in Asia",
+            "D) Colonies in the Pacific"
+        ],
+        "correctAnswer": "C) Colonies in Asia",
+        "explanation": "The text states: 'In 1947, independence was granted to nine countries, including India, Pakistan and Ceylon (now Sri Lanka).' These countries are located in Asia."
+    },
+    {
+        "id": 529,
+        "topic": "Government & Law",
+        "question": "Which main body is the UK governed by, as mentioned in the text?",
+        "options": [
+            "A) The Crown Dependencies",
+            "B) The Scottish Parliament",
+            "C) The Parliament sitting in Westminster",
+            "D) The European Union"
+        ],
+        "correctAnswer": "C) The Parliament sitting in Westminster",
+        "explanation": "The text states: 'The UK is governed by the parliament sitting in Westminster.'"
+    },
+    {
+        "id": 530,
+        "topic": "Values and Principles",
+        "question": "What is one of the responsibilities that all those living in the UK are expected to respect, as outlined in the fundamental principles?",
+        "options": [
+            "A) To prioritise personal gain above all else.",
+            "B) To engage in political protests regularly.",
+            "C) To look after yourself and your family.",
+            "D) To only respect laws that you agree with."
+        ],
+        "correctAnswer": "C) To look after yourself and your family.",
+        "explanation": "The text lists: 'If you wish to be a permanent resident or citizen of the UK, you should: ... look after yourself and your family'."
+    },
+    {
+        "id": 531,
+        "topic": "History",
+        "question": "Who made the first television broadcast between London and Glasgow in 1932?",
+        "options": [
+            "Logie Baird",
+            "Sir Robert Watson-Watt",
+            "Sir Bernard Lovell",
+            "Alan Turing"
+        ],
+        "correctAnswer": "Logie Baird",
+        "explanation": "Logie Baird made the first television broadcast between London and Glasgow in 1932."
+    },
+    {
+        "id": 532,
+        "topic": "History",
+        "question": "Who developed radar, with the first successful test taking place in 1935?",
+        "options": [
+            "Sir Bernard Lovell",
+            "Sir Robert Watson-Watt",
+            "Alan Turing",
+            "John MacLeod"
+        ],
+        "correctAnswer": "Sir Robert Watson-Watt",
+        "explanation": "Radar was developed by Scotsman Sir Robert Watson-Watt, with the first successful test taking place in 1935."
+    },
+    {
+        "id": 533,
+        "topic": "History",
+        "question": "The theoretical mathematical device known as the Turing machine, influential in the development of computer science, was invented by whom in the 1930s?",
+        "options": [
+            "Francis Crick",
+            "Sir Frank Whittle",
+            "Alan Turing",
+            "Sir Christopher Cockerell"
+        ],
+        "correctAnswer": "Alan Turing",
+        "explanation": "The Turing machine was invented by the British mathematician Alan Turing in the 1930s."
+    },
+    {
+        "id": 534,
+        "topic": "History",
+        "question": "Which Scottish physician and researcher was the co-discoverer of insulin, used to treat diabetes?",
+        "options": [
+            "John MacLeod",
+            "Sir Robert Edwards",
+            "Patrick Steptoe",
+            "Sir Peter Mansfield"
+        ],
+        "correctAnswer": "John MacLeod",
+        "explanation": "John MacLeod was the co-discoverer of insulin, used to treat diabetes."
+    },
+    {
+        "id": 535,
+        "topic": "History",
+        "question": "In what year was the structure of the DNA molecule discovered through work at British universities?",
+        "options": [
+            "1946",
+            "1953",
+            "1967",
+            "1978"
+        ],
+        "correctAnswer": "1953",
+        "explanation": "The structure of the DNA molecule was discovered in 1953."
+    },
+    {
+        "id": 536,
+        "topic": "History",
+        "question": "Who developed the jet engine in Britain in the 1930s?",
+        "options": [
+            "Sir Frank Whittle",
+            "Sir Christopher Cockerell",
+            "Sir Tim Berners-Lee",
+            "James Goodfellow"
+        ],
+        "correctAnswer": "Sir Frank Whittle",
+        "explanation": "The jet engine was developed in Britain in the 1930s by Sir Frank Whittle."
+    },
+    {
+        "id": 537,
+        "topic": "History",
+        "question": "What invention, pioneered by James Goodfellow in the 1960s, was first put into use by Barclays Bank in Enfield, north London in 1967?",
+        "options": [
+            "The World Wide Web",
+            "The hovercraft",
+            "The cash-dispensing ATM",
+            "The MRI scanner"
+        ],
+        "correctAnswer": "The cash-dispensing ATM",
+        "explanation": "James Goodfellow invented the cash-dispensing ATM (automatic teller machine) or 'cashpoint' in the 1960s, first used in 1967."
+    },
+    {
+        "id": 538,
+        "topic": "History",
+        "question": "Who pioneered IVF (in-vitro fertilisation) therapy for the treatment of infertility in Britain?",
+        "options": [
+            "Sir Ian Wilmot and Keith Campbell",
+            "Sir Peter Mansfield",
+            "Sir Robert Edwards and Patrick Steptoe",
+            "Logie Baird"
+        ],
+        "correctAnswer": "Sir Robert Edwards and Patrick Steptoe",
+        "explanation": "IVF therapy was pioneered in Britain by physiologist Sir Robert Edwards and gynaecologist Patrick Steptoe."
+    },
+    {
+        "id": 539,
+        "topic": "History",
+        "question": "Which British scientist is the co-inventor of the MRI (magnetic resonance imaging) scanner?",
+        "options": [
+            "Sir Robert Watson-Watt",
+            "Sir Bernard Lovell",
+            "Sir Peter Mansfield",
+            "Francis Crick"
+        ],
+        "correctAnswer": "Sir Peter Mansfield",
+        "explanation": "Sir Peter Mansfield is the co-inventor of the MRI (magnetic resonance imaging) scanner."
+    },
+    {
+        "id": 540,
+        "topic": "History",
+        "question": "Who is the British inventor of the World Wide Web?",
+        "options": [
+            "Alan Turing",
+            "Sir Tim Berners-Lee",
+            "Sir Frank Whittle",
+            "James Goodfellow"
+        ],
+        "correctAnswer": "Sir Tim Berners-Lee",
+        "explanation": "Sir Tim Berners-Lee is the British inventor of the World Wide Web."
+    },
+    {
+        "id": 541,
+        "topic": "Modern Society",
+        "question": "What major issue affected the British economy in the late 1970s, causing imports to be valued more than exports?",
+        "options": [
+            "A balanced budget",
+            "A trade surplus",
+            "The balance of payments problem",
+            "Stable exchange rates"
+        ],
+        "correctAnswer": "The balance of payments problem",
+        "explanation": "In the late 1970s, problems with the 'balance of payments' meant imports of goods were valued at more than the price paid for exports."
+    },
+    {
+        "id": 542,
+        "topic": "History",
+        "question": "In what year was the Northern Ireland Parliament suspended, leading to direct rule by the UK government?",
+        "options": [
+            "1969",
+            "1972",
+            "1978",
+            "1982"
+        ],
+        "correctAnswer": "1972",
+        "explanation": "In 1972, the Northern Ireland Parliament was suspended and Northern Ireland was directly ruled by the UK government."
+    },
+    {
+        "id": 543,
+        "topic": "Modern Society",
+        "question": "Which talented athlete, born in Manchester and moved to Northern Ireland, won an Olympic gold medal in the pentathlon in 1972?",
+        "options": [
+            "Margaret Thatcher",
+            "Mary Peters",
+            "Queen Anne",
+            "Jane Daly"
+        ],
+        "correctAnswer": "Mary Peters",
+        "explanation": "Mary Peters was a talented athlete who won an Olympic gold medal in the pentathlon in 1972."
+    },
+    {
+        "id": 544,
+        "topic": "History",
+        "question": "In which year did the UK eventually join the European Economic Community (EEC)?",
+        "options": [
+            "1957",
+            "1969",
+            "1973",
+            "1979"
+        ],
+        "correctAnswer": "1973",
+        "explanation": "The UK eventually joined the European Economic Community (EEC) in 1973."
+    },
+    {
+        "id": 545,
+        "topic": "Government & Law",
+        "question": "Who became the first woman Prime Minister of the UK in 1979 and was the longest-serving Prime Minister of the 20th century?",
+        "options": [
+            "Theresa May",
+            "Liz Truss",
+            "Margaret Thatcher",
+            "Mary Peters"
+        ],
+        "correctAnswer": "Margaret Thatcher",
+        "explanation": "Margaret Thatcher became the first woman Prime Minister in 1979 and was the longest-serving PM of the 20th century."
+    },
+    {
+        "id": 546,
+        "topic": "History",
+        "question": "In 1982, Argentina invaded which British overseas territory, leading to military action by the UK?",
+        "options": [
+            "Gibraltar",
+            "Bermuda",
+            "Falkland Islands",
+            "St Helena"
+        ],
+        "correctAnswer": "Falkland Islands",
+        "explanation": "In 1982, Argentina invaded the Falkland Islands, a British overseas territory in the South Atlantic."
+    },
+    {
+        "id": 547,
+        "topic": "Government & Law",
+        "question": "What significant agreement concerning peace in Northern Ireland was signed in 1998 during the Labour government led by Tony Blair?",
+        "options": [
+            "The Act of Union",
+            "The Bill of Rights",
+            "The Good Friday Agreement",
+            "The Treaty of London"
+        ],
+        "correctAnswer": "The Good Friday Agreement",
+        "explanation": "The Good Friday Agreement was signed in 1998, building on the peace process in Northern Ireland during the Blair government."
+    },
+    {
+        "id": 548,
+        "topic": "Government & Law",
+        "question": "The Bill of Rights in 1689 confirmed that the monarch could no longer raise taxes or administer justice without agreement from whom?",
+        "options": [
+            "The Church",
+            "The people",
+            "Parliament",
+            "The Privy Council"
+        ],
+        "correctAnswer": "Parliament",
+        "explanation": "The Bill of Rights, 1689, confirmed that the king would no longer be able to raise taxes or administer justice without agreement from Parliament."
+    },
+    {
+        "id": 549,
+        "topic": "History",
+        "question": "What did the Act of Union, agreed in 1707, create?",
+        "options": [
+            "The United Kingdom",
+            "The Commonwealth",
+            "The Kingdom of Great Britain",
+            "The European Economic Community"
+        ],
+        "correctAnswer": "The Kingdom of Great Britain",
+        "explanation": "The Act of Union, agreed in 1707, created the Kingdom of Great Britain."
+    },
+    {
+        "id": 550,
+        "topic": "Government & Law",
+        "question": "Who was the first man to be called Prime Minister, serving from 1721 to 1742?",
+        "options": [
+            "George I",
+            "Charles Edward Stuart",
+            "Adam Smith",
+            "Sir Robert Walpole"
+        ],
+        "correctAnswer": "Sir Robert Walpole",
+        "explanation": "Sir Robert Walpole was the first man to be called Prime Minister, serving from 1721 to 1742."
+    },
+    {
+        "id": 551,
+        "topic": "History",
+        "question": "Which religious group first set up formal anti-slavery groups in Britain in the late 1700s?",
+        "options": [
+            "Anglicans",
+            "Methodists",
+            "Quakers",
+            "Baptists"
+        ],
+        "correctAnswer": "Quakers",
+        "explanation": "The first formal anti-slavery groups were set up by the Quakers in the late 1700s, and they petitioned Parliament to ban the practice."
+    },
+    {
+        "id": 552,
+        "topic": "Government & Law",
+        "question": "In what year did the Emancipation Act abolish slavery throughout the British Empire?",
+        "options": [
+            "1807",
+            "1833",
+            "1846",
+            "1867"
+        ],
+        "correctAnswer": "1833",
+        "explanation": "In 1833 the Emancipation Act abolished slavery throughout the British Empire."
+    },
+    {
+        "id": 553,
+        "topic": "History",
+        "question": "What slogan did American colonists use to protest against British taxation, stating they lacked representation in Parliament?",
+        "options": [
+            "Liberty or Death!",
+            "Give Us Freedom Now!",
+            "No Taxation Without Representation!",
+            "America for Americans!"
+        ],
+        "correctAnswer": "No Taxation Without Representation!",
+        "explanation": "The colonists saw this as an attack on their freedom and said there should be 'no taxation without representation' in the British Parliament."
+    },
+    {
+        "id": 554,
+        "topic": "History",
+        "question": "Who was in charge of the British fleet at the Battle of Trafalgar in 1805 and was killed in the battle?",
+        "options": [
+            "Duke of Wellington",
+            "Admiral Lord Howe",
+            "Admiral Nelson",
+            "Sir Francis Drake"
+        ],
+        "correctAnswer": "Admiral Nelson",
+        "explanation": "Admiral Nelson was in charge of the British fleet at Trafalgar and was killed in the battle."
+    },
+    {
+        "id": 555,
+        "topic": "History",
+        "question": "Which battle marked the end of the French Wars with the defeat of Emperor Napoleon by the Duke of Wellington in 1815?",
+        "options": [
+            "Battle of Hastings",
+            "Battle of Waterloo",
+            "Battle of Britain",
+            "Battle of Trafalgar"
+        ],
+        "correctAnswer": "Battle of Waterloo",
+        "explanation": "In 1815, the French Wars ended with the defeat of the Emperor Napoleon by the Duke of Wellington at the Battle of Waterloo."
+    },
+    {
+        "id": 556,
+        "topic": "What is the UK?",
+        "question": "Which Act led to the unification of Ireland with England, Scotland, and Wales in 1801, creating the United Kingdom of Great Britain and Ireland?",
+        "options": [
+            "The Great Reform Act",
+            "The Emancipation Act",
+            "The Act of Union of 1800",
+            "The Home Rule Act"
+        ],
+        "correctAnswer": "The Act of Union of 1800",
+        "explanation": "In 1801, Ireland became unified with England, Scotland and Wales after the Act of Union of 1800. This created the United Kingdom of Great Britain and Ireland."
+    },
+    {
+        "id": 557,
+        "topic": "What is the UK?",
+        "question": "Which saint's cross, a diagonal red cross on a white ground, is included in the Union Flag to represent Ireland?",
+        "options": [
+            "St George",
+            "St Andrew",
+            "St Patrick",
+            "St David"
+        ],
+        "correctAnswer": "St Patrick",
+        "explanation": "The Union Flag consists of three crosses: The cross of St George, patron saint of England, is a red cross on a white ground. The cross of St Andrew, patron saint of Scotland, is a diagonal white cross on a blue ground. The cross of St Patrick, patron saint of Ireland, is a diagonal red cross on a white ground."
+    },
+    {
+        "id": 558,
+        "topic": "History",
+        "question": "Queen Victoria's reign, known as the Victorian Age, lasted for almost how many years?",
+        "options": [
+            "40 years",
+            "50 years",
+            "64 years",
+            "70 years"
+        ],
+        "correctAnswer": "64 years",
+        "explanation": "Queen Victoria became queen of the UK in 1837 and reigned until 1901, almost 64 years."
+    },
+    {
+        "id": 559,
+        "topic": "History",
+        "question": "Which country was NOT explicitly mentioned as being covered by the British Empire during the Victorian period?",
+        "options": [
+            "India",
+            "Australia",
+            "Large parts of Africa",
+            "China"
+        ],
+        "correctAnswer": "China",
+        "explanation": "During the Victorian period, the British Empire grew to cover all of India, Australia and large parts of Africa."
+    },
+    {
+        "id": 560,
+        "topic": "History",
+        "question": "What major law was repealed in 1846 to promote free trade by allowing cheaper import of grain?",
+        "options": [
+            "The Slave Trade Act",
+            "The Reform Act",
+            "The Corn Laws",
+            "The Emancipation Act"
+        ],
+        "correctAnswer": "The Corn Laws",
+        "explanation": "The government began to promote policies of free trade, abolishing a number of taxes on imported goods. One example of this was the repealing of the Corn Laws in 1846."
+    },
+    {
+        "id": 561,
+        "topic": "History",
+        "question": "Who was the engineer responsible for constructing the Great Western Railway and many bridges that are still in use today?",
+        "options": [
+            "George Stephenson",
+            "Robert Stephenson",
+            "Isambard Kingdom Brunel",
+            "James Watt"
+        ],
+        "correctAnswer": "Isambard Kingdom Brunel",
+        "explanation": "Isambard Kingdom Brunel was an engineer who built tunnels, bridges, railway lines and ships. He was responsible for constructing the Great Western Railway."
+    },
+    {
+        "id": 562,
+        "topic": "History",
+        "question": "Which war, fought from 1853 to 1856, was the first to be extensively covered by the media through news stories and photographs?",
+        "options": [
+            "The Napoleonic Wars",
+            "The Boer War",
+            "The Crimean War",
+            "The American War of Independence"
+        ],
+        "correctAnswer": "The Crimean War",
+        "explanation": "From 1853 to 1856, Britain fought with Turkey and France against Russia in the Crimean War. It was the first war to be extensively covered by the media through news stories and photographs."
+    },
+    {
+        "id": 563,
+        "topic": "Modern Society",
+        "question": "Who is often regarded as the founder of modern nursing, establishing the Nightingale Training School for nurses in 1860?",
+        "options": [
+            "Emmeline Pankhurst",
+            "Queen Victoria",
+            "Florence Nightingale",
+            "Elizabeth Fry"
+        ],
+        "correctAnswer": "Florence Nightingale",
+        "explanation": "Florence Nightingale improved the conditions in military hospitals during the Crimean War and in 1860 she established the Nightingale Training School for nurses. She is often regarded as the founder of modern nursing."
+    },
+    {
+        "id": 564,
+        "topic": "History",
+        "question": "What event in the middle of the 19th century caused a million people to die and another million and a half to leave Ireland?",
+        "options": [
+            "The Easter Rising",
+            "The potato crop failure and subsequent famine",
+            "The Act of Union",
+            "The Fenian uprising"
+        ],
+        "correctAnswer": "The potato crop failure and subsequent famine",
+        "explanation": "In the middle of the century the potato crop failed, and Ireland suffered a famine. A million people died from disease and starvation. Another million and a half left Ireland."
+    },
+    {
+        "id": 565,
+        "topic": "Government & Law",
+        "question": "The Reform Act of 1832 abolished which electoral practices, giving more parliamentary seats to towns and cities?",
+        "options": [
+            "Open voting and plural voting",
+            "Pocket and rotten boroughs",
+            "Property qualification for MPs",
+            "Life peerages and hereditary seats"
+        ],
+        "correctAnswer": "Pocket and rotten boroughs",
+        "explanation": "The Reform Act of 1832 had greatly increased the number of people with the right to vote. The Act also abolished the old pocket and rotten boroughs and more parliamentary seats were given to the towns and cities."
+    },
+    {
+        "id": 566,
+        "topic": "Modern Society",
+        "question": "Which group campaigned for the vote for the working classes and other people without property, presenting petitions to Parliament?",
+        "options": [
+            "The Suffragettes",
+            "The Chartists",
+            "The Fenians",
+            "The Abolitionists"
+        ],
+        "correctAnswer": "The Chartists",
+        "explanation": "A movement began to demand the vote for the working classes and other people without property. Campaigners, called the Chartists, presented petitions to Parliament."
+    },
+    {
+        "id": 567,
+        "topic": "Modern Society",
+        "question": "Which organisation did Emmeline Pankhurst help found in 1903, whose members were first called 'suffragettes'?",
+        "options": [
+            "The Women's Franchise League",
+            "The Women's Christian Temperance Union",
+            "The Women's Social and Political Union (WSPU)",
+            "The National Union of Women's Suffrage Societies"
+        ],
+        "correctAnswer": "The Women's Social and Political Union (WSPU)",
+        "explanation": "In 1903 she helped found the Women\u2019s Social and Political Union (WSPU). This was the first group whose members were called \u2018suffragettes\u2019."
+    },
+    {
+        "id": 568,
+        "topic": "History",
+        "question": "The Boer War, which lasted from 1899 to 1902, involved the British fighting against settlers from which country in South Africa?",
+        "options": [
+            "France",
+            "Germany",
+            "The Netherlands",
+            "Portugal"
+        ],
+        "correctAnswer": "The Netherlands",
+        "explanation": "The British went to war in South Africa with settlers from the Netherlands called the Boers."
+    },
+    {
+        "id": 569,
+        "topic": "History",
+        "question": "What event triggered the start of the First World War on 28 June 1914?",
+        "options": [
+            "The German invasion of Belgium",
+            "The sinking of the Lusitania",
+            "The assassination of Archduke Franz Ferdinand of Austria",
+            "Britain's declaration of war on Germany"
+        ],
+        "correctAnswer": "The assassination of Archduke Franz Ferdinand of Austria",
+        "explanation": "On 28 June 1914, Archduke Franz Ferdinand of Austria was assassinated. This set off a chain of events leading to the First World War (1914\u201318)."
+    },
+    {
+        "id": 570,
+        "topic": "History",
+        "question": "In what year did Ireland become two countries, with Northern Ireland remaining part of the UK and the rest becoming the Irish Free State?",
+        "options": [
+            "1916",
+            "1918",
+            "1921",
+            "1922"
+        ],
+        "correctAnswer": "1922",
+        "explanation": "In 1921 a peace treaty was signed and in 1922 Ireland became two countries. The six counties in the north which were mainly Protestant remained part of the UK under the name Northern Ireland. The rest of Ireland became the Irish Free State."
+    },
+    {
+        "id": 571,
+        "topic": "History",
+        "question": "When did Britain and France declare war on Germany, following Hitler's invasion of Poland?",
+        "options": [
+            "1938",
+            "1939",
+            "1940",
+            "1941"
+        ],
+        "correctAnswer": "1939",
+        "explanation": "The text states: 'However, when Hitler invaded Poland in 1939, Britain and France declared war in order to stop his aggression.'"
+    },
+    {
+        "id": 572,
+        "topic": "History",
+        "question": "Who became Prime Minister and Britain\u2019s war leader in 1940, at a time of national crisis when German forces defeated allied troops and advanced through France?",
+        "options": [
+            "Neville Chamberlain",
+            "Clement Attlee",
+            "Winston Churchill",
+            "Harold Macmillan"
+        ],
+        "correctAnswer": "Winston Churchill",
+        "explanation": "The text states: 'At this time of national crisis, Winston Churchill became Prime Minister and Britain\u2019s war leader.'"
+    },
+    {
+        "id": 573,
+        "topic": "History",
+        "question": "What was the term used to describe the successful evacuation of over 300,000 British and French soldiers from the beaches around Dunkirk in 1940?",
+        "options": [
+            "The Dunkirk Retreat",
+            "The Dunkirk Miracle",
+            "The Dunkirk Spirit",
+            "The Dunkirk Evacuation"
+        ],
+        "correctAnswer": "The Dunkirk Evacuation",
+        "explanation": "The text describes this event as a 'huge naval operation' and states 'the evacuation was a success and meant that Britain was better able to continue the fight against the Germans.'"
+    },
+    {
+        "id": 574,
+        "topic": "History",
+        "question": "Which crucial aerial battle, fought in the summer of 1940, saw the British resist the German air campaign and prevent an invasion?",
+        "options": [
+            "The Battle of the Atlantic",
+            "The Battle of El Alamein",
+            "The Battle of Britain",
+            "The Battle of Stalingrad"
+        ],
+        "correctAnswer": "The Battle of Britain",
+        "explanation": "The text states: 'The British resisted with their fighter planes and eventually won the crucial aerial battle against the Germans, called \u2018the Battle of Britain\u2019, in the summer of 1940.'"
+    },
+    {
+        "id": 575,
+        "topic": "History",
+        "question": "What were the two most important planes used by the Royal Air Force in the Battle of Britain?",
+        "options": [
+            "Lancaster and Mosquito",
+            "Messerschmitt and Stuka",
+            "Spitfire and Hurricane",
+            "Hawker Hunter and Canberra"
+        ],
+        "correctAnswer": "Spitfire and Hurricane",
+        "explanation": "The text states: 'The most important planes used by the Royal Air Force in the Battle of Britain were the Spitfire and the Hurricane \u2013 which were designed and built in Britain.'"
+    },
+    {
+        "id": 576,
+        "topic": "History",
+        "question": "What was the term for the German air force's night-time bombing campaign against London and other British cities after the Battle of Britain?",
+        "options": [
+            "The Bombardment",
+            "The Great Raid",
+            "The Blitz",
+            "The Blackout"
+        ],
+        "correctAnswer": "The Blitz",
+        "explanation": "The text states: 'The German air force was able to continue bombing London and other British cities at night-time. This was called the Blitz.'"
+    },
+    {
+        "id": 577,
+        "topic": "History",
+        "question": "When did the United States enter the Second World War?",
+        "options": [
+            "October 1940",
+            "December 1941",
+            "June 1942",
+            "March 1943"
+        ],
+        "correctAnswer": "December 1941",
+        "explanation": "The text states: 'The United States entered the war when the Japanese bombed its naval base at Pearl Harbour in December 1941.'"
+    },
+    {
+        "id": 578,
+        "topic": "History",
+        "question": "What significant event occurred on 6 June 1944, when Allied forces landed in Normandy, Western Europe?",
+        "options": [
+            "The Battle of Midway",
+            "D-Day",
+            "The Ardennes Offensive",
+            "The Fall of Berlin"
+        ],
+        "correctAnswer": "D-Day",
+        "explanation": "The text states: 'On 6 June 1944, allied forces landed in Normandy (this event is often referred to as \u2018D-Day\u2019)."
+    },
+    {
+        "id": 579,
+        "topic": "History",
+        "question": "Who discovered penicillin in 1928, which was later developed into a mass-produced drug by the 1940s?",
+        "options": [
+            "Ernest Rutherford",
+            "Howard Florey",
+            "Ernst Chain",
+            "Alexander Fleming"
+        ],
+        "correctAnswer": "Alexander Fleming",
+        "explanation": "The text states: 'Alexander Fleming... was researching influenza (the \u2018flu\u2019) in 1928 when he discovered penicillin.'"
+    },
+    {
+        "id": 580,
+        "topic": "History",
+        "question": "Which English king introduced the Statute of Rhuddlan in 1284, formally annexing Wales to the Crown of England?",
+        "options": [
+            "King John",
+            "King Henry V",
+            "King Edward I",
+            "King Richard III"
+        ],
+        "correctAnswer": "King Edward I",
+        "explanation": "The text states: 'In 1284 King Edward I of England introduced the Statute of Rhuddlan, which annexed Wales to the Crown of England.'"
+    },
+    {
+        "id": 581,
+        "topic": "History",
+        "question": "Who led the Scottish forces to defeat the English at the Battle of Bannockburn in 1314, ensuring Scotland remained unconquered?",
+        "options": [
+            "William Wallace",
+            "Robert the Bruce",
+            "King Edward I",
+            "Henry V"
+        ],
+        "correctAnswer": "Robert the Bruce",
+        "explanation": "The text states: 'In 1314 the Scottish, led by Robert the Bruce, defeated the English at the Battle of Bannockburn, and Scotland remained unconquered by the English.'"
+    },
+    {
+        "id": 582,
+        "topic": "History",
+        "question": "What was the name of the disease that killed one-third of the population of England, Scotland, and Wales in 1348?",
+        "options": [
+            "The Great Sickness",
+            "The Black Death",
+            "The Red Plague",
+            "The Medieval Fever"
+        ],
+        "correctAnswer": "The Black Death",
+        "explanation": "The text states: 'In 1348, a disease, probably a form of plague, came to Britain. This was known as the Black Death.'"
+    },
+    {
+        "id": 583,
+        "topic": "Government & Law",
+        "question": "What was the name of the charter of rights King John was forced to agree to in 1215, establishing the idea that even the king was subject to the law?",
+        "options": [
+            "The Bill of Rights",
+            "The Act of Settlement",
+            "The Magna Carta",
+            "The Great Reform Act"
+        ],
+        "correctAnswer": "The Magna Carta",
+        "explanation": "The text states: 'The result was a charter of rights called the Magna Carta (which means the Great Charter). The Magna Carta established the idea that even the king was subject to the law.'"
+    },
+    {
+        "id": 584,
+        "topic": "Culture",
+        "question": "Who wrote 'The Canterbury Tales', a collection of poems about pilgrims telling stories on their journey to Canterbury?",
+        "options": [
+            "William Shakespeare",
+            "Geoffrey Chaucer",
+            "John Barbour",
+            "William Caxton"
+        ],
+        "correctAnswer": "Geoffrey Chaucer",
+        "explanation": "The text states: 'In the years leading up to 1400, Geoffrey Chaucer wrote a series of poems in English about a group of people going to Canterbury on a pilgrimage. This collection of poems is called The Canterbury Tales.'"
+    },
+    {
+        "id": 585,
+        "topic": "History",
+        "question": "Which civil war, fought between 1455 and 1485, involved the Houses of Lancaster (red rose) and York (white rose)?",
+        "options": [
+            "The Hundred Years War",
+            "The English Civil War",
+            "The Wars of the Roses",
+            "The Scottish Wars of Independence"
+        ],
+        "correctAnswer": "The Wars of the Roses",
+        "explanation": "The text states: 'This war was called the Wars of the Roses, because the symbol of Lancaster was a red rose and the symbol of York was a white rose.'"
+    },
+    {
+        "id": 586,
+        "topic": "History",
+        "question": "Who became the first king of the House of Tudor after winning the Battle of Bosworth Field in 1485?",
+        "options": [
+            "King Richard III",
+            "Henry Tudor",
+            "King Edward IV",
+            "King James I"
+        ],
+        "correctAnswer": "Henry Tudor",
+        "explanation": "The text states: 'King Richard III of the House of York was killed in the battle and Henry Tudor, the leader of the House of Lancaster, became King Henry VII.'"
+    },
+    {
+        "id": 587,
+        "topic": "History",
+        "question": "Which monarch is famous for breaking away from the Church of Rome and establishing the Church of England?",
+        "options": [
+            "Henry VII",
+            "Edward VI",
+            "Henry VIII",
+            "Elizabeth I"
+        ],
+        "correctAnswer": "Henry VIII",
+        "explanation": "The text states: 'Henry VIII was most famous for breaking away from the Church of Rome and marrying six times. ... When the Pope refused, Henry established the Church of England.'"
+    },
+    {
+        "id": 588,
+        "topic": "History",
+        "question": "Which monarch became known as 'Bloody Mary' due to her persecution of Protestants?",
+        "options": [
+            "Queen Elizabeth I",
+            "Queen Anne Boleyn",
+            "Queen Mary I",
+            "Queen Victoria"
+        ],
+        "correctAnswer": "Queen Mary I",
+        "explanation": "The text states: 'Mary was a devout Catholic and persecuted Protestants (for this reason, she became known as \u2018Bloody Mary\u2019)."
+    },
+    {
+        "id": 589,
+        "topic": "History",
+        "question": "What major event in 1588 significantly increased Queen Elizabeth I's popularity?",
+        "options": [
+            "The Act for the Government of Wales",
+            "The discovery of penicillin",
+            "The defeat of the Spanish Armada",
+            "The signing of the Magna Carta"
+        ],
+        "correctAnswer": "The defeat of the Spanish Armada",
+        "explanation": "The text states: 'Elizabeth became one of the most popular monarchs in English history, particularly after 1588, when the English defeated the Spanish Armada (a large fleet of ships), which had been sent by Spain to conquer England and restore Catholicism.'"
+    },
+    {
+        "id": 590,
+        "topic": "History",
+        "question": "Mary, Queen of Scots, was executed after being accused of plotting against which English monarch?",
+        "options": [
+            "Henry VIII",
+            "Elizabeth I",
+            "Edward VI",
+            "Mary I"
+        ],
+        "correctAnswer": "Elizabeth I",
+        "explanation": "The text states: 'Mary was eventually executed, accused of plotting against E[lizabeth I].'"
+    },
+    {
+        "id": 591,
+        "topic": "History",
+        "question": "During the Elizabethan period, what feeling grew among the English people?",
+        "options": [
+            "Fear of invasion",
+            "Discontent with the monarchy",
+            "Pride in being English",
+            "Desire for religious reform"
+        ],
+        "correctAnswer": "Pride in being English",
+        "explanation": "The Elizabethan period in England was a time of growing patriotism: a feeling of pride in being English."
+    },
+    {
+        "id": 592,
+        "topic": "History",
+        "question": "Which famous English explorer and commander was one of the first to circumnavigate the world in his ship, the Golden Hind?",
+        "options": [
+            "Captain Cook",
+            "Sir Walter Raleigh",
+            "Sir Francis Drake",
+            "John Cabot"
+        ],
+        "correctAnswer": "Sir Francis Drake",
+        "explanation": "Sir Francis Drake, one of the commanders in the defeat of the Spanish Armada, was one of the founders of England\u2019s naval tradition. His ship, the Golden Hind, was one of the first to sail right around (\u2018circumnavigate\u2019) the world."
+    },
+    {
+        "id": 593,
+        "topic": "History",
+        "question": "Where was William Shakespeare born?",
+        "options": [
+            "London",
+            "Stratford-upon-Avon",
+            "Oxford",
+            "Canterbury"
+        ],
+        "correctAnswer": "Stratford-upon-Avon",
+        "explanation": "Shakespeare was born in Stratford-upon-Avon, England."
+    },
+    {
+        "id": 594,
+        "topic": "History",
+        "question": "Who inherited the English throne after the death of Elizabeth I in 1603?",
+        "options": [
+            "Her son",
+            "Her cousin, James VI of Scotland",
+            "Her sister",
+            "Her nephew, Charles I"
+        ],
+        "correctAnswer": "Her cousin, James VI of Scotland",
+        "explanation": "When she died in 1603 her heir was her cousin James VI of Scotland. He became King James I of England, Wales and Ireland but Scotland remained a separate country."
+    },
+    {
+        "id": 595,
+        "topic": "History",
+        "question": "What major achievement marked King James I's reign, still used in many Protestant churches today?",
+        "options": [
+            "The defeat of the Spanish Armada",
+            "The establishment of the first English colony in America",
+            "A new translation of the Bible into English",
+            "The signing of the Magna Carta"
+        ],
+        "correctAnswer": "A new translation of the Bible into English",
+        "explanation": "One achievement of King James\u2019 reign was a new translation of the Bible into English. This translation is known as the \u2018King James Version\u2019 or the \u2018Authorised Version\u2019."
+    },
+    {
+        "id": 596,
+        "topic": "History",
+        "question": "During the reigns of Elizabeth I and James I, what were the settlements of Scottish and English Protestants in Ulster (Northern Ireland) known as?",
+        "options": [
+            "Colonies",
+            "Outposts",
+            "Plantations",
+            "Garrisons"
+        ],
+        "correctAnswer": "Plantations",
+        "explanation": "The English government encouraged Scottish and English Protestants to settle in Ulster... These settlements were known as plantations."
+    },
+    {
+        "id": 597,
+        "topic": "Government & Law",
+        "question": "What was the belief held by James I and his son Charles I, which stated that the king was directly appointed by God to rule?",
+        "options": [
+            "Parliamentary Supremacy",
+            "The Divine Right of Kings",
+            "Absolute Monarchy",
+            "Constitutional Monarchy"
+        ],
+        "correctAnswer": "The Divine Right of Kings",
+        "explanation": "Both believed in the \u2018Divine Right of Kings\u2019: the idea that the king was directly appointed by God to rule."
+    },
+    {
+        "id": 598,
+        "topic": "History",
+        "question": "In what year did the English Civil War begin?",
+        "options": [
+            "1603",
+            "1640",
+            "1642",
+            "1649"
+        ],
+        "correctAnswer": "1642",
+        "explanation": "Civil war between the king and Parliament could not now be avoided and began in 1642."
+    },
+    {
+        "id": 599,
+        "topic": "History",
+        "question": "During the English Civil War, what were the supporters of the King called, and what were the supporters of Parliament called?",
+        "options": [
+            "Loyalists and Patriots",
+            "Monarchists and Republicans",
+            "Cavaliers and Roundheads",
+            "Royalists and Parliamentarians"
+        ],
+        "correctAnswer": "Cavaliers and Roundheads",
+        "explanation": "The country split into those who supported the king (the Cavaliers) and those who supported Parliament (the Roundheads)."
+    },
+    {
+        "id": 600,
+        "topic": "History",
+        "question": "What significant event occurred in 1649 following the English Civil War?",
+        "options": [
+            "King Charles I was exiled to France",
+            "King Charles I was restored to the throne",
+            "King Charles I was executed",
+            "Parliament agreed to his religious policies"
+        ],
+        "correctAnswer": "King Charles I was executed",
+        "explanation": "By 1646, it was clear that Parliament had won the war. Charles was held prisoner by the parliamentary army. He was still unwilling to reach any agreement with Parliament and in 1649 he was executed."
+    },
+    {
+        "id": 601,
+        "topic": "Government & Law",
+        "question": "After the English Civil War and the establishment of the republic, what title was given to Oliver Cromwell as its leader?",
+        "options": [
+            "King Protector",
+            "Lord President",
+            "Commander-in-Chief",
+            "Lord Protector"
+        ],
+        "correctAnswer": "Lord Protector",
+        "explanation": "After his campaign in Ireland and victory over Charles II at Worcester, Cromwell was recognised as the leader of the new republic. He was given the title of Lord Protector and ruled until his death in 1658."
+    },
+    {
+        "id": 602,
+        "topic": "History",
+        "question": "In what year was Charles II invited back from exile to restore the monarchy?",
+        "options": [
+            "1649",
+            "1658",
+            "1660",
+            "1665"
+        ],
+        "correctAnswer": "1660",
+        "explanation": "In May 1660, Parliament invited Charles II to come back from exile in the Netherlands. He was crowned King Charles II of England, Wales, Scotland and Ireland."
+    },
+    {
+        "id": 603,
+        "topic": "History",
+        "question": "What major event destroyed much of London, including many churches and St Paul\u2019s Cathedral, in 1666?",
+        "options": [
+            "A major earthquake",
+            "The Great Fire of London",
+            "A severe flood",
+            "A Viking invasion"
+        ],
+        "correctAnswer": "The Great Fire of London",
+        "explanation": "The following year [1666], a great fire destroyed much of the city, including many churches and St Paul\u2019s Cathedral."
+    },
+    {
+        "id": 604,
+        "topic": "Government & Law",
+        "question": "What did the Habeas Corpus Act of 1679 guarantee for prisoners?",
+        "options": [
+            "The right to a fair trial by jury",
+            "Freedom of speech in court",
+            "The right to a court hearing and not to be held unlawfully",
+            "The right to appeal against all court decisions"
+        ],
+        "correctAnswer": "The right to a court hearing and not to be held unlawfully",
+        "explanation": "The Habeas Corpus Act became law in 1679. This was a very important piece of legislation which remains relevant today. Habeas corpus is Latin for \u2018you must present the person in court\u2019. The Act guaranteed that no one could be held prisoner unlawfully. Every prisoner has a right to a court hearing."
+    },
+    {
+        "id": 605,
+        "topic": "History",
+        "question": "Isaac Newton's most famous work, Philosophiae Naturalis Principia Mathematica, showed how what applied to the whole universe?",
+        "options": [
+            "Light speed",
+            "Evolution",
+            "Gravity",
+            "Electromagnetism"
+        ],
+        "correctAnswer": "Gravity",
+        "explanation": "His most famous published work was Philosophiae Naturalis Principia Mathematica (\u2018Mathematical Principles of Natural Philosophy\u2019), which showed how gravity applied to the whole universe."
+    },
+    {
+        "id": 606,
+        "topic": "Government & Law",
+        "question": "What was a significant outcome of the Glorious Revolution in 1688?",
+        "options": [
+            "It established the Divine Right of Kings",
+            "It led to England becoming a Catholic country",
+            "It guaranteed the power of Parliament and ended the threat of a monarch ruling alone",
+            "It resulted in a long and bloody civil war"
+        ],
+        "correctAnswer": "It guaranteed the power of Parliament and ended the threat of a monarch ruling alone",
+        "explanation": "This event was later called the \u2018Glorious Revolution\u2019 because there was no fighting in England and because it guaranteed the power of Parliament, ending the threat of a monarch ruling on his or her own as he or she wished."
+    },
+    {
+        "id": 607,
+        "topic": "History",
+        "question": "Where did William defeat James II at the Battle of the Boyne in 1690?",
+        "options": [
+            "Scotland",
+            "England",
+            "France",
+            "Ireland"
+        ],
+        "correctAnswer": "Ireland",
+        "explanation": "William defeated James II at the Battle of the Boyne in Ireland in 1690, an event which is still celebrated by some in Northern Ireland today."
+    },
+    {
+        "id": 608,
+        "topic": "History",
+        "question": "According to the text, what was Stonehenge probably used for?",
+        "options": [
+            "A royal burial ground",
+            "A defensive fortress",
+            "A special gathering place for seasonal ceremonies",
+            "An early observatory for stars"
+        ],
+        "correctAnswer": "A special gathering place for seasonal ceremonies",
+        "explanation": "One of these monuments, Stonehenge, still stands in what is now the English county of Wiltshire. Stonehenge was probably a special gathering place for seasonal ceremonies."
+    },
+    {
+        "id": 609,
+        "topic": "History",
+        "question": "Who was the queen of the Iceni tribe who led resistance against the Roman invasion in what is now eastern England?",
+        "options": [
+            "Queen Victoria",
+            "Elizabeth I",
+            "Boudicca",
+            "Queen Maeve"
+        ],
+        "correctAnswer": "Boudicca",
+        "explanation": "One of the tribal leaders who fought against the Romans was Boudicca, the queen of the Iceni in what is now eastern England."
+    },
+    {
+        "id": 610,
+        "topic": "History",
+        "question": "In what year did William, Duke of Normandy, defeat Harold, the Saxon king of England, at the Battle of Hastings?",
+        "options": [
+            "878 AD",
+            "1066 AD",
+            "1485 AD",
+            "1588 AD"
+        ],
+        "correctAnswer": "1066 AD",
+        "explanation": "In 1066, an invasion led by William, the Duke of Normandy (in what is now northern France), defeated Harold, the Saxon king of England, at the Battle of Hastings."
+    },
+    {
+        "id": 611,
+        "topic": "History",
+        "question": "What was the Domesday Book?",
+        "options": [
+            "A collection of Anglo-Saxon laws.",
+            "A record of land ownership and animals after the Norman Conquest.",
+            "A census of the population before the Roman invasion.",
+            "A book detailing the lives of medieval kings and queens."
+        ],
+        "correctAnswer": "A record of land ownership and animals after the Norman Conquest.",
+        "explanation": "The Domesday Book listed who lived there, who owned the land, and what animals they owned, giving a picture of society in England just after the Norman Conquest."
+    },
+    {
+        "id": 612,
+        "topic": "History",
+        "question": "In what year did the Norman invasion, an event highlighted as very important in UK history, take place?",
+        "options": [
+            "987 AD",
+            "1066 AD",
+            "1154 AD",
+            "1215 AD"
+        ],
+        "correctAnswer": "1066 AD",
+        "explanation": "The text highlights 'The importance of the Norman invasion in 1066'."
+    },
+    {
+        "id": 613,
+        "topic": "Modern Society",
+        "question": "Which of the following cities is explicitly mentioned as an example of a major city in the UK that you should be able to identify confidently?",
+        "options": [
+            "Manchester",
+            "Birmingham",
+            "Leeds",
+            "Glasgow"
+        ],
+        "correctAnswer": "Leeds",
+        "explanation": "The text states, 'You should be sure you can identify the various cities, such as Leeds and Bradford, confidently'."
+    },
+    {
+        "id": 614,
+        "topic": "Arts and Culture",
+        "question": "How long is The Proms, a summer season of orchestral classical music, that takes place in various venues including the Royal Albert Hall?",
+        "options": [
+            "Four weeks",
+            "Six weeks",
+            "Eight weeks",
+            "Ten weeks"
+        ],
+        "correctAnswer": "Eight weeks",
+        "explanation": "The Proms is an eight-week summer season of orchestral classical music."
+    },
+    {
+        "id": 615,
+        "topic": "Arts and Culture",
+        "question": "Which German-born composer became a British citizen in 1727 and wrote 'Water Music' for King George I and the oratorio 'Messiah'?",
+        "options": [
+            "Henry Purcell",
+            "George Frederick Handel",
+            "Gustav Holst",
+            "Sir Edward Elgar"
+        ],
+        "correctAnswer": "George Frederick Handel",
+        "explanation": "George Frederick Handel became a British citizen in 1727 and wrote 'Water Music' for King George I and 'Messiah'."
+    },
+    {
+        "id": 616,
+        "topic": "Arts and Culture",
+        "question": "Sir Edward Elgar's best-known work, Pomp and Circumstance Marches, with March No 1 also known as 'Land of Hope and Glory', is usually played at which event?",
+        "options": [
+            "The National Eisteddfod of Wales",
+            "The Brit Awards",
+            "The Last Night of the Proms",
+            "The Aldeburgh Festival"
+        ],
+        "correctAnswer": "The Last Night of the Proms",
+        "explanation": "March No 1 (Land of Hope and Glory) is usually played at the Last Night of the Proms at the Royal Albert Hall."
+    },
+    {
+        "id": 617,
+        "topic": "Arts and Culture",
+        "question": "Benjamin Britten is best known for his operas, which include 'Peter Grimes' and 'Billy Budd'. He also founded a popular music event in Suffolk, what is it called?",
+        "options": [
+            "Glastonbury Festival",
+            "V Festival",
+            "Aldeburgh Festival",
+            "Isle of Wight Festival"
+        ],
+        "correctAnswer": "Aldeburgh Festival",
+        "explanation": "Benjamin Britten founded the Aldeburgh festival in Suffolk, which continues to be a popular music event."
+    },
+    {
+        "id": 618,
+        "topic": "Arts and Culture",
+        "question": "Which annual cultural festival in Wales includes music, dance, art, and original performances largely in Welsh, featuring important competitions for Welsh poetry?",
+        "options": [
+            "Edinburgh Festival",
+            "National Eisteddfod of Wales",
+            "Cheltenham Literature Festival",
+            "Hay Festival"
+        ],
+        "correctAnswer": "National Eisteddfod of Wales",
+        "explanation": "The National Eisteddfod of Wales is an annual cultural festival which includes music, dance, art and original performances largely in Welsh. It includes a number of important competitions for Welsh poetry."
+    },
+    {
+        "id": 619,
+        "topic": "Arts and Culture",
+        "question": "Which murder-mystery play by Dame Agatha Christie has been running in London's West End since 1952 and holds the record for the longest initial run of any show in history?",
+        "options": [
+            "The Phantom of the Opera",
+            "Les Mis\u00e9rables",
+            "The Mousetrap",
+            "Cats"
+        ],
+        "correctAnswer": "The Mousetrap",
+        "explanation": "The Mousetrap, a murder-mystery play by Dame Agatha Christie, has been running in the West End since 1952 and has had the longest initial run of any show in history."
+    },
+    {
+        "id": 620,
+        "topic": "Arts and Culture",
+        "question": "What is a unique tradition of British pantomimes performed at Christmas time?",
+        "options": [
+            "They are always silent plays.",
+            "The main hero is always played by a child.",
+            "A woman's role (the Dame) is often played by a man.",
+            "They only feature classical ballet performances."
+        ],
+        "correctAnswer": "A woman's role (the Dame) is often played by a man.",
+        "explanation": "One of the traditional characters [in pantomime] is the Dame, a woman played by a man."
+    },
+    {
+        "id": 621,
+        "topic": "Arts and Culture",
+        "question": "After whom are the Laurence Olivier Awards, given annually for achievements in British theatre, named?",
+        "options": [
+            "Sir Ian McKellen",
+            "Sir Laurence Olivier",
+            "Sir Patrick Stewart",
+            "Sir Michael Caine"
+        ],
+        "correctAnswer": "Sir Laurence Olivier",
+        "explanation": "The awards are named after the British actor Sir Laurence Olivier, later Lord Olivier, who was best known for his roles in various Shakespeare plays."
+    },
+    {
+        "id": 622,
+        "topic": "Arts and Culture",
+        "question": "Which prize, established in 1984, celebrates contemporary art and is named after Joseph Turner?",
+        "options": [
+            "The Royal Academy Award",
+            "The Frieze Art Prize",
+            "The Turner Prize",
+            "The Saatchi Award"
+        ],
+        "correctAnswer": "The Turner Prize",
+        "explanation": "The Turner Prize was established in 1984 and celebrates contemporary art. It was named after Joseph Turner."
+    },
+    {
+        "id": 623,
+        "topic": "Arts and Culture",
+        "question": "Which artist is described as an influential landscape painter in a modern style and is considered to have raised the profile of landscape painting?",
+        "options": [
+            "Thomas Gainsborough",
+            "John Constable",
+            "Joseph Turner",
+            "David Hockney"
+        ],
+        "correctAnswer": "Joseph Turner",
+        "explanation": "Joseph Turner (1775\u20131851) was an influential landscape painter in a modern style. He is considered the artist who raised the profile of landscape painting."
+    },
+    {
+        "id": 624,
+        "topic": "Arts and Culture",
+        "question": "The White Tower, an example of a Norman castle keep built on the orders of William the Conqueror, is located within which famous London landmark?",
+        "options": [
+            "Buckingham Palace",
+            "Westminster Abbey",
+            "The Tower of London",
+            "Windsor Castle"
+        ],
+        "correctAnswer": "The Tower of London",
+        "explanation": "The White Tower in the Tower of London is an example of a Norman castle keep, built on the orders of William the Conqueror."
+    },
+    {
+        "id": 625,
+        "topic": "Arts and Culture",
+        "question": "Which 17th-century British architect helped develop a British version of ornate styles, designing buildings such as the new St Paul\u2019s Cathedral?",
+        "options": [
+            "Inigo Jones",
+            "Sir Christopher Wren",
+            "Robert Adam",
+            "Sir Edwin Lutyens"
+        ],
+        "correctAnswer": "Sir Christopher Wren",
+        "explanation": "Later in the century, Sir Christopher Wren helped develop a British version of the ornate styles popular in Europe in buildings such as the new St Paul\u2019s Cathedral."
+    },
+    {
+        "id": 626,
+        "topic": "Arts and Culture",
+        "question": "Who was the architect responsible for designing many war memorials throughout the world after the First World War, including the Cenotaph in Whitehall, London?",
+        "options": [
+            "Sir Norman Foster",
+            "Lord (Richard) Rogers",
+            "Sir Edwin Lutyens",
+            "Robert Adam"
+        ],
+        "correctAnswer": "Sir Edwin Lutyens",
+        "explanation": "After the First World War, Sir Edwin Lutyens ... was responsible for many war memorials throughout the world, including the Cenotaph in Whitehall."
+    },
+    {
+        "id": 627,
+        "topic": "Arts and Culture",
+        "question": "In 2003, which novel by J.R.R. Tolkien was voted the UK's best-loved novel?",
+        "options": [
+            "The Hobbit",
+            "The Chronicles of Narnia",
+            "The Lord of the Rings",
+            "A Christmas Carol"
+        ],
+        "correctAnswer": "The Lord of the Rings",
+        "explanation": "In 2003, The Lord of the Rings by JRR Tolkien was voted the country\u2019s best-loved novel."
+    },
+    {
+        "id": 628,
+        "topic": "Arts and Culture",
+        "question": "Which famous character from a Charles Dickens novel is often referred to in everyday talk to describe a mean person?",
+        "options": [
+            "Mr Micawber",
+            "Oliver Twist",
+            "Scrooge",
+            "Pip"
+        ],
+        "correctAnswer": "Scrooge",
+        "explanation": "You will hear references in everyday talk to some of the characters in his [Charles Dickens'] books, such as Scrooge (a mean person) or Mr Micawber (always hopeful)."
+    },
+    {
+        "id": 629,
+        "topic": "Arts and Culture",
+        "question": "Which Anglo-Saxon poem tells of its hero\u2019s battles against monsters and is still translated into modern English?",
+        "options": [
+            "The Canterbury Tales",
+            "Sir Gawain and the Green Knight",
+            "Beowulf",
+            "Paradise Lost"
+        ],
+        "correctAnswer": "Beowulf",
+        "explanation": "The Anglo-Saxon poem Beowulf tells of its hero\u2019s battles against monsters and is still translated into modern English."
+    },
+    {
+        "id": 630,
+        "topic": "Customs and Traditions",
+        "question": "What is Christmas Day, celebrated on 25 December, primarily known for in the UK?",
+        "options": [
+            "A day for national elections.",
+            "A public holiday celebrating the birth of Jesus Christ.",
+            "A festival to mark the start of summer.",
+            "A day of fasting and reflection."
+        ],
+        "correctAnswer": "A public holiday celebrating the birth of Jesus Christ.",
+        "explanation": "Christmas Day, 25 December, celebrates the birth of Jesus Christ. It is a public holiday."
+    }
 ]

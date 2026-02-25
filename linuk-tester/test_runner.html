@@ -1,18 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>LinUK App - Vanilla JS Unit Tests</title>
     <style>
-        body { font-family: monospace; padding: 20px; background: #121212; color: #e0e0e0; }
-        .pass { color: #4CAF50; }
-        .fail { color: #f44336; }
-        h1 { border-bottom: 1px solid #333; padding-bottom: 10px; }
-        #test-results { margin-top: 20px; }
+        body {
+            font-family: monospace;
+            padding: 20px;
+            background: #121212;
+            color: #e0e0e0;
+        }
+
+        .pass {
+            color: #4CAF50;
+        }
+
+        .fail {
+            color: #f44336;
+        }
+
+        h1 {
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+        }
+
+        #test-results {
+            margin-top: 20px;
+        }
+
         /* Hidden mock DOM for app.js */
-        #mock-dom { display: none; }
+        #mock-dom {
+            display: none;
+        }
     </style>
 </head>
+
 <body>
     <h1>JavaScript Unit Test Runner</h1>
     <div id="test-results"></div>
@@ -24,7 +47,7 @@
         <div id="flashcard-screen"></div>
         <div id="test-screen"></div>
         <div id="results-screen"></div>
-        
+
         <div id="topic-list"></div>
         <div id="flashcard-topic-title"></div>
         <div id="flashcard-counter"></div>
@@ -33,13 +56,13 @@
         <div id="fc-question"></div>
         <div id="fc-answer"></div>
         <div id="fc-explanation"></div>
-        
+
         <div id="test-progress"></div>
         <div id="test-question-text"></div>
         <div id="test-options"></div>
         <div id="next-test-btn"></div>
         <div id="timer"></div>
-        
+
         <div id="result-title"></div>
         <div id="score-percentage"></div>
         <div id="score-fraction"></div>
@@ -71,7 +94,7 @@
                 throw new Error(`${msg} - Expected ${expected}, got ${actual}`);
             }
         }
-        
+
         function assertDeepEqual(actual, expected, msg) {
             if (JSON.stringify(actual) !== JSON.stringify(expected)) {
                 throw new Error(`${msg} - Expected ${JSON.stringify(expected)}, got ${JSON.stringify(actual)}`);
@@ -86,26 +109,19 @@
 
         // Wait to make sure DOMContentLoaded from app.js doesn't interfere
         window.addEventListener('load', async () => {
-            
+
             // 1. Test Shuffle Algorithm
             runTest('shuffleArray should randomly sort without losing elements', () => {
                 const original = [1, 2, 3, 4, 5];
                 const copy = [...original];
                 const shuffled = shuffleArray(copy);
-                
+
                 assertEqual(shuffled.length, 5, "Length should be 5");
                 assert(shuffled.includes(1) && shuffled.includes(5), "All elements should be present");
                 // While it could randomly be the same, 1 in 120 chance. We'll just test the mutation.
             });
 
-            // 2. Test getDecryptionKey
-            await runTest('getDecryptionKey returns a valid CryptoKey', async () => {
-                const key = await getDecryptionKey();
-                assertEqual(key.type, 'secret', "Key type should be secret");
-                assertEqual(key.algorithm.name, 'AES-GCM', "Algorithm should be AES-GCM");
-            });
-
-            // 3. Test Screen Routing Logic
+            // 2. Test Screen Routing Logic
             runTest('showScreen toggles active visibility logic', () => {
                 showScreen('flashcard');
                 assert(document.getElementById('flashcard-screen').style.display === 'block', "Target screen should be block");
@@ -117,4 +133,5 @@
         });
     </script>
 </body>
+
 </html>
