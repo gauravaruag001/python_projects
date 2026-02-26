@@ -68,14 +68,18 @@ function showScreen(screenName) {
 
     // Hide all screens
     Object.values(screens).forEach(el => {
-        el.classList.remove('active', 'hidden');
-        el.style.display = 'none';
+        if (el) {
+            el.classList.remove('active', 'hidden');
+            el.style.display = 'none';
+        }
     });
 
     // Show target screen
     const target = screens[screenName];
-    target.style.display = 'block';
-    setTimeout(() => target.classList.add('active'), 10);
+    if (target) {
+        target.style.display = 'block';
+        setTimeout(() => target.classList.add('active'), 10);
+    }
     state.currentScreen = screenName;
 
     // Specific screen setup

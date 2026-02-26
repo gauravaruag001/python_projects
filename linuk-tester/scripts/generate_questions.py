@@ -19,7 +19,7 @@ API_KEY = os.getenv("GEMINI_API_KEY")
 PDF_PATH = r"c:\Users\44743\Desktop\LinUK - Study Materials.pdf"
 OUTPUT_FILE = r"db\local_questions.json"
 QUESTIONS_PER_BATCH = 20
-TOTAL_TARGET_NEW_QUESTIONS = 120
+TOTAL_TARGET_NEW_QUESTIONS = 40
 
 # =====================================================================
 

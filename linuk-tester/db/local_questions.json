@@ -2583,5 +2583,525 @@
         ],
         "correctAnswer": "A public holiday celebrating the birth of Jesus Christ.",
         "explanation": "Christmas Day, 25 December, celebrates the birth of Jesus Christ. It is a public holiday."
+    },
+    {
+        "id": 631,
+        "topic": "Values and Principles",
+        "question": "What information can be found in the introductory chapter (Chapter 1) of the 'Life in the UK' handbook?",
+        "options": [
+            "Details about the format of the Life in the UK Test and requirements for permanent residency.",
+            "A comprehensive history of the British monarchy.",
+            "The complete list of British overseas territories.",
+            "The detailed structure of the UK Parliament."
+        ],
+        "correctAnswer": "Details about the format of the Life in the UK Test and requirements for permanent residency.",
+        "explanation": "The introductory chapter provides information about the format of the Life in the UK Test and the requirements for becoming a permanent resident, as well as fundamental rights and responsibilities."
+    },
+    {
+        "id": 632,
+        "topic": "Values and Principles",
+        "question": "When applying to become a permanent resident or citizen of the UK, what commitment are you agreeing to make?",
+        "options": [
+            "To volunteer in all local community events.",
+            "To become fluent in Welsh or Scottish Gaelic.",
+            "To accept the responsibilities of permanent residence and respect UK laws, values, and traditions.",
+            "To exclusively use public transport for all journeys."
+        ],
+        "correctAnswer": "To accept the responsibilities of permanent residence and respect UK laws, values, and traditions.",
+        "explanation": "Applying to become a permanent resident or citizen of the UK is an important decision and commitment. You will be agreeing to accept the responsibilities which go with permanent residence and to respect the laws, values and traditions of the UK."
+    },
+    {
+        "id": 633,
+        "topic": "Government & Law",
+        "question": "As of January 2013, what were the two main requirements to be tested on for applying to become a permanent resident or citizen of the UK?",
+        "options": [
+            "Passing a driving test and a physical fitness test.",
+            "Speaking and reading English, and having a good understanding of life in the UK.",
+            "Demonstrating proficiency in two foreign languages and having a degree.",
+            "Having lived in the UK for at least 20 years and owning property."
+        ],
+        "correctAnswer": "Speaking and reading English, and having a good understanding of life in the UK.",
+        "explanation": "To apply to become a permanent resident or citizen of the UK, you will need to speak and read English and have a good understanding of life in the UK, as stated for January 2013."
+    },
+    {
+        "id": 634,
+        "topic": "Government & Law",
+        "question": "At what English language level is the Life in the UK test designed, so that a separate English language test is not usually required?",
+        "options": [
+            "ESOL Entry Level 1",
+            "ESOL Entry Level 3",
+            "ESOL Advanced Level",
+            "ESOL Pre-Entry Level"
+        ],
+        "correctAnswer": "ESOL Entry Level 3",
+        "explanation": "The questions in the Life in the UK test are written in a way that requires an understanding of the English language at English for Speakers of Other Languages (ESOL) Entry Level 3."
+    },
+    {
+        "id": 635,
+        "topic": "Government & Law",
+        "question": "From October 2013, what additional requirement was introduced for settlement or permanent residence applications, alongside passing the Life in the UK test?",
+        "options": [
+            "Providing evidence of volunteering for a minimum of 100 hours.",
+            "Producing acceptable evidence of speaking and listening skills in English at B1 of the Common European Framework of Reference.",
+            "Passing a separate UK history exam.",
+            "Submitting a detailed personal essay about life in the UK."
+        ],
+        "correctAnswer": "Producing acceptable evidence of speaking and listening skills in English at B1 of the Common European Framework of Reference.",
+        "explanation": "From October 2013, for settlement or permanent residence, applicants needed to pass the Life in the UK test AND produce acceptable evidence of speaking and listening skills in English at B1 of the Common European Framework of Reference."
+    },
+    {
+        "id": 636,
+        "topic": "Values and Principles",
+        "question": "Which of the following is NOT listed as a fundamental principle of British life?",
+        "options": [
+            "Democracy",
+            "The rule of law",
+            "Mandatory military service",
+            "Individual liberty"
+        ],
+        "correctAnswer": "Mandatory military service",
+        "explanation": "The fundamental principles of British life include Democracy, the rule of law, Individual liberty, Tolerance of those with different faiths and beliefs, and Participation in community life. Mandatory military service is not listed."
+    },
+    {
+        "id": 637,
+        "topic": "Values and Principles",
+        "question": "What do new citizens pledge to uphold as part of the citizenship ceremony?",
+        "options": [
+            "To promote their own cultural traditions above all others.",
+            "To give loyalty to the United Kingdom, respect its rights and freedoms, uphold its democratic values, and observe its laws faithfully.",
+            "To exclusively support one political party.",
+            "To only speak English at all times."
+        ],
+        "correctAnswer": "To give loyalty to the United Kingdom, respect its rights and freedoms, uphold its democratic values, and observe its laws faithfully.",
+        "explanation": "As part of the citizenship ceremony, new citizens pledge: \u2018I will give my loyalty to the United Kingdom and respect its rights and freedoms. I will uphold its democratic values. I will observe its laws faithfully and fulfil my duties and obligations as a British citizen.\u2019"
+    },
+    {
+        "id": 638,
+        "topic": "Values and Principles",
+        "question": "Which of these is a responsibility expected of permanent residents or citizens of the UK?",
+        "options": [
+            "To dictate how others live their lives.",
+            "To disrespect the rights of others.",
+            "To look after yourself and your family.",
+            "To ignore local community issues."
+        ],
+        "correctAnswer": "To look after yourself and your family.",
+        "explanation": "If you wish to be a permanent resident or citizen of the UK, you should look after yourself and your family, among other responsibilities."
+    },
+    {
+        "id": 639,
+        "topic": "Values and Principles",
+        "question": "What right does the UK offer in return for respecting its values and principles?",
+        "options": [
+            "A right to financial success without effort.",
+            "Freedom from criticism.",
+            "A right to join in the election of a government.",
+            "The right to disregard established laws."
+        ],
+        "correctAnswer": "A right to join in the election of a government.",
+        "explanation": "In return, the UK offers several rights, including freedom of belief and religion, freedom of speech, freedom from unfair discrimination, a right to a fair trial, and a right to join in the election of a government."
+    },
+    {
+        "id": 640,
+        "topic": "Government & Law",
+        "question": "How many questions are in the Life in the UK test?",
+        "options": [
+            "20",
+            "24",
+            "30",
+            "40"
+        ],
+        "correctAnswer": "24",
+        "explanation": "The test consists of 24 questions about important aspects of life in the UK."
+    },
+    {
+        "id": 641,
+        "topic": "Government & Law",
+        "question": "Where can you book your Life in the UK test?",
+        "options": [
+            "At any local library.",
+            "By calling the UK Border Agency.",
+            "Online at www.lifeintheuktest.gov.uk.",
+            "Through a private tutor."
+        ],
+        "correctAnswer": "Online at www.lifeintheuktest.gov.uk.",
+        "explanation": "You can only book your test online, at www.lifeintheuktest.gov.uk."
+    },
+    {
+        "id": 642,
+        "topic": "What is the UK?",
+        "question": "Which four countries officially make up the United Kingdom?",
+        "options": [
+            "England, Wales, Ireland, Scotland",
+            "England, Scotland, Wales, Northern Ireland",
+            "Great Britain, Northern Ireland, Isle of Man, Channel Islands",
+            "England, Scotland, France, Northern Ireland"
+        ],
+        "correctAnswer": "England, Scotland, Wales, Northern Ireland",
+        "explanation": "The UK is made up of England, Scotland, Wales and Northern Ireland."
+    },
+    {
+        "id": 643,
+        "topic": "What is the UK?",
+        "question": "What is the official name of the country?",
+        "options": [
+            "Great Britain",
+            "The British Isles",
+            "The United Kingdom of Great Britain and Northern Ireland",
+            "The British Commonwealth"
+        ],
+        "correctAnswer": "The United Kingdom of Great Britain and Northern Ireland",
+        "explanation": "The official name of the country is the United Kingdom of Great Britain and Northern Ireland."
+    },
+    {
+        "id": 644,
+        "topic": "What is the UK?",
+        "question": "What does the term 'Great Britain' refer to?",
+        "options": [
+            "England, Scotland, Wales, and Northern Ireland.",
+            "All countries of the British Isles.",
+            "England, Scotland, and Wales only, not Northern Ireland.",
+            "The entire UK along with its Crown dependencies."
+        ],
+        "correctAnswer": "England, Scotland, and Wales only, not Northern Ireland.",
+        "explanation": "\u2018Great Britain\u2019 refers only to England, Scotland and Wales, not to Northern Ireland."
+    },
+    {
+        "id": 645,
+        "topic": "What is the UK?",
+        "question": "Which of the following are described as 'Crown dependencies' that are closely linked with the UK but are not part of it?",
+        "options": [
+            "St Helena and the Falkland Islands",
+            "Republic of Ireland and France",
+            "The Channel Islands and the Isle of Man",
+            "Gibraltar and Bermuda"
+        ],
+        "correctAnswer": "The Channel Islands and the Isle of Man",
+        "explanation": "There are also several islands which are closely linked with the UK but are not part of it: the Channel Islands and the Isle of Man. These have their own governments and are called \u2018Crown dependencies\u2019."
+    },
+    {
+        "id": 646,
+        "topic": "History",
+        "question": "Who became the Prime Minister after the Labour Party won the 1945 election?",
+        "options": [
+            "Winston Churchill",
+            "Harold Macmillan",
+            "Clement Attlee",
+            "Aneurin Bevan"
+        ],
+        "correctAnswer": "Clement Attlee",
+        "explanation": "In 1945 the British people elected a Labour government. The new Prime Minister was Clement Attlee."
+    },
+    {
+        "id": 647,
+        "topic": "History",
+        "question": "Who led the establishment of the National Health Service (NHS) in 1948?",
+        "options": [
+            "William Beveridge",
+            "R A Butler",
+            "Clement Attlee",
+            "Aneurin (Nye) Bevan"
+        ],
+        "correctAnswer": "Aneurin (Nye) Bevan",
+        "explanation": "In 1948, Aneurin (Nye) Bevan, the Minister for Health, led the establishment of the National Health Service (NHS)."
+    },
+    {
+        "id": 648,
+        "topic": "History",
+        "question": "The Beveridge Report, which provided the basis of the modern welfare state, recommended fighting which 'Giant Evils'?",
+        "options": [
+            "Hunger, Cold, Loneliness, Poverty, Crime",
+            "Want, Disease, Ignorance, Squalor, Idleness",
+            "War, Famine, Sickness, Tyranny, Despair",
+            "Inflation, Unemployment, Recession, Debt, Stagnation"
+        ],
+        "correctAnswer": "Want, Disease, Ignorance, Squalor, Idleness",
+        "explanation": "The Beveridge Report recommended that the government should find ways of fighting the five \u2018Giant Evils\u2019 of Want, Disease, Ignorance, Squalor and Idleness."
+    },
+    {
+        "id": 649,
+        "topic": "History",
+        "question": "The Education Act 1944, also known as 'The Butler Act', introduced what significant change?",
+        "options": [
+            "Compulsory higher education for all.",
+            "Free secondary education in England and Wales.",
+            "The abolition of all private schools.",
+            "A mandatory national curriculum for primary schools."
+        ],
+        "correctAnswer": "Free secondary education in England and Wales.",
+        "explanation": "R A Butler oversaw the introduction of the Education Act 1944 (often called \u2018The Butler Act\u2019), which introduced free secondary education in England and Wales."
+    },
+    {
+        "id": 650,
+        "topic": "Modern Society",
+        "question": "The 1960s in Britain was known as 'the Swinging Sixties' and saw significant growth in which areas?",
+        "options": [
+            "Agriculture and heavy industry.",
+            "British fashion, cinema, and popular music.",
+            "Naval power and shipbuilding.",
+            "Traditional craft industries."
+        ],
+        "correctAnswer": "British fashion, cinema, and popular music.",
+        "explanation": "The decade of the 1960s was a period of significant social change. It was known as \u2018the Swinging Sixties\u2019. There was growth in British fashion, cinema and popular music."
+    },
+    {
+        "id": 651,
+        "topic": "Science & Technology",
+        "question": "Who made the first television broadcast between London and Glasgow in 1932?",
+        "options": [
+            "Logie Baird",
+            "Sir Robert Watson-Watt",
+            "Alan Turing",
+            "Sir Frank Whittle"
+        ],
+        "correctAnswer": "Logie Baird",
+        "explanation": "Logie Baird made the first television broadcast between London and Glasgow in 1932."
+    },
+    {
+        "id": 652,
+        "topic": "Science & Technology",
+        "question": "Which Scotsman developed radar, with the first successful test taking place in 1935?",
+        "options": [
+            "Sir Bernard Lovell",
+            "Sir Robert Watson-Watt",
+            "John MacLeod",
+            "Sir Peter Mansfield"
+        ],
+        "correctAnswer": "Sir Robert Watson-Watt",
+        "explanation": "Sir Robert Watson-Watt developed radar, and the first successful test was in 1935."
+    },
+    {
+        "id": 653,
+        "topic": "Science & Technology",
+        "question": "What theoretical mathematical device, influential in computer science, was invented by Alan Turing in the 1930s?",
+        "options": [
+            "Radio telescope",
+            "Jet engine",
+            "Turing machine",
+            "MRI scanner"
+        ],
+        "correctAnswer": "Turing machine",
+        "explanation": "The Turing machine is a theoretical mathematical device invented by Alan Turing in the 1930s, influencing computer science."
+    },
+    {
+        "id": 654,
+        "topic": "Science & Technology",
+        "question": "Which Scottish physician and researcher was the co-discoverer of insulin, used to treat diabetes?",
+        "options": [
+            "Sir Ian Wilmot",
+            "Patrick Steptoe",
+            "John MacLeod",
+            "Sir Robert Edwards"
+        ],
+        "correctAnswer": "John MacLeod",
+        "explanation": "John MacLeod was the co-discoverer of insulin."
+    },
+    {
+        "id": 655,
+        "topic": "Science & Technology",
+        "question": "In what year was the structure of the DNA molecule discovered through work at British universities?",
+        "options": [
+            "1932",
+            "1953",
+            "1967",
+            "1978"
+        ],
+        "correctAnswer": "1953",
+        "explanation": "The structure of the DNA molecule was discovered in 1953 through work at British universities in London and Cambridge."
+    },
+    {
+        "id": 656,
+        "topic": "Science & Technology",
+        "question": "Who developed the jet engine in Britain in the 1930s?",
+        "options": [
+            "Sir Christopher Cockerell",
+            "Sir Frank Whittle",
+            "Sir Bernard Lovell",
+            "Logie Baird"
+        ],
+        "correctAnswer": "Sir Frank Whittle",
+        "explanation": "The jet engine was developed in Britain in the 1930s by Sir Frank Whittle."
+    },
+    {
+        "id": 657,
+        "topic": "Science & Technology",
+        "question": "Which inventor created the cash-dispensing ATM (automatic teller machine) in the 1960s?",
+        "options": [
+            "Sir Tim Berners-Lee",
+            "James Goodfellow",
+            "Keith Campbell",
+            "Sir Peter Mansfield"
+        ],
+        "correctAnswer": "James Goodfellow",
+        "explanation": "In the 1960s, James Goodfellow invented the cash-dispensing ATM (automatic teller machine)."
+    },
+    {
+        "id": 658,
+        "topic": "Science & Technology",
+        "question": "In which British town was the world\u2019s first \u2018test-tube baby\u2019 born in 1978, a result of pioneering IVF therapy?",
+        "options": [
+            "Cambridge",
+            "London",
+            "Oldham",
+            "Enfield"
+        ],
+        "correctAnswer": "Oldham",
+        "explanation": "The world\u2019s first \u2018test-tube baby\u2019 was born in Oldham, Lancashire in 1978."
+    },
+    {
+        "id": 659,
+        "topic": "Science & Technology",
+        "question": "Who is the British inventor of the World Wide Web?",
+        "options": [
+            "Sir Alan Turing",
+            "Sir Frank Whittle",
+            "Sir Tim Berners-Lee",
+            "Sir Peter Mansfield"
+        ],
+        "correctAnswer": "Sir Tim Berners-Lee",
+        "explanation": "The inventor of the World Wide Web, Sir Tim Berners-Lee, is British."
+    },
+    {
+        "id": 660,
+        "topic": "History / Government & Law",
+        "question": "What significant event occurred in Northern Ireland in 1972 due to serious unrest?",
+        "options": [
+            "The Good Friday Agreement was signed",
+            "The Northern Ireland Assembly was elected",
+            "The Northern Ireland Parliament was suspended",
+            "A peace treaty was signed with the Republic of Ireland"
+        ],
+        "correctAnswer": "The Northern Ireland Parliament was suspended",
+        "explanation": "In 1972, the Northern Ireland Parliament was suspended and Northern Ireland was directly ruled by the UK government."
+    },
+    {
+        "id": 661,
+        "topic": "Modern Society",
+        "question": "What Olympic achievement is Mary Peters known for in 1972?",
+        "options": [
+            "Winning a gold medal in swimming",
+            "Winning a gold medal in the pentathlon",
+            "Becoming the team manager for the men\u2019s British Olympic team",
+            "Promoting tourism in England"
+        ],
+        "correctAnswer": "Winning a gold medal in the pentathlon",
+        "explanation": "Mary Peters won an Olympic gold medal in the pentathlon in 1972."
+    },
+    {
+        "id": 662,
+        "topic": "History / Government & Law",
+        "question": "In what year did the UK eventually join the European Economic Community (EEC)?",
+        "options": [
+            "1957",
+            "1969",
+            "1973",
+            "1979"
+        ],
+        "correctAnswer": "1973",
+        "explanation": "At first the UK did not wish to join the EEC but it eventually did so in 1973."
+    },
+    {
+        "id": 663,
+        "topic": "History / Government & Law",
+        "question": "Who became the first woman Prime Minister of the UK in 1979 and was the longest-serving Prime Minister of the 20th century?",
+        "options": [
+            "Theresa May",
+            "Liz Truss",
+            "Margaret Thatcher",
+            "Queen Elizabeth II"
+        ],
+        "correctAnswer": "Margaret Thatcher",
+        "explanation": "Margaret Thatcher became the first woman Prime Minister of the UK in 1979 and was the longest-serving Prime Minister of the 20th century."
+    },
+    {
+        "id": 664,
+        "topic": "History / Government & Law",
+        "question": "In which year did Argentina invade the Falkland Islands, leading to military action by the UK?",
+        "options": [
+            "1979",
+            "1982",
+            "1990",
+            "1998"
+        ],
+        "correctAnswer": "1982",
+        "explanation": "In 1982, Argentina invaded the Falkland Islands, and military action led to the recovery of the islands by the UK."
+    },
+    {
+        "id": 665,
+        "topic": "Modern Society",
+        "question": "Which famous author, born in Wales to Norwegian parents, is best known for children's books such as 'Charlie and the Chocolate Factory'?",
+        "options": [
+            "Robert Burns",
+            "Adam Smith",
+            "Roald Dahl",
+            "David Hume"
+        ],
+        "correctAnswer": "Roald Dahl",
+        "explanation": "Roald Dahl is most well known for his children\u2019s books, including 'Charlie and the Chocolate Factory'."
+    },
+    {
+        "id": 666,
+        "topic": "History / Government & Law",
+        "question": "What significant agreement regarding the Northern Ireland peace process was signed in 1998?",
+        "options": [
+            "The Act of Union",
+            "The Treaty of London",
+            "The Good Friday Agreement",
+            "The Belfast Accord"
+        ],
+        "correctAnswer": "The Good Friday Agreement",
+        "explanation": "The Blair government was able to build on the peace process, resulting in the Good Friday Agreement signed in 1998."
+    },
+    {
+        "id": 667,
+        "topic": "History / Government & Law",
+        "question": "What key change did the Bill of Rights 1689 confirm regarding the monarch's power?",
+        "options": [
+            "The monarch could raise taxes without Parliament's agreement",
+            "The monarch could administer justice without Parliament's agreement",
+            "The monarch could choose the next king or queen regardless of religion",
+            "The monarch could no longer raise taxes or administer justice without Parliament's agreement"
+        ],
+        "correctAnswer": "The monarch could no longer raise taxes or administer justice without Parliament's agreement",
+        "explanation": "The Bill of Rights, 1689, confirmed that the king would no longer be able to raise taxes or administer justice without agreement from Parliament."
+    },
+    {
+        "id": 668,
+        "topic": "History",
+        "question": "What did the Act of Union (known as the Treaty of Union in Scotland) create in 1707?",
+        "options": [
+            "The Kingdom of England",
+            "The United Kingdom of Great Britain and Ireland",
+            "The Kingdom of Great Britain",
+            "The British Commonwealth"
+        ],
+        "correctAnswer": "The Kingdom of Great Britain",
+        "explanation": "The Act of Union, known as the Treaty of Union in Scotland, was agreed in 1707, creating the Kingdom of Great Britain."
+    },
+    {
+        "id": 669,
+        "topic": "History / Government & Law",
+        "question": "Who was the first man to be called Prime Minister, serving from 1721 to 1742?",
+        "options": [
+            "George I",
+            "William III",
+            "Robert Peel",
+            "Sir Robert Walpole"
+        ],
+        "correctAnswer": "Sir Robert Walpole",
+        "explanation": "The first man to be called Prime Minister was Sir Robert Walpole, who was Prime Minister from 1721 to 1742."
+    },
+    {
+        "id": 670,
+        "topic": "History",
+        "question": "What was a key characteristic of the Industrial Revolution in Britain during the 18th and 19th centuries?",
+        "options": [
+            "A decline in overseas trade",
+            "A shift from urban to rural employment",
+            "Rapid development of industry through machinery and steam power",
+            "A decrease in colonisation overseas"
+        ],
+        "correctAnswer": "Rapid development of industry through machinery and steam power",
+        "explanation": "The Industrial Revolution was the rapid development of industry in Britain in the 18th and 19th centuries, happening because of the development of machinery and the use of steam power."
     }
 ]
