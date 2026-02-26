@@ -139,7 +139,8 @@ async def record_progress(payload: ProgressRecordPayload):
         )
         session.add(new_session)
         session.flush() # Get the auto-incremented ID
-        
+
+
         for resp in payload.responses:
             new_resp = UserResponse(
                 session_id=new_session.id,
