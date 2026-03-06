@@ -3103,5 +3103,1305 @@
         ],
         "correctAnswer": "Rapid development of industry through machinery and steam power",
         "explanation": "The Industrial Revolution was the rapid development of industry in Britain in the 18th and 19th centuries, happening because of the development of machinery and the use of steam power."
+    },
+    {
+        "id": 671,
+        "topic": "The values and principles of the UK",
+        "question": "What is one of the requirements for applying to become a permanent resident or citizen of the UK?",
+        "options": [
+            "Be fluent in a second language",
+            "Have a university degree",
+            "Speak and read English",
+            "Own property in the UK"
+        ],
+        "correctAnswer": "Speak and read English",
+        "explanation": "To apply to become a permanent resident or citizen of the UK, you will need to speak and read English."
+    },
+    {
+        "id": 672,
+        "topic": "The values and principles of the UK",
+        "question": "How many questions does the Life in the UK test consist of?",
+        "options": [
+            "12",
+            "18",
+            "24",
+            "30"
+        ],
+        "correctAnswer": "24",
+        "explanation": "The test consists of 24 questions about important aspects of life in the UK."
+    },
+    {
+        "id": 673,
+        "topic": "What is the UK?",
+        "question": "Which of the following countries is NOT included in the term 'Great Britain'?",
+        "options": [
+            "England",
+            "Scotland",
+            "Wales",
+            "Northern Ireland"
+        ],
+        "correctAnswer": "Northern Ireland",
+        "explanation": "'Great Britain' refers only to England, Scotland and Wales, not to Northern Ireland."
+    },
+    {
+        "id": 674,
+        "topic": "What is the UK?",
+        "question": "What is the official name of the country?",
+        "options": [
+            "Great Britain",
+            "The British Isles",
+            "United Kingdom of Great Britain and Northern Ireland",
+            "The Commonwealth of British Nations"
+        ],
+        "correctAnswer": "United Kingdom of Great Britain and Northern Ireland",
+        "explanation": "The official name of the country is the United Kingdom of Great Britain and Northern Ireland."
+    },
+    {
+        "id": 675,
+        "topic": "The values and principles of the UK",
+        "question": "Which of these is listed as a fundamental principle of British life?",
+        "options": [
+            "State control of all businesses",
+            "Monarchy as the sole power",
+            "Individual liberty",
+            "Mandatory religious observance"
+        ],
+        "correctAnswer": "Individual liberty",
+        "explanation": "The fundamental principles of British life include Democracy, The rule of law, Individual liberty, Tolerance of those with different faiths and beliefs, and Participation in community life."
+    },
+    {
+        "id": 676,
+        "topic": "The values and principles of the UK",
+        "question": "As of October 2013, what were the two requirements for settlement or permanent residence regarding English language skills and the Life in the UK test?",
+        "options": [
+            "Pass the Life in the UK test only.",
+            "Produce acceptable evidence of speaking and listening skills in English at B1 of the Common European Framework of Reference only.",
+            "Pass the Life in the UK test AND produce acceptable evidence of speaking and listening skills in English at B1.",
+            "Pass an ESOL course in English with Citizenship only."
+        ],
+        "correctAnswer": "Pass the Life in the UK test AND produce acceptable evidence of speaking and listening skills in English at B1.",
+        "explanation": "From October 2013, for settlement or permanent residence, you will need to: Pass the Life in the UK test AND Produce acceptable evidence of speaking and listening skills in English at B1 of the Common European Framework of Reference."
+    },
+    {
+        "id": 677,
+        "topic": "Modern Society",
+        "question": "Which of the following was nationalised by the Labour government after 1945?",
+        "options": [
+            "Car manufacturing plants",
+            "Private schools",
+            "Railways",
+            "All major industries"
+        ],
+        "correctAnswer": "Railways",
+        "explanation": "The government took into public ownership (nationalised) the railways, coal mines and gas, water and electricity supplies."
+    },
+    {
+        "id": 678,
+        "topic": "Modern Society",
+        "question": "Who was the Prime Minister elected in 1945 who promised to introduce the welfare state?",
+        "options": [
+            "Winston Churchill",
+            "Harold Macmillan",
+            "Clement Attlee",
+            "Tony Blair"
+        ],
+        "correctAnswer": "Clement Attlee",
+        "explanation": "In 1945 the British people elected a Labour government. The new Prime Minister was Clement Attlee, who promised to introduce the welfare state outlined in the Beveridge Report."
+    },
+    {
+        "id": 679,
+        "topic": "Modern Society",
+        "question": "Who was the Minister for Health who led the establishment of the National Health Service (NHS) in 1948?",
+        "options": [
+            "William Beveridge",
+            "Clement Attlee",
+            "Aneurin (Nye) Bevan",
+            "R A Butler"
+        ],
+        "correctAnswer": "Aneurin (Nye) Bevan",
+        "explanation": "In 1948, Aneurin (Nye) Bevan, the Minister for Health, led the establishment of the National Health Service (NHS)."
+    },
+    {
+        "id": 680,
+        "topic": "Modern Society",
+        "question": "The Beveridge Report, which provided the basis of the modern welfare state, recommended fighting how many 'Giant Evils'?",
+        "options": [
+            "Three",
+            "Five",
+            "Seven",
+            "Ten"
+        ],
+        "correctAnswer": "Five",
+        "explanation": "The report recommended that the government should find ways of fighting the five \u2018Giant Evils\u2019 of Want, Disease, Ignorance, Squalor and Idleness."
+    },
+    {
+        "id": 681,
+        "topic": "Modern Society",
+        "question": "Which Act, introduced in 1944, brought free secondary education in England and Wales?",
+        "options": [
+            "The NHS Act",
+            "The Welfare Act",
+            "The Butler Act",
+            "The Education Reform Act"
+        ],
+        "correctAnswer": "The Butler Act",
+        "explanation": "R A Butler oversaw the introduction of the Education Act 1944 (often called \u2018The Butler Act\u2019), which introduced free secondary education in England and Wales."
+    },
+    {
+        "id": 682,
+        "topic": "Modern Society",
+        "question": "From which regions were workers encouraged to come to the UK after 1948 to help with reconstruction and address labour shortages?",
+        "options": [
+            "East Asia and Australia",
+            "North America and Scandinavia",
+            "Ireland and other parts of Europe, and later the West Indies",
+            "South America and Russia"
+        ],
+        "correctAnswer": "Ireland and other parts of Europe, and later the West Indies",
+        "explanation": "The British government encouraged workers from Ireland and other parts of Europe to come to the UK and help with the reconstruction. In 1948, people from the West Indies were also invited to come and work."
+    },
+    {
+        "id": 683,
+        "topic": "Modern Society",
+        "question": "The 1960s were known as 'the Swinging Sixties'. Which of the following was NOT a characteristic of this period according to the text?",
+        "options": [
+            "Growth in British fashion, cinema and popular music.",
+            "Significant increase in nationalised industries.",
+            "Liberalisation of social laws, such as divorce.",
+            "Improved position of women in the workplace."
+        ],
+        "correctAnswer": "Significant increase in nationalised industries.",
+        "explanation": "The text mentions growth in British fashion, cinema, popular music, liberalisation of social laws, and improved women's workplace position during the 'Swinging Sixties'. Nationalisation of industries was primarily a post-WWII policy of the 1940s."
+    },
+    {
+        "id": 684,
+        "topic": "Modern Society",
+        "question": "Which supersonic commercial airliner was developed by Britain and France in the 1960s?",
+        "options": [
+            "Airbus A380",
+            "Concorde",
+            "Boeing 747",
+            "Comet"
+        ],
+        "correctAnswer": "Concorde",
+        "explanation": "Britain and France developed the world\u2019s only supersonic commercial airliner, Concorde."
+    },
+    {
+        "id": 685,
+        "topic": "What is the UK?",
+        "question": "The Channel Islands and the Isle of Man, which have their own governments but are closely linked with the UK, are called what?",
+        "options": [
+            "British Overseas Territories",
+            "Crown dependencies",
+            "Independent states",
+            "UK constituent countries"
+        ],
+        "correctAnswer": "Crown dependencies",
+        "explanation": "The Channel Islands and the Isle of Man... have their own governments and are called \u2018Crown dependencies\u2019."
+    },
+    {
+        "id": 686,
+        "topic": "The values and principles of the UK",
+        "question": "What should applicants for permanent residence or citizenship agree to accept as part of their commitment?",
+        "options": [
+            "To join a specific political party.",
+            "To accept the responsibilities which go with permanent residence and to respect the laws, values and traditions of the UK.",
+            "To give up their original nationality.",
+            "To only speak English at all times."
+        ],
+        "correctAnswer": "To accept the responsibilities which go with permanent residence and to respect the laws, values and traditions of the UK.",
+        "explanation": "You will be agreeing to accept the responsibilities which go with permanent residence and to respect the laws, values and traditions of the UK."
+    },
+    {
+        "id": 687,
+        "topic": "The values and principles of the UK",
+        "question": "Which of the following is NOT a freedom offered by the UK according to the provided text?",
+        "options": [
+            "Freedom of belief and religion",
+            "Freedom of speech",
+            "Freedom from taxation",
+            "Freedom from unfair discrimination"
+        ],
+        "correctAnswer": "Freedom from taxation",
+        "explanation": "The UK offers: freedom of belief and religion, freedom of speech, freedom from unfair discrimination, a right to a fair trial, a right to join in the election of a government. Freedom from taxation is not mentioned."
+    },
+    {
+        "id": 688,
+        "topic": "History",
+        "question": "In which year did India, Pakistan, and Ceylon (now Sri Lanka) gain independence from the UK?",
+        "options": [
+            "1945",
+            "1947",
+            "1951",
+            "1960"
+        ],
+        "correctAnswer": "1947",
+        "explanation": "In 1947, independence was granted to nine countries, including India, Pakistan and Ceylon (now Sri Lanka)."
+    },
+    {
+        "id": 689,
+        "topic": "History",
+        "question": "Which international alliance did the UK join to resist the perceived threat of invasion by the Soviet Union after developing its own atomic bomb?",
+        "options": [
+            "The United Nations",
+            "The Warsaw Pact",
+            "The European Union",
+            "NATO"
+        ],
+        "correctAnswer": "NATO",
+        "explanation": "The UK developed its own atomic bomb and joined the new North Atlantic Treaty Organization (NATO), an alliance of nations set up to resist the perceived threat of invasion by the Soviet Union and its allies."
+    },
+    {
+        "id": 690,
+        "topic": "Modern Society",
+        "question": "According to the excerpt, who developed the television?",
+        "options": [
+            "An English inventor",
+            "A Welsh engineer",
+            "A Scotsman named John",
+            "A French scientist"
+        ],
+        "correctAnswer": "A Scotsman named John",
+        "explanation": "The text states: 'The television was developed by Scotsman John '."
+    },
+    {
+        "id": 691,
+        "topic": "History",
+        "question": "Who made the first television broadcast between London and Glasgow in 1932?",
+        "options": [
+            "Sir Robert Watson-Watt",
+            "Logie Baird",
+            "Alan Turing",
+            "Sir Frank Whittle"
+        ],
+        "correctAnswer": "Logie Baird",
+        "explanation": "Logie Baird made the first television broadcast between London and Glasgow in 1932, following his invention of television in the 1920s."
+    },
+    {
+        "id": 692,
+        "topic": "History",
+        "question": "Which Scotsman developed radar, leading to the first successful test in 1935?",
+        "options": [
+            "Sir Bernard Lovell",
+            "John MacLeod",
+            "Sir Robert Watson-Watt",
+            "Francis Crick"
+        ],
+        "correctAnswer": "Sir Robert Watson-Watt",
+        "explanation": "Scotsman Sir Robert Watson-Watt developed radar, with the first successful test taking place in 1935."
+    },
+    {
+        "id": 693,
+        "topic": "History",
+        "question": "The theoretical mathematical device known as the Turing machine, influential in the development of computer science, was invented by whom?",
+        "options": [
+            "Sir Tim Berners-Lee",
+            "Alan Turing",
+            "James Goodfellow",
+            "Sir Peter Mansfield"
+        ],
+        "correctAnswer": "Alan Turing",
+        "explanation": "The Turing machine was a theoretical mathematical device invented by Alan Turing, a British mathematician, in the 1930s."
+    },
+    {
+        "id": 694,
+        "topic": "History",
+        "question": "In what year was the structure of the DNA molecule discovered through work at British universities?",
+        "options": [
+            "1932",
+            "1946",
+            "1953",
+            "1969"
+        ],
+        "correctAnswer": "1953",
+        "explanation": "The structure of the DNA molecule was discovered in 1953 through work at British universities in London and Cambridge."
+    },
+    {
+        "id": 695,
+        "topic": "History",
+        "question": "Who developed the jet engine in Britain in the 1930s?",
+        "options": [
+            "Sir Christopher Cockerell",
+            "Sir Frank Whittle",
+            "Sir Robert Edwards",
+            "Keith Campbell"
+        ],
+        "correctAnswer": "Sir Frank Whittle",
+        "explanation": "The jet engine was developed in Britain in the 1930s by Sir Frank Whittle, a British Royal Air Force engineer Officer."
+    },
+    {
+        "id": 696,
+        "topic": "History",
+        "question": "Which British inventor is credited with inventing the cash-dispensing ATM (automatic teller machine) in the 1960s?",
+        "options": [
+            "Sir Ian Wilmot",
+            "James Goodfellow",
+            "Patrick Steptoe",
+            "Sir Peter Mansfield"
+        ],
+        "correctAnswer": "James Goodfellow",
+        "explanation": "In the 1960s, James Goodfellow invented the cash-dispensing ATM (automatic teller machine) or 'cashpoint'."
+    },
+    {
+        "id": 697,
+        "topic": "History",
+        "question": "IVF (in-vitro fertilisation) therapy for the treatment of infertility was pioneered in Britain by which two individuals?",
+        "options": [
+            "Sir Ian Wilmot and Keith Campbell",
+            "Sir Robert Edwards and Patrick Steptoe",
+            "Sir Tim Berners-Lee and Alan Turing",
+            "John MacLeod and Francis Crick"
+        ],
+        "correctAnswer": "Sir Robert Edwards and Patrick Steptoe",
+        "explanation": "IVF therapy was pioneered in Britain by physiologist Sir Robert Edwards and gynaecologist Patrick Steptoe."
+    },
+    {
+        "id": 698,
+        "topic": "Modern Society",
+        "question": "What major economic problem affected Britain in the late 1970s?",
+        "options": [
+            "A period of unprecedented economic growth and stability",
+            "A decline in trade union power and influence",
+            "Rising prices, unstable exchange rates, and widespread strikes",
+            "Reduced imports leading to a positive balance of payments"
+        ],
+        "correctAnswer": "Rising prices, unstable exchange rates, and widespread strikes",
+        "explanation": "In the late 1970s, the post-war economic boom came to an end, with prices rising sharply, an unstable exchange rate, and many industries affected by strikes."
+    },
+    {
+        "id": 699,
+        "topic": "History",
+        "question": "What significant event occurred in Northern Ireland in 1972 that led to direct rule by the UK government?",
+        "options": [
+            "The signing of the Good Friday Agreement",
+            "The election of the Northern Ireland Assembly",
+            "The suspension of the Northern Ireland Parliament",
+            "The decommissioning of paramilitary arms"
+        ],
+        "correctAnswer": "The suspension of the Northern Ireland Parliament",
+        "explanation": "In 1972, the Northern Ireland Parliament was suspended and Northern Ireland was directly ruled by the UK government due to serious unrest."
+    },
+    {
+        "id": 700,
+        "topic": "History",
+        "question": "When did the UK eventually join the European Economic Community (EEC)?",
+        "options": [
+            "1957",
+            "1969",
+            "1973",
+            "1979"
+        ],
+        "correctAnswer": "1973",
+        "explanation": "The UK eventually joined the European Economic Community (EEC) in 1973, although it initially did not wish to join."
+    },
+    {
+        "id": 701,
+        "topic": "History",
+        "question": "Who became the first woman Prime Minister of the UK in 1979 and was the longest-serving Prime Minister of the 20th century?",
+        "options": [
+            "Theresa May",
+            "Liz Truss",
+            "Margaret Thatcher",
+            "Mary Peters"
+        ],
+        "correctAnswer": "Margaret Thatcher",
+        "explanation": "Margaret Thatcher became the first woman Prime Minister of the UK in 1979 and was the longest-serving Prime Minister of the 20th century, remaining in office until 1990."
+    },
+    {
+        "id": 702,
+        "topic": "History",
+        "question": "In what year did Argentina invade the Falkland Islands, leading to military action by the UK?",
+        "options": [
+            "1979",
+            "1982",
+            "1990",
+            "1998"
+        ],
+        "correctAnswer": "1982",
+        "explanation": "In 1982, Argentina invaded the Falkland Islands, a British overseas territory, leading to a naval taskforce being sent from the UK and military action."
+    },
+    {
+        "id": 703,
+        "topic": "History",
+        "question": "What significant agreement related to the Northern Ireland peace process was signed in 1998?",
+        "options": [
+            "The Act of Union",
+            "The Bill of Rights",
+            "The Good Friday Agreement",
+            "The Treaty of Union"
+        ],
+        "correctAnswer": "The Good Friday Agreement",
+        "explanation": "The Blair government was able to build on the peace process in Northern Ireland, resulting in the Good Friday Agreement signed in 1998."
+    },
+    {
+        "id": 704,
+        "topic": "Government & Law",
+        "question": "The Bill of Rights in 1689 confirmed which of the following regarding the monarch's power?",
+        "options": [
+            "The monarch could raise taxes without Parliament's agreement",
+            "The monarch could administer justice independently",
+            "The monarch could not raise taxes or administer justice without Parliament's agreement",
+            "A new Parliament had to be elected every seven years from then on"
+        ],
+        "correctAnswer": "The monarch could not raise taxes or administer justice without Parliament's agreement",
+        "explanation": "The Bill of Rights, 1689, confirmed that the king would no longer be able to raise taxes or administer justice without agreement from Parliament."
+    },
+    {
+        "id": 705,
+        "topic": "History",
+        "question": "What year was the Act of Union (known as the Treaty of Union in Scotland) agreed, creating the Kingdom of Great Britain?",
+        "options": [
+            "1689",
+            "1707",
+            "1714",
+            "1746"
+        ],
+        "correctAnswer": "1707",
+        "explanation": "The Act of Union, known as the Treaty of Union in Scotland, was agreed in 1707, creating the Kingdom of Great Britain."
+    },
+    {
+        "id": 706,
+        "topic": "History",
+        "question": "Who was the first man to be known as the Prime Minister of Britain, serving from 1721 to 1742?",
+        "options": [
+            "George I",
+            "William III",
+            "Sir Robert Walpole",
+            "Charles Edward Stuart"
+        ],
+        "correctAnswer": "Sir Robert Walpole",
+        "explanation": "The first man to be called Prime Minister was Sir Robert Walpole, who served from 1721 to 1742."
+    },
+    {
+        "id": 707,
+        "topic": "History",
+        "question": "In what battle was Charles Edward Stuart (Bonnie Prince Charlie) defeated in 1746, ending the Jacobite attempt to reclaim the throne?",
+        "options": [
+            "Battle of Hastings",
+            "Battle of Bosworth Field",
+            "Battle of Culloden",
+            "Battle of Waterloo"
+        ],
+        "correctAnswer": "Battle of Culloden",
+        "explanation": "Charles Edward Stuart was defeated by George II\u2019s army at the Battle of Culloden in 1746."
+    },
+    {
+        "id": 708,
+        "topic": "Values and Principles",
+        "question": "Which important principle of the Enlightenment, involving political and religious beliefs, continues to be important in the UK today?",
+        "options": [
+            "The state should dictate political and religious beliefs",
+            "Everyone should conform to the monarch's religion",
+            "The monarch has absolute power",
+            "Everyone should have the right to their own political and religious beliefs"
+        ],
+        "correctAnswer": "Everyone should have the right to their own political and religious beliefs",
+        "explanation": "One of the most important principles of the Enlightenment was that everyone should have the right to their own political and religious beliefs and that the state should not try to dictate to them. This continues to be an important principle in the UK today."
+    },
+    {
+        "id": 709,
+        "topic": "History",
+        "question": "What was the primary reason for Britain being the first country to industrialise on a large scale during the 18th and 19th centuries?",
+        "options": [
+            "A decline in agriculture and population",
+            "The abolition of all cottage industries",
+            "The development of machinery and the use of steam power",
+            "A severe shortage of coal and other raw materials"
+        ],
+        "correctAnswer": "The development of machinery and the use of steam power",
+        "explanation": "The Industrial Revolution happened because of the development of machinery and the use of steam power, making Britain the first country to industrialise on a large scale."
+    },
+    {
+        "id": 710,
+        "topic": "Modern Society",
+        "question": "Who opened the first curry house in Britain, the Hindoostane Coffee House, and introduced 'shampooing' (Indian head massage) to Britain?",
+        "options": [
+            "Captain James Cook",
+            "Adam Smith",
+            "Sake Dean Mahomet",
+            "Richard Arkwright"
+        ],
+        "correctAnswer": "Sake Dean Mahomet",
+        "explanation": "Sake Dean Mahomet opened the Hindoostane Coffee House in London, the first curry house in Britain, and introduced 'shampooing' to Britain."
+    },
+    {
+        "id": 711,
+        "topic": "History",
+        "question": "Who set up the first formal anti-slavery groups in Britain in the late 1700s?",
+        "options": [
+            "The Church of England",
+            "William Wilberforce's political party",
+            "The Quakers",
+            "The British Parliament"
+        ],
+        "correctAnswer": "The Quakers",
+        "explanation": "The text states, 'The first formal anti-slavery groups were set up by the Quakers in the late 1700s'."
+    },
+    {
+        "id": 712,
+        "topic": "History",
+        "question": "In what year did the Emancipation Act abolish slavery throughout the British Empire?",
+        "options": [
+            "1807",
+            "1833",
+            "1846",
+            "1851"
+        ],
+        "correctAnswer": "1833",
+        "explanation": "The text states, 'in 1833 the Emancipation Act abolished slavery throughout the British Empire'."
+    },
+    {
+        "id": 713,
+        "topic": "History",
+        "question": "What slogan did American colonists use to protest against British taxation?",
+        "options": [
+            "Liberty or Death",
+            "Give me freedom or give me taxes",
+            "No taxation without representation",
+            "United we stand, divided we fall"
+        ],
+        "correctAnswer": "No taxation without representation",
+        "explanation": "The text states, 'The colonists saw this as an attack on their freedom and said there should be \u2018no taxation without representation\u2019 in the British Parliament'."
+    },
+    {
+        "id": 714,
+        "topic": "History",
+        "question": "In what year did the 13 American colonies declare their independence from Britain?",
+        "options": [
+            "1760",
+            "1776",
+            "1783",
+            "1801"
+        ],
+        "correctAnswer": "1776",
+        "explanation": "The text states, 'In 1776, 13 American colonies declared their independence'."
+    },
+    {
+        "id": 715,
+        "topic": "History",
+        "question": "Who was the British admiral killed at the Battle of Trafalgar in 1805?",
+        "options": [
+            "Duke of Wellington",
+            "Captain Cook",
+            "Admiral Nelson",
+            "Lord Byron"
+        ],
+        "correctAnswer": "Admiral Nelson",
+        "explanation": "The text states, 'Admiral Nelson was in charge of the British fleet at Trafalgar and was killed in the battle'."
+    },
+    {
+        "id": 716,
+        "topic": "History",
+        "question": "Who defeated Emperor Napoleon at the Battle of Waterloo in 1815?",
+        "options": [
+            "Admiral Nelson",
+            "William Wilberforce",
+            "The Duke of Wellington",
+            "George Stephenson"
+        ],
+        "correctAnswer": "The Duke of Wellington",
+        "explanation": "The text states, 'In 1815, the French Wars ended with the defeat of the Emperor Napoleon by the Duke of Wellington at the Battle of Waterloo'."
+    },
+    {
+        "id": 717,
+        "topic": "What is the UK?",
+        "question": "What year did the Act of Union unify Ireland with England, Scotland, and Wales, creating the United Kingdom of Great Britain and Ireland?",
+        "options": [
+            "1789",
+            "1800",
+            "1801",
+            "1833"
+        ],
+        "correctAnswer": "1801",
+        "explanation": "The text states, 'In 1801, Ireland became unified with England, Scotland and Wales after the Act of Union of 1800'."
+    },
+    {
+        "id": 718,
+        "topic": "What is the UK?",
+        "question": "Which cross on the Union Flag is a diagonal white cross on a blue ground?",
+        "options": [
+            "The cross of St George",
+            "The cross of St Andrew",
+            "The cross of St Patrick",
+            "The Welsh Dragon"
+        ],
+        "correctAnswer": "The cross of St Andrew",
+        "explanation": "The text states, 'The cross of St Andrew, patron saint of Scotland, is a diagonal white cross on a blue ground'."
+    },
+    {
+        "id": 719,
+        "topic": "What is the UK?",
+        "question": "Why does the Welsh dragon not appear on the Union Flag?",
+        "options": [
+            "Wales is not part of the United Kingdom",
+            "The dragon was considered too aggressive a symbol",
+            "It was decided during the Victorian Age to remove it",
+            "Wales was already united with England when the first Union Flag was created"
+        ],
+        "correctAnswer": "Wales was already united with England when the first Union Flag was created",
+        "explanation": "The text states, 'The Welsh dragon does not appear on the Union Flag because, when the first Union Flag was created in 1606 from the flags of Scotland and England, the Principality of Wales was already united with England'."
+    },
+    {
+        "id": 720,
+        "topic": "History",
+        "question": "How long did Queen Victoria reign, starting from 1837?",
+        "options": [
+            "Around 30 years",
+            "Approximately 45 years",
+            "Almost 64 years",
+            "Just over 70 years"
+        ],
+        "correctAnswer": "Almost 64 years",
+        "explanation": "The text states, 'She reigned until 1901, almost 64 years'."
+    },
+    {
+        "id": 721,
+        "topic": "History",
+        "question": "In what year were the Corn Laws repealed, allowing the import of cheap grain and helping British industry?",
+        "options": [
+            "1807",
+            "1833",
+            "1846",
+            "1851"
+        ],
+        "correctAnswer": "1846",
+        "explanation": "The text states, 'One example of this was the repealing of the Corn Laws in 1846'."
+    },
+    {
+        "id": 722,
+        "topic": "History",
+        "question": "Which two individuals pioneered the railway engine just before Queen Victoria came to the throne?",
+        "options": [
+            "Isambard Kingdom Brunel and Robert Stephenson",
+            "George and Robert Stephenson",
+            "George Stephenson and William Wilberforce",
+            "Florence Nightingale and Isambard Kingdom Brunel"
+        ],
+        "correctAnswer": "George and Robert Stephenson",
+        "explanation": "The text states, 'Just before Victoria came to the throne, the father and son George and Robert Stephenson pioneered the railway engine'."
+    },
+    {
+        "id": 723,
+        "topic": "History",
+        "question": "Which famous engineer built tunnels, bridges, railway lines, and ships, including the Great Western Railway?",
+        "options": [
+            "George Stephenson",
+            "Robert Stephenson",
+            "Isambard Kingdom Brunel",
+            "John Maynard Keynes"
+        ],
+        "correctAnswer": "Isambard Kingdom Brunel",
+        "explanation": "The text describes Isambard Kingdom Brunel's contributions, stating he 'was responsible for constructing the Great Western Railway'."
+    },
+    {
+        "id": 724,
+        "topic": "History",
+        "question": "What medal did Queen Victoria introduce during the Crimean War to honour acts of valour by soldiers?",
+        "options": [
+            "The Royal Medal",
+            "The Iron Cross",
+            "The Victoria Cross",
+            "The Crimean Star"
+        ],
+        "correctAnswer": "The Victoria Cross",
+        "explanation": "The text states, 'Queen Victoria introduced the Victoria Cross medal during this war'."
+    },
+    {
+        "id": 725,
+        "topic": "History",
+        "question": "Who is often regarded as the founder of modern nursing, having improved conditions in military hospitals during the Crimean War?",
+        "options": [
+            "Emmeline Pankhurst",
+            "Queen Victoria",
+            "Florence Nightingale",
+            "Mary Seacole"
+        ],
+        "correctAnswer": "Florence Nightingale",
+        "explanation": "The text describes Florence Nightingale's work and states, 'She is often regarded as the founder of modern nursing'."
+    },
+    {
+        "id": 726,
+        "topic": "History",
+        "question": "What caused the devastating famine in Ireland in the middle of the 19th century?",
+        "options": [
+            "A major earthquake",
+            "An economic depression",
+            "The potato crop failure",
+            "A war with Britain"
+        ],
+        "correctAnswer": "The potato crop failure",
+        "explanation": "The text states, 'In the middle of the century the potato crop failed, and Ireland suffered a famine'."
+    },
+    {
+        "id": 727,
+        "topic": "Modern Society",
+        "question": "What was a key outcome of the Reform Act of 1832 in Britain?",
+        "options": [
+            "Women were given the right to vote",
+            "All working-class men gained the vote",
+            "It abolished the monarchy",
+            "It greatly increased the number of people with the right to vote"
+        ],
+        "correctAnswer": "It greatly increased the number of people with the right to vote",
+        "explanation": "The text states, 'The Reform Act of 1832 had greatly increased the number of people with the right to vote'."
+    },
+    {
+        "id": 728,
+        "topic": "Modern Society",
+        "question": "Which organisation did Emmeline Pankhurst help found in 1903, whose members became known as 'suffragettes'?",
+        "options": [
+            "The Women's Franchise League",
+            "The Women's Social and Political Union",
+            "The National Union of Women's Suffrage Societies",
+            "The British Women's Rights Movement"
+        ],
+        "correctAnswer": "The Women's Social and Political Union",
+        "explanation": "The text states, 'In 1903 she helped found the Women\u2019s Social and Political Union (WSPU). This was the first group whose members were called \u2018suffragettes\u2019'."
+    },
+    {
+        "id": 729,
+        "topic": "History",
+        "question": "What event triggered the start of the First World War on 28 June 1914?",
+        "options": [
+            "The invasion of Poland",
+            "The assassination of Archduke Franz Ferdinand",
+            "The sinking of the Lusitania",
+            "Germany's declaration of war on France"
+        ],
+        "correctAnswer": "The assassination of Archduke Franz Ferdinand",
+        "explanation": "The text states, 'On 28 June 1914, Archduke Franz Ferdinand of Austria was assassinated. This set off a chain of events leading to the First World War (1914\u201318)'."
+    },
+    {
+        "id": 730,
+        "topic": "History",
+        "question": "In what year did Ireland become two countries, with Northern Ireland remaining part of the UK and the rest becoming the Irish Free State?",
+        "options": [
+            "1913",
+            "1916",
+            "1921",
+            "1922"
+        ],
+        "correctAnswer": "1922",
+        "explanation": "The text states, 'In 1921 a peace treaty was signed and in 1922 Ireland became two countries'."
+    },
+    {
+        "id": 731,
+        "topic": "History",
+        "question": "What event in 1939 led Britain and France to declare war on Germany?",
+        "options": [
+            "German invasion of Austria",
+            "German invasion of Czechoslovakia",
+            "German invasion of Belgium",
+            "German invasion of Poland"
+        ],
+        "correctAnswer": "German invasion of Poland",
+        "explanation": "The excerpt states, 'However, when Hitler invaded Poland in 1939, Britain and France declared war in order to stop his aggression.'"
+    },
+    {
+        "id": 732,
+        "topic": "History",
+        "question": "Which of these countries was NOT an Axis Power during the initial stages of the Second World War?",
+        "options": [
+            "Germany",
+            "Italy",
+            "Japan",
+            "France"
+        ],
+        "correctAnswer": "France",
+        "explanation": "The text states, 'The war was initially fought between the Axis powers (fascist Germany and Italy and the Empire of Japan) and the Allies.' France was listed as one of the main Allied countries."
+    },
+    {
+        "id": 733,
+        "topic": "History",
+        "question": "Who became Prime Minister and Britain's war leader in 1940 during a time of national crisis?",
+        "options": [
+            "Neville Chamberlain",
+            "Winston Churchill",
+            "Clement Attlee",
+            "Franklin D. Roosevelt"
+        ],
+        "correctAnswer": "Winston Churchill",
+        "explanation": "The excerpt mentions, 'Then, in 1940, German forces defeated allied troops and advanced through France. At this time of national crisis, Winston Churchill became Prime Minister and Britain\u2019s war leader.'"
+    },
+    {
+        "id": 734,
+        "topic": "History",
+        "question": "What was the name of the huge naval operation in 1940 that evacuated British and French soldiers from France?",
+        "options": [
+            "Operation Overlord",
+            "The Battle of the Somme",
+            "The Dunkirk Evacuation",
+            "The Normandy Landings"
+        ],
+        "correctAnswer": "The Dunkirk Evacuation",
+        "explanation": "The text describes, 'As France fell, the British decided to evacuate British and French soldiers from France in a huge naval operation... around Dunkirk. The evacuation gave rise to the phrase \u2018the Dunkirk spirit\u2019.'"
+    },
+    {
+        "id": 735,
+        "topic": "History",
+        "question": "Which crucial aerial battle was won by the British against the Germans in the summer of 1940?",
+        "options": [
+            "The Battle of the Atlantic",
+            "The Battle of Stalingrad",
+            "The Battle of Britain",
+            "The Battle of El Alamein"
+        ],
+        "correctAnswer": "The Battle of Britain",
+        "explanation": "The excerpt states, 'The British resisted with their fighter planes and eventually won the crucial aerial battle against the Germans, called \u2018the Battle of Britain\u2019, in the summer of 1940.'"
+    },
+    {
+        "id": 736,
+        "topic": "History",
+        "question": "What were the two most important planes used by the Royal Air Force in the Battle of Britain?",
+        "options": [
+            "Messerschmitt and Junkers",
+            "Spitfire and Hurricane",
+            "Lancaster and Mosquito",
+            "Mustang and Thunderbolt"
+        ],
+        "correctAnswer": "Spitfire and Hurricane",
+        "explanation": "The text explicitly states, 'The most important planes used by the Royal Air Force in the Battle of Britain were the Spitfire and the Hurricane \u2013 which were designed and built in Britain.'"
+    },
+    {
+        "id": 737,
+        "topic": "History",
+        "question": "What was the name given to the German night-time bombing of London and other British cities during the Second World War?",
+        "options": [
+            "The Siege",
+            "The Blitz",
+            "Operation Sealion",
+            "The Firestorm"
+        ],
+        "correctAnswer": "The Blitz",
+        "explanation": "The excerpt says, 'Despite this crucial victory, the German air force was able to continue bombing London and other British cities at night-time. This was called the Blitz.'"
+    },
+    {
+        "id": 738,
+        "topic": "History",
+        "question": "Which of these famous quotes did Winston Churchill deliver in his first speech to the House of Commons after becoming Prime Minister in 1940?",
+        "options": [
+            "\"We shall fight on the beaches...\"",
+            "\"Never in the field of human conflict was so much owed by so many to so few\"",
+            "\"I have nothing to offer but blood, toil, tears and sweat\"",
+            "\"This was their finest hour.\""
+        ],
+        "correctAnswer": "\"I have nothing to offer but blood, toil, tears and sweat\"",
+        "explanation": "The text attributes 'I have nothing to offer but blood, toil, tears and sweat' to Churchill's first speech to the House of Commons after he became Prime Minister in 1940."
+    },
+    {
+        "id": 739,
+        "topic": "History",
+        "question": "When did the United States enter the Second World War?",
+        "options": [
+            "After Hitler invaded Poland",
+            "After the Battle of Britain",
+            "When the Japanese bombed its naval base at Pearl Harbour",
+            "When Germany invaded the Soviet Union"
+        ],
+        "correctAnswer": "When the Japanese bombed its naval base at Pearl Harbour",
+        "explanation": "The text states, 'The United States entered the war when the Japanese bombed its naval base at Pearl Harbour in December 1941.'"
+    },
+    {
+        "id": 740,
+        "topic": "History",
+        "question": "What pivotal event occurred on 6 June 1944, often referred to as \u2018D-Day\u2019?",
+        "options": [
+            "The Battle of Stalingrad",
+            "The bombing of Pearl Harbour",
+            "Allied forces landing in Normandy",
+            "The surrender of Germany"
+        ],
+        "correctAnswer": "Allied forces landing in Normandy",
+        "explanation": "The text mentions, 'On 6 June 1944, allied forces landed in Normandy (this event is often referred to as \u2018D-Day\u2019)'."
+    },
+    {
+        "id": 741,
+        "topic": "History",
+        "question": "Who discovered penicillin in 1928?",
+        "options": [
+            "Howard Florey",
+            "Ernst Chain",
+            "Alexander Fleming",
+            "Ernest Rutherford"
+        ],
+        "correctAnswer": "Alexander Fleming",
+        "explanation": "The text states, 'Born in Scotland, Fleming... was researching influenza (the \u2018flu\u2019) in 1928 when he discovered penicillin.'"
+    },
+    {
+        "id": 742,
+        "topic": "History",
+        "question": "The period after the Norman Conquest up until about 1485 is known as what?",
+        "options": [
+            "The Dark Ages",
+            "The Roman Empire",
+            "The Middle Ages",
+            "The Renaissance"
+        ],
+        "correctAnswer": "The Middle Ages",
+        "explanation": "The excerpt begins with, 'The period after the Norman Conquest up until about 1485 is called the Middle Ages (or the medieval period).'"
+    },
+    {
+        "id": 743,
+        "topic": "History",
+        "question": "Which English king introduced the Statute of Rhuddlan in 1284, which annexed Wales to the Crown of England?",
+        "options": [
+            "King John",
+            "King Henry V",
+            "King Edward I",
+            "King Richard III"
+        ],
+        "correctAnswer": "King Edward I",
+        "explanation": "The text states, 'In 1284 King Edward I of England introduced the Statute of Rhuddlan, which annexed Wales to the Crown of England.'"
+    },
+    {
+        "id": 744,
+        "topic": "History",
+        "question": "What was the name of the disease that killed one-third of the population of England, Scotland, and Wales in 1348?",
+        "options": [
+            "The Great Famine",
+            "The Spanish Flu",
+            "The Black Death",
+            "The Great Fire of London"
+        ],
+        "correctAnswer": "The Black Death",
+        "explanation": "The excerpt says, 'In 1348, a disease, probably a form of plague, came to Britain. This was known as the Black Death. One third of the population of England died...'"
+    },
+    {
+        "id": 745,
+        "topic": "Government & Law",
+        "question": "What important document, signed in 1215 by King John, established the idea that even the king was subject to the law?",
+        "options": [
+            "The Bill of Rights",
+            "The Act of Union",
+            "The Statute of Rhuddlan",
+            "The Magna Carta"
+        ],
+        "correctAnswer": "The Magna Carta",
+        "explanation": "The text explains, 'In that year, King John was forced by his noblemen to agree to a number of demands. The result was a charter of rights called the Magna Carta... The Magna Carta established the idea that even the king was subject to the law.'"
+    },
+    {
+        "id": 746,
+        "topic": "History",
+        "question": "Which famous author wrote 'The Canterbury Tales' during the years leading up to 1400?",
+        "options": [
+            "William Shakespeare",
+            "Geoffrey Chaucer",
+            "John Barbour",
+            "William Caxton"
+        ],
+        "correctAnswer": "Geoffrey Chaucer",
+        "explanation": "The text states, 'In the years leading up to 1400, Geoffrey Chaucer wrote a series of poems in English about a group of people going to Canterbury on a pilgrimage. This collection of poems is called The Canterbury Tales.'"
+    },
+    {
+        "id": 747,
+        "topic": "History",
+        "question": "The civil war fought between the Houses of Lancaster and York in 1455 was known as what?",
+        "options": [
+            "The Hundred Years War",
+            "The Scottish Wars of Independence",
+            "The Wars of the Roses",
+            "The English Civil War"
+        ],
+        "correctAnswer": "The Wars of the Roses",
+        "explanation": "The excerpt mentions, 'In 1455, a civil war was begun to decide who should be king of England. It was fought between the supporters of two families: the House of Lancaster and the House of York. This war was called the Wars of the Roses...'"
+    },
+    {
+        "id": 748,
+        "topic": "History",
+        "question": "Why did King Henry VIII establish the Church of England?",
+        "options": [
+            "To unite England and Scotland",
+            "To gain more power over Parliament",
+            "To allow him to divorce his first wife",
+            "To introduce Protestantism immediately"
+        ],
+        "correctAnswer": "To allow him to divorce his first wife",
+        "explanation": "The text states, 'To divorce his first wife, Henry needed the approval of the Pope. When the Pope refused, Henry established the Church of England.'"
+    },
+    {
+        "id": 749,
+        "topic": "History",
+        "question": "Who was the monarch that re-established the Church of England as the official church and defeated the Spanish Armada in 1588?",
+        "options": [
+            "Mary I",
+            "Elizabeth I",
+            "Henry VIII",
+            "James VI"
+        ],
+        "correctAnswer": "Elizabeth I",
+        "explanation": "The text says, 'Queen Elizabeth I was a Protestant. She re-established the Church of England as the official Church in England... particularly after 1588, when the English defeated the Spanish Armada...'"
+    },
+    {
+        "id": 750,
+        "topic": "History",
+        "question": "In 1560, what significant change occurred in Scotland regarding religious authority?",
+        "options": [
+            "The Pope's authority was strengthened in Scotland.",
+            "A Catholic Queen was put on the throne of Scotland.",
+            "The predominantly Protestant Scottish Parliament abolished the authority of the Pope in Scotland.",
+            "Scotland formally united its church with the Church of England."
+        ],
+        "correctAnswer": "The predominantly Protestant Scottish Parliament abolished the authority of the Pope in Scotland.",
+        "explanation": "The text states, 'In 1560, the predominantly Protestant Scottish Parliament abolished the authority of the Pope in Scotland and Roman Catholic religious services became illegal.'"
+    },
+    {
+        "id": 751,
+        "topic": "History",
+        "question": "Which famous English explorer, one of the founders of England's naval tradition, was one of the first to circumnavigate the world in his ship, the Golden Hind?",
+        "options": [
+            "Sir Walter Raleigh",
+            "Sir Francis Drake",
+            "Captain James Cook",
+            "Henry Hudson"
+        ],
+        "correctAnswer": "Sir Francis Drake",
+        "explanation": "The text states, 'Sir Francis Drake... was one of the founders of England\u2019s naval tradition. His ship, the Golden Hind, was one of the first to sail right around (\u2018circumnavigate\u2019) the world.'"
+    },
+    {
+        "id": 752,
+        "topic": "History",
+        "question": "Which famous playwright and actor, born in Stratford-upon-Avon, had a great influence on the English language and is regarded as the greatest playwright of all time?",
+        "options": [
+            "Christopher Marlowe",
+            "Ben Jonson",
+            "William Shakespeare",
+            "John Milton"
+        ],
+        "correctAnswer": "William Shakespeare",
+        "explanation": "The text explicitly mentions William Shakespeare, born in Stratford-upon-Avon, as a playwright and actor who 'had a great influence on the English language' and is 'regarded as the greatest playwright of all time'."
+    },
+    {
+        "id": 753,
+        "topic": "History",
+        "question": "Who inherited Elizabeth I's throne in 1603, becoming King James I of England, Wales and Ireland?",
+        "options": [
+            "Her son Edward",
+            "Her cousin James VI of Scotland",
+            "Her nephew George",
+            "Her brother Henry"
+        ],
+        "correctAnswer": "Her cousin James VI of Scotland",
+        "explanation": "The text states, 'When she died in 1603 her heir was her cousin James VI of Scotland. He became King James I of England, Wales and Ireland...'"
+    },
+    {
+        "id": 754,
+        "topic": "History",
+        "question": "What significant achievement is associated with King James I's reign?",
+        "options": [
+            "The establishment of the Bank of England",
+            "A new translation of the Bible into English",
+            "The signing of the Magna Carta",
+            "The defeat of the Spanish Armada"
+        ],
+        "correctAnswer": "A new translation of the Bible into English",
+        "explanation": "The text highlights, 'One achievement of King James\u2019 reign was a new translation of the Bible into English. This translation is known as the \u2018King James Version\u2019 or the \u2018Authorised Version\u2019.'"
+    },
+    {
+        "id": 755,
+        "topic": "History",
+        "question": "During the reigns of Elizabeth I and James I, the English government encouraged Scottish and English Protestants to settle in Ulster, the northern province of Ireland. What were these settlements known as?",
+        "options": [
+            "Colonies",
+            "Plantations",
+            "Enclosures",
+            "Districts"
+        ],
+        "correctAnswer": "Plantations",
+        "explanation": "The text states, 'The English government encouraged Scottish and English Protestants to settle in Ulster... These settlements were known as plantations.'"
+    },
+    {
+        "id": 756,
+        "topic": "History",
+        "question": "What political belief did James I and his son Charles I hold, suggesting that the king was directly appointed by God to rule?",
+        "options": [
+            "Constitutional Monarchy",
+            "Parliamentary Sovereignty",
+            "Divine Right of Kings",
+            "Absolute Democracy"
+        ],
+        "correctAnswer": "Divine Right of Kings",
+        "explanation": "The text mentions, 'Both believed in the \u2018Divine Right of Kings\u2019: the idea that the king was directly appointed by God to rule.'"
+    },
+    {
+        "id": 757,
+        "topic": "History",
+        "question": "What event in 1640 forced King Charles I to recall Parliament, ultimately leading to the beginning of the English Civil War?",
+        "options": [
+            "A major famine in England",
+            "An invasion by France",
+            "Unrest caused by his attempt to impose a revised Prayer Book on Scotland",
+            "A financial crisis due to war with Spain"
+        ],
+        "correctAnswer": "Unrest caused by his attempt to impose a revised Prayer Book on Scotland",
+        "explanation": "The text explains, 'Charles I wanted... a revised Prayer Book. He tried to impose this Prayer Book on the Presbyterian Church in Scotland and this led to serious unrest... In 1640, he recalled Parliament to ask it for funds.'"
+    },
+    {
+        "id": 758,
+        "topic": "History",
+        "question": "During the English Civil War, which began in 1642, what were the two main sides known as?",
+        "options": [
+            "The Monarchists and the Royalists",
+            "The Patriots and the Loyalists",
+            "The Cavaliers and the Roundheads",
+            "The Whigs and the Tories"
+        ],
+        "correctAnswer": "The Cavaliers and the Roundheads",
+        "explanation": "The text specifies, 'The country split into those who supported the king (the Cavaliers) and those who supported Parliament (the Roundheads).'"
+    },
+    {
+        "id": 759,
+        "topic": "History",
+        "question": "After the execution of Charles I in 1649, England declared itself a republic. What was this period known as?",
+        "options": [
+            "The Commonwealth",
+            "The Protectorate",
+            "The Dominion",
+            "The Union"
+        ],
+        "correctAnswer": "The Commonwealth",
+        "explanation": "The text states, 'England declared itself a republic, called the Commonwealth. It no longer had a monarch.'"
+    },
+    {
+        "id": 760,
+        "topic": "History",
+        "question": "After his campaign in Ireland and victory over Charles II, what title was given to Oliver Cromwell as the leader of the new English republic?",
+        "options": [
+            "Prime Minister",
+            "Regent",
+            "Lord Protector",
+            "Commander-in-Chief"
+        ],
+        "correctAnswer": "Lord Protector",
+        "explanation": "The text says, 'Cromwell was recognised as the leader of the new republic. He was given the title of Lord Protector and ruled until his death in 1658.'"
+    },
+    {
+        "id": 761,
+        "topic": "History",
+        "question": "In May 1660, Parliament invited Charles II to return from exile and become king. What was this event known as?",
+        "options": [
+            "The Glorious Revolution",
+            "The Restoration",
+            "The English Revolution",
+            "The Act of Settlement"
+        ],
+        "correctAnswer": "The Restoration",
+        "explanation": "The text heading for this section is 'The Restoration' and it details Charles II being invited back in 1660."
+    },
+    {
+        "id": 762,
+        "topic": "Government & Law",
+        "question": "Which important piece of legislation, passed in 1679, guaranteed that no one could be held prisoner unlawfully and that every prisoner has a right to a court hearing?",
+        "options": [
+            "The Bill of Rights",
+            "The Petition of Right",
+            "The Act of Union",
+            "The Habeas Corpus Act"
+        ],
+        "correctAnswer": "The Habeas Corpus Act",
+        "explanation": "The text clearly states, 'The Habeas Corpus Act became law in 1679... The Act guaranteed that no one could be held prisoner unlawfully. Every prisoner has a right to a court hearing.'"
+    },
+    {
+        "id": 763,
+        "topic": "History",
+        "question": "During Charles II\u2019s reign, what scientific society, described as the oldest surviving scientific society in the world, was formed to promote \u2018natural knowledge\u2019?",
+        "options": [
+            "The Royal Astronomical Society",
+            "The Royal Geographical Society",
+            "The Royal Society",
+            "The British Academy"
+        ],
+        "correctAnswer": "The Royal Society",
+        "explanation": "The text indicates, 'During his reign, the Royal Society was formed to promote \u2018natural knowledge\u2019. This is the oldest surviving scientific society in the world.'"
+    },
+    {
+        "id": 764,
+        "topic": "History",
+        "question": "What major event in 1688 involved James II fleeing to France and William of Orange taking the throne, which was later called 'Glorious' because there was no fighting in England and it guaranteed the power of Parliament?",
+        "options": [
+            "The English Civil War",
+            "The War of the Roses",
+            "The Glorious Revolution",
+            "The Monmouth Rebellion"
+        ],
+        "correctAnswer": "The Glorious Revolution",
+        "explanation": "The text describes how 'In 1688, important Protestants in England asked William to invade England... James fled to France and William took over the throne... This event was later called the \u2018Glorious Revolution\u2019 because there was no fighting in England and because it guaranteed the power of Parliament.'"
+    },
+    {
+        "id": 765,
+        "topic": "History",
+        "question": "In which battle, fought in Ireland in 1690, did William of Orange defeat James II, an event still celebrated by some in Northern Ireland today?",
+        "options": [
+            "The Battle of Marston Moor",
+            "The Battle of Naseby",
+            "The Battle of the Boyne",
+            "The Battle of Killiecrankie"
+        ],
+        "correctAnswer": "The Battle of the Boyne",
+        "explanation": "The text states, 'William defeated James II at the Battle of the Boyne in Ireland in 1690, an event which is still celebrated by some in Northern Ireland today.'"
+    },
+    {
+        "id": 766,
+        "topic": "Early Britain",
+        "question": "Which ancient monument, thought to be a special gathering place for seasonal ceremonies, was built by the first farmers in Britain about 6,000 years ago and still stands in Wiltshire?",
+        "options": [
+            "Skara Brae",
+            "Maiden Castle",
+            "Stonehenge",
+            "Hadrian's Wall"
+        ],
+        "correctAnswer": "Stonehenge",
+        "explanation": "The text describes, 'One of these monuments, Stonehenge, still stands in what is now the English county of Wiltshire. Stonehenge was probably a special gathering place for seasonal ceremonies.' It attributes it to 'The first farmers arrived in Britain about 6,000 years ago.'"
+    },
+    {
+        "id": 767,
+        "topic": "Early Britain",
+        "question": "Which tribal leader famously fought against the Roman invasion in what is now eastern England, and is still remembered today with a statue on Westminster Bridge in London?",
+        "options": [
+            "Queen Elizabeth I",
+            "Boudicca",
+            "Cartimandua",
+            "Queen Victoria"
+        ],
+        "correctAnswer": "Boudicca",
+        "explanation": "The text mentions, 'One of the tribal leaders who fought against the Romans was Boudicca, the queen of the Iceni in what is now eastern England. She is still remembered today and there is a statue of her on Westminster Bridge in London.'"
+    },
+    {
+        "id": 768,
+        "topic": "Early Britain",
+        "question": "What was the purpose of Hadrian's Wall, built in the north of England by the Emperor Hadrian?",
+        "options": [
+            "To mark the boundary of Roman Britain",
+            "To protect against invasions from France",
+            "To keep out the Picts (ancestors of the Scottish people)",
+            "To serve as a trade route with Ireland"
+        ],
+        "correctAnswer": "To keep out the Picts (ancestors of the Scottish people)",
+        "explanation": "The text says, 'The Emperor Hadrian built a wall in the north of England to keep out the Picts (ancestors of the Scottish people).'"
+    },
+    {
+        "id": 769,
+        "topic": "Early Britain",
+        "question": "After the Roman army left Britain in AD 410, which three tribes from northern Europe invaded, and their languages became the basis of modern-day English?",
+        "options": [
+            "The Vikings, Normans, and Celts",
+            "The Angles, Saxons, and Jutes",
+            "The Goths, Vandals, and Huns",
+            "The Picts, Scots, and Britons"
+        ],
+        "correctAnswer": "The Angles, Saxons, and Jutes",
+        "explanation": "The text states, 'Britain was again invaded by tribes from northern Europe: the Jutes, the Angles and the Saxons. The languages they spoke are the basis of modern-day English.'"
+    },
+    {
+        "id": 770,
+        "topic": "Early Britain",
+        "question": "What major historical event occurred in 1066, involving William, Duke of Normandy, defeating Harold, the Saxon king of England, at the Battle of Hastings?",
+        "options": [
+            "The Viking Invasions",
+            "The Roman Conquest",
+            "The Norman Conquest",
+            "The Anglo-Saxon Settlement"
+        ],
+        "correctAnswer": "The Norman Conquest",
+        "explanation": "The text clearly states, 'In 1066, an invasion led by William, the Duke of Normandy... defeated Harold, the Saxon king of England, at the Battle of Hastings. William became king of England and is known as William the Conqueror. The Norman Conquest was the last successful foreign invasion of England...'"
     }
 ]
