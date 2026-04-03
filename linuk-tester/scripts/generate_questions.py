@@ -1,6 +1,8 @@
 import os
+import sys
 import json
 import time
+import argparse
 from google import genai
 from google.genai import types
 import pypdf
@@ -14,10 +16,10 @@ load_dotenv()
 # =====================================================================
 # The Gemini API Key is loaded automatically from the .env file.
 # Create a .env file in the root of the project with: GEMINI_API_KEY=your_key_here
+# PDF path can be passed via --pdf argument or LINUK_PDF_PATH env var.
+# Output file can be passed via --output argument or LINUK_OUTPUT_FILE env var.
 
 API_KEY = os.getenv("GEMINI_API_KEY")
-PDF_PATH = r"c:\Users\44743\Desktop\LinUK - Study Materials.pdf"
-OUTPUT_FILE = r"db\local_questions.json"
 QUESTIONS_PER_BATCH = 20
 TOTAL_TARGET_NEW_QUESTIONS = 100
 
@@ -80,16 +82,31 @@ def generate_questions_batch(client, text_chunk, start_id, batch_size=20):
         return []
 
 def main():
+    parser = argparse.ArgumentParser(description="Generate Life in the UK test questions from a PDF.")
+    parser.add_argument("--pdf", type=str, default=os.getenv("LINUK_PDF_PATH"),
+                        help="Path to the study materials PDF. Can also be set via LINUK_PDF_PATH env var.")
+    parser.add_argument("--output", type=str, default=os.getenv("LINUK_OUTPUT_FILE", r"db\local_questions.json"),
+                        help="Output JSON file path. Can also be set via LINUK_OUTPUT_FILE env var.")
+    args = parser.parse_args()
+
+    if not args.pdf:
+        print("ERROR: PDF path must be provided via --pdf argument or LINUK_PDF_PATH environment variable.")
+        print("Example: python generate_questions.py --pdf \"C:/path/to/study-materials.pdf\"")
+        sys.exit(1)
+
+    PDF_PATH = args.pdf
+    OUTPUT_FILE = args.output
+
     if not API_KEY:
         print("ERROR: GEMINI_API_KEY environment variable is not set.")
         print("Please set it before running this script.")
         return
 
     client = genai.Client(api_key=API_KEY)
-    
+
     # Create db folder if it doesn't exist
     os.makedirs('db', exist_ok=True)
-    
+
     text_content = extract_text_from_pdf(PDF_PATH)
     if not text_content:
         return
@@ -101,7 +118,7 @@ def main():
     # Load existing database to append to it
     all_questions = []
     current_id = 1000
-    
+
     if os.path.exists(OUTPUT_FILE):
         try:
             with open(OUTPUT_FILE, 'r', encoding='utf-8') as f:

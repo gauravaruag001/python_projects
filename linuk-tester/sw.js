@@ -1,10 +1,9 @@
-const CACHE_NAME = 'linuk-cache-v6';
+const CACHE_NAME = 'linuk-cache-v7';
 const ASSETS = [
     './',
     './index.html',
     './css/style.css',
-    './js/app.js',
-    './db/index.json'
+    './js/app.js'
 ];
 
 // Install: cache assets and immediately take over

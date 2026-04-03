@@ -1,0 +1,109 @@
+============================= test session starts =============================
+platform win32 -- Python 3.13.2, pytest-9.0.2, pluggy-1.6.0 -- C:\Users\gaurav.c.singh\AppData\Local\Programs\Python\Python313\python.exe
+cachedir: .pytest_cache
+rootdir: C:\python_projects_local\python_projects\linuk-tester
+plugins: anyio-4.13.0
+collecting ... collected 35 items
+
+tests/test_api.py::test_get_index_returns_200 PASSED                     [  2%]
+tests/test_api.py::test_get_index_has_topics PASSED                      [  5%]
+tests/test_api.py::test_get_index_has_tests_key PASSED                   [  8%]
+tests/test_api.py::test_get_index_topic_counts PASSED                    [ 11%]
+tests/test_api.py::test_get_topic_returns_envelope PASSED                [ 14%]
+tests/test_api.py::test_get_topic_returns_question_fields PASSED         [ 17%]
+tests/test_api.py::test_get_topic_total_count PASSED                     [ 20%]
+tests/test_api.py::test_get_topic_not_found PASSED                       [ 22%]
+tests/test_api.py::test_get_topic_limit_respected PASSED                 [ 25%]
+tests/test_api.py::test_get_topic_pagination_offset PASSED               [ 28%]
+tests/test_api.py::test_get_test_returns_list PASSED                     [ 31%]
+tests/test_api.py::test_get_test_respects_limit PASSED                   [ 34%]
+tests/test_api.py::test_get_test_question_fields PASSED                  [ 37%]
+tests/test_api.py::test_get_test_rate_limited PASSED                     [ 40%]
+tests/test_api.py::test_record_progress_returns_200 PASSED               [ 42%]
+tests/test_api.py::test_record_progress_returns_session_id PASSED        [ 45%]
+tests/test_api.py::test_record_progress_invalid_payload PASSED           [ 48%]
+tests/test_api.py::test_record_progress_empty_responses PASSED           [ 51%]
+tests/test_api.py::test_get_stats_returns_200 PASSED                     [ 54%]
+tests/test_api.py::test_get_stats_structure PASSED                       [ 57%]
+tests/test_api.py::test_get_stats_all_time PASSED                        [ 60%]
+tests/test_api.py::test_get_stats_90d PASSED                             [ 62%]
+tests/test_api.py::test_get_stats_topic_performance_has_fields PASSED    [ 65%]
+tests/test_api.py::test_export_csv_returns_200 PASSED                    [ 68%]
+tests/test_api.py::test_export_csv_content_type PASSED                   [ 71%]
+tests/test_api.py::test_export_csv_has_header_row PASSED                 [ 74%]
+tests/test_api.py::test_get_question_history_returns_200 PASSED          [ 77%]
+tests/test_api.py::test_get_question_history_is_list PASSED              [ 80%]
+tests/test_api.py::test_auth_me_unauthenticated PASSED                   [ 82%]
+tests/test_api.py::test_auth_register_success PASSED                     [ 85%]
+tests/test_api.py::test_auth_register_duplicate_username PASSED          [ 88%]
+tests/test_api.py::test_auth_register_bad_pin PASSED                     [ 91%]
+tests/test_api.py::test_auth_login_success PASSED                        [ 94%]
+tests/test_api.py::test_auth_login_wrong_pin PASSED                      [ 97%]
+tests/test_api.py::test_auth_logout PASSED                               [100%]
+
+============================== warnings summary ===============================
+tests/test_api.py::test_get_index_returns_200
+  c:\python_projects_local\python_projects\linuk-tester\server.py:123: DeprecationWarning: 
+          on_event is deprecated, use lifespan event handlers instead.
+  
+          Read more about it in the
+          [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+          
+    @app.on_event("startup")
+
+tests/test_api.py::test_get_index_returns_200
+  C:\Users\gaurav.c.singh\AppData\Local\Programs\Python\Python313\Lib\site-packages\fastapi\applications.py:4656: DeprecationWarning: 
+          on_event is deprecated, use lifespan event handlers instead.
+  
+          Read more about it in the
+          [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+          
+    return self.router.on_event(event_type)  # ty: ignore[deprecated]
+
+tests/test_api.py::test_record_progress_returns_200
+tests/test_api.py::test_record_progress_returns_session_id
+tests/test_api.py::test_record_progress_empty_responses
+tests/test_api.py::test_get_stats_topic_performance_has_fields
+  c:\python_projects_local\python_projects\linuk-tester\server.py:367: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    timestamp=datetime.utcnow()
+
+tests/test_api.py::test_record_progress_returns_200
+tests/test_api.py::test_record_progress_returns_200
+tests/test_api.py::test_record_progress_returns_session_id
+tests/test_api.py::test_record_progress_returns_session_id
+tests/test_api.py::test_get_stats_topic_performance_has_fields
+tests/test_api.py::test_get_stats_topic_performance_has_fields
+  c:\python_projects_local\python_projects\linuk-tester\server.py:379: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    timestamp=datetime.utcnow()
+
+tests/test_api.py::test_get_stats_returns_200
+tests/test_api.py::test_get_stats_structure
+tests/test_api.py::test_get_stats_90d
+  c:\python_projects_local\python_projects\linuk-tester\server.py:405: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    date_filter = datetime.utcnow() - timedelta(days=days)
+
+tests/test_api.py::test_auth_register_success
+tests/test_api.py::test_auth_register_success
+tests/test_api.py::test_auth_register_duplicate_username
+tests/test_api.py::test_auth_register_duplicate_username
+tests/test_api.py::test_auth_login_success
+tests/test_api.py::test_auth_login_success
+tests/test_api.py::test_auth_login_success
+tests/test_api.py::test_auth_login_wrong_pin
+tests/test_api.py::test_auth_login_wrong_pin
+  C:\Users\gaurav.c.singh\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\sql\schema.py:3624: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    return util.wrap_callable(lambda ctx: fn(), fn)  # type: ignore
+
+tests/test_api.py::test_auth_register_success
+tests/test_api.py::test_auth_register_duplicate_username
+tests/test_api.py::test_auth_login_success
+tests/test_api.py::test_auth_login_wrong_pin
+  c:\python_projects_local\python_projects\linuk-tester\server.py:231: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    expires_at=datetime.utcnow() + timedelta(days=30)
+
+tests/test_api.py::test_auth_login_success
+  c:\python_projects_local\python_projects\linuk-tester\server.py:257: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    expires_at=datetime.utcnow() + timedelta(days=30)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================= 35 passed, 29 warnings in 5.55s =======================

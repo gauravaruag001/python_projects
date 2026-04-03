@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Life in the UK Test</title>
     <meta name="description" content="Study for the Life in the UK Test with Flashcards and Mock Exams">
-    <link rel="stylesheet" href="css/style.css?v=6">
+    <link rel="stylesheet" href="css/style.css?v=8">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#4f46e5">
     <link rel="apple-touch-icon" href="assets/icon-192.png">
@@ -17,7 +17,11 @@
         <!-- Navigation -->
         <nav class="glass-nav">
             <h1>🇬🇧 Life in the UK</h1>
-            <button id="home-btn" class="nav-btn" onclick="showScreen('home')">Home</button>
+            <div style="display:flex; align-items:center; gap:10px;">
+                <span id="nav-username" style="color:white; font-size:0.85rem; font-weight:600;"></span>
+                <button id="home-btn" class="nav-btn" onclick="showScreen('home')">Home</button>
+                <button class="nav-btn" onclick="logout()" title="Sign out">Sign Out</button>
+            </div>
         </nav>
 
         <!-- Main Content Area -->
@@ -37,7 +41,7 @@
                     <div class="card action-card" onclick="startTest()">
                         <div class="icon">⏱️</div>
                         <h3>Mock Test</h3>
-                        <p>24 Questions • 45 Minutes</p>
+                        <p id="test-desc">24 Questions • 45 Minutes</p>
                     </div>
                     <div class="card action-card" onclick="showProgressDashboard()">
                         <div class="icon">📈</div>
@@ -49,7 +53,7 @@
 
             <!-- Topic Selection (Flashcards) -->
             <section id="topic-selection-screen" class="screen hidden">
-                <h2>Choose a Topic</h2>
+                <h2 style="color:white; margin-bottom:10px;">Choose a Topic</h2>
                 <div id="topic-list" class="topic-grid">
                     <!-- Topics injected by JS -->
                 </div>
@@ -60,7 +64,7 @@
             <section id="flashcard-screen" class="screen hidden">
                 <div class="header-row">
                     <h3 id="flashcard-topic-title">Topic Name</h3>
-                    <span id="flashcard-counter">1 / 10</span>
+                    <span id="flashcard-counter" style="color:white;">1 / 10</span>
                 </div>
                 <div class="flashcard-container" onclick="flipCard()">
                     <div class="flashcard">
@@ -75,8 +79,16 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Spaced repetition controls (shown on card back) -->
+                <div id="sr-controls" class="sr-controls" style="display:none;">
+                    <button class="control-btn sr-btn-got" onclick="event.stopPropagation(); recordAnswer(true)">Got it ✓</button>
+                    <button class="control-btn sr-btn-missed" onclick="event.stopPropagation(); recordAnswer(false)">Missed it ✗</button>
+                </div>
+
                 <div class="controls">
                     <button class="control-btn" onclick="prevCard()">← Prev</button>
+                    <button id="mark-learned-btn" class="control-btn" onclick="event.stopPropagation(); toggleLearned()">Mark as Learned</button>
                     <button class="control-btn" onclick="nextCard()">Next →</button>
                 </div>
                 <button class="back-btn" onclick="showScreen('topic-selection')">Back to Topics</button>
@@ -118,56 +130,58 @@
 
             <!-- Progress Dashboard -->
             <section id="progress-screen" class="screen hidden">
-                <div class="header-row">
+                <div class="stats-controls">
                     <h2>Your Progress</h2>
-                    <button class="back-btn" onclick="showScreen('home')">Back to Home</button>
+                    <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
+                        <select id="stats-period" onchange="showProgressDashboard()">
+                            <option value="30d">Last 30 Days</option>
+                            <option value="90d">Last 90 Days</option>
+                            <option value="all">All Time</option>
+                        </select>
+                        <button class="control-btn" onclick="exportProgressCSV()" style="font-size:0.8rem; padding:6px 12px;">Export CSV</button>
+                    </div>
                 </div>
 
                 <div class="dashboard-grid">
-                    <div class="chart-wrapper card" style="position: relative; height: 300px; padding-bottom: 2rem;">
-                        <h3 style="margin-top: 0;">Activity Trend (30 Days)</h3>
+                    <div class="chart-wrapper card" style="padding: 16px 16px 20px;">
+                        <h3 style="margin-top: 0; margin-bottom: 10px;">Activity Trend</h3>
                         <div style="position: relative; height: 230px; width: 100%;">
                             <canvas id="activityChart"></canvas>
                         </div>
                     </div>
 
-                    <div class="chart-wrapper card" style="position: relative; height: 300px; padding-bottom: 2rem;">
-                        <h3 style="margin-top: 0;">Average Score Trend</h3>
+                    <div class="chart-wrapper card" style="padding: 16px 16px 20px;">
+                        <h3 style="margin-top: 0; margin-bottom: 10px;">Average Score Trend</h3>
                         <div style="position: relative; height: 230px; width: 100%;">
                             <canvas id="scoreChart"></canvas>
                         </div>
                     </div>
 
-                    <div class="chart-wrapper card"
-                        style="grid-column: 1 / -1; position: relative; height: 400px; padding-bottom: 2rem;">
-                        <h3 style="margin-top: 0; text-align: center;">Topic Performance</h3>
+                    <div class="chart-wrapper card" style="grid-column: 1 / -1; padding: 16px 16px 20px;">
+                        <h3 style="margin-top: 0; margin-bottom: 10px; text-align: center;">Topic Performance</h3>
                         <div style="position: relative; height: 330px; width: 100%;">
                             <canvas id="topicChart"></canvas>
                         </div>
                     </div>
                 </div>
+
+                <button class="back-btn" onclick="showScreen('home')">Back to Home</button>
             </section>
         </main>
     </div>
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="js/app.js?v=7"></script>
+    <script src="js/app.js?v=8"></script>
     <script>
         if ('serviceWorker' in navigator) {
-            // Unregister all old service workers and clear caches, then re-register fresh
             navigator.serviceWorker.getRegistrations().then(registrations => {
-                const unregisterPromises = registrations.map(r => r.unregister());
-                return Promise.all(unregisterPromises);
-            }).then(() => {
-                return caches.keys();
-            }).then(keys => {
-                return Promise.all(keys.map(key => caches.delete(key)));
-            }).then(() => {
-                return navigator.serviceWorker.register('sw.js');
-            }).then(reg => {
-                console.log('Service Worker re-registered fresh', reg);
-            }).catch(err => console.error('Service Worker setup failed', err));
+                return Promise.all(registrations.map(r => r.unregister()));
+            }).then(() => caches.keys())
+              .then(keys => Promise.all(keys.map(key => caches.delete(key))))
+              .then(() => navigator.serviceWorker.register('sw.js'))
+              .then(reg => console.log('Service Worker registered', reg))
+              .catch(err => console.error('Service Worker setup failed', err));
         }
     </script>
 </body>
